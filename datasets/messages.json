@@ -47,5 +47,12 @@
         "senderID": "BR000001",
         "content": "gsdfgsdfg",
         "timestamp": "2026-07-08T14:45:05.357Z"
+    },
+    {
+        "messageID": "MS000005",
+        "chatID": "CHAT000001",
+        "senderID": "BR000001",
+        "content": "fdgsdfg",
+        "timestamp": "2026-07-08T15:51:10.741Z"
     }
 ]

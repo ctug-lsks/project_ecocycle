@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const { diagnoseDevice, priceUsedProduct } = require('./modules/diagnosisEngine');
 
 const app = express();
 const PORT = 3000;
@@ -88,10 +89,20 @@ function generateID(prefix, data) {
     const lastItem = data[data.length - 1];
     const keys = ['id', 'orderID', 'customerID', 'productID', 'repairOrderID', 'requestID', 'resellOrderID', 'recycleOrderID', 'cartID', 'paymentID', 'transactionID', 'reviewID', 'complaintID', 'chatID', 'messageID', 'notificationID', 'assessmentID'];
     let lastId = '';
+    // Tìm key có giá trị bắt đầu bằng prefix trước
     for (const key of keys) {
-        if (lastItem[key]) {
+        if (lastItem[key] && typeof lastItem[key] === 'string' && lastItem[key].startsWith(prefix)) {
             lastId = lastItem[key];
             break;
+        }
+    }
+    // Fallback nếu không có key nào bắt đầu bằng prefix
+    if (!lastId) {
+        for (const key of keys) {
+            if (lastItem[key]) {
+                lastId = lastItem[key];
+                break;
+            }
         }
     }
     const match = lastId.match(/\d+$/);
@@ -679,7 +690,7 @@ app.put('/api/processrequests/:id/status', (req, res) => {
     if (index === -1) {
         return res.status(404).json({ error: 'Request not found' });
     }
-    requests[index].status = req.body.status;
+    requests[index] = { ...requests[index], ...req.body };
     if (writeDataFile('processRequests.json', requests)) {
         res.json(requests[index]);
     } else {
@@ -752,6 +763,51 @@ app.put('/api/repairorders/:id/status', (req, res) => {
         res.json(orders[index]);
     } else {
         res.status(500).json({ error: 'Failed to update repair order' });
+    }
+});
+
+// Generic update for Repair Order
+app.put('/api/repairorders/:id', (req, res) => {
+    const orders = readDataFile('repairOrders.json');
+    const index = orders.findIndex(o => o.repairOrderID === req.params.id);
+    if (index === -1) {
+        return res.status(404).json({ error: 'Repair order not found' });
+    }
+    orders[index] = { ...orders[index], ...req.body };
+    if (writeDataFile('repairOrders.json', orders)) {
+        res.json(orders[index]);
+    } else {
+        res.status(500).json({ error: 'Failed to update repair order' });
+    }
+});
+
+// Generic update for Resell Order
+app.put('/api/resellorders/:id', (req, res) => {
+    const orders = readDataFile('resellOrders.json');
+    const index = orders.findIndex(o => o.resellOrderID === req.params.id);
+    if (index === -1) {
+        return res.status(404).json({ error: 'Resell order not found' });
+    }
+    orders[index] = { ...orders[index], ...req.body };
+    if (writeDataFile('resellOrders.json', orders)) {
+        res.json(orders[index]);
+    } else {
+        res.status(500).json({ error: 'Failed to update resell order' });
+    }
+});
+
+// Generic update for Recycle Order
+app.put('/api/recycleorders/:id', (req, res) => {
+    const orders = readDataFile('recycleOders.json');
+    const index = orders.findIndex(o => o.recycleOrderID === req.params.id);
+    if (index === -1) {
+        return res.status(404).json({ error: 'Recycle order not found' });
+    }
+    orders[index] = { ...orders[index], ...req.body };
+    if (writeDataFile('recycleOders.json', orders)) {
+        res.json(orders[index]);
+    } else {
+        res.status(500).json({ error: 'Failed to update recycle order' });
     }
 });
 
@@ -1271,6 +1327,44 @@ app.get('/api/test-read-products', (req, res) => {
         });
     }
 });
+
+app.post('/api/evaluate', async (req, res) => {
+    const { deviceName, errorDescription, customerName, customerPhone } = req.body;
+    
+    console.log('\n🔧 ====== [INTEGRATED] YÊU CẦU CHẨN ĐOÁN MỚI ======');
+    console.log(`📱 Thiết bị: ${deviceName}`);
+    console.log(`📝 Mô tả: ${errorDescription}`);
+    
+    try {
+        const result = await diagnoseDevice(deviceName, errorDescription);
+        
+        result.customer_name = customerName || '';
+        result.customer_phone = customerPhone || '';
+        
+        console.log('📤 Trả kết quả chẩn đoán:', JSON.stringify(result, null, 2));
+        res.json({ success: true, data: result });
+    } catch (error) {
+        console.error('❌ Lỗi chẩn đoán:', error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+app.post('/api/price', (req, res) => {
+    const { deviceModel, condition } = req.body;
+    console.log('\n💰 ====== [INTEGRATED] YÊU CẦU ĐỊNH GIÁ MỚI ======');
+    console.log(`📱 Thiết bị: ${deviceModel}`);
+    console.log(`📊 Tình trạng: ${condition}`);
+    
+    try {
+        const result = priceUsedProduct(deviceModel, condition);
+        console.log('📤 Trả kết quả định giá:', JSON.stringify(result, null, 2));
+        res.json({ success: true, data: result });
+    } catch (error) {
+        console.error('❌ Lỗi định giá:', error);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 // ===== START SERVER =====
 app.listen(PORT, () => {
     console.log(`\n🚀 ECOcycle Server is running on http://localhost:${PORT}`);

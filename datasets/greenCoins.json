@@ -122,5 +122,29 @@
         "orderID": "POST-6950",
         "greenCoins": 100,
         "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS006951",
+        "customerID": "CM000001",
+        "action": "Sửa chữa thiết bị",
+        "orderID": "RQ000002",
+        "greenCoins": 50,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS000003",
+        "customerID": "CM000001",
+        "action": "Xử lý rác điện tử",
+        "orderID": "RQ000002",
+        "greenCoins": 70,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS000004",
+        "customerID": "CM000001",
+        "action": "Bán lại thiết bị",
+        "orderID": "RQ000009",
+        "greenCoins": 90,
+        "date": "2026-07-08"
     }
 ]

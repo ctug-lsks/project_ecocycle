@@ -8,5 +8,19 @@
         "co2ReducedKg": "1kg",
         "status": "In Progress",
         "orderDate": "2024-06-15"
+    },
+    {
+        "recycleOrderID": "RC000004",
+        "requestID": "RQ000008",
+        "customerID": "CM000001",
+        "connectedUnit": "Công ty Cổ phần Môi trường Đô thị Xanh",
+        "pickupDate": "2026-07-08",
+        "pickupAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "finalCost": "30.000đ",
+        "co2ReducedKg": "1kg",
+        "status": "Completed",
+        "processingStatus": "Đã xử lý",
+        "shippingStatus": "Đã gửi đi xử lý",
+        "orderDate": "2026-07-08"
     }
 ]

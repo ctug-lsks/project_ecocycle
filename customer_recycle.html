@@ -293,6 +293,210 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* --- Option Cards --- */
+        .option-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .option-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .option-card {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .option-card:hover {
+            border-color: var(--ai-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .option-card.selected {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+        .option-card.selected::after {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+        }
+        .option-card-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .option-card-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--danger);
+            margin-bottom: 5px;
+        }
+        .option-card-coins {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            background-color: white;
+            padding: 3px 6px;
+            border-radius: 12px;
+            display: inline-block;
+            align-self: flex-start;
+            border: 1px solid var(--primary);
+            margin-bottom: 12px;
+        }
+        .option-card-unit {
+            margin-top: 10px;
+        }
+        .option-card-unit label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .option-card-unit select {
+            width: 100%;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            outline: none;
+            background: white;
+        }
+        
+        /* --- Tracking Table --- */
+        .tracking-section {
+            margin-top: 40px;
+            grid-column: 1 / -1;
+        }
+        .tracking-table-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .tracking-table-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-refresh {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .btn-refresh:hover {
+            background-color: #f3f4f6;
+            border-color: var(--text-muted);
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table.tracking-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        table.tracking-table th, table.tracking-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        table.tracking-table th {
+            font-weight: 600;
+            color: var(--text-muted);
+            background-color: #f9fafb;
+        }
+        
+        .simulation-actions {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .btn-sim {
+            background-color: white;
+            border: 1px solid #d1d5db;
+            color: #374151;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-sim:hover {
+            background-color: #f3f4f6;
+            border-color: #9ca3af;
+        }
+        .btn-sim-primary {
+            background-color: var(--ai-color);
+            color: white;
+            border-color: var(--ai-color);
+        }
+        .btn-sim-primary:hover {
+            background-color: #6d28d9;
+            border-color: #6d28d9;
+        }
+        .btn-sim-success {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .btn-sim-success:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        .badge-info {
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+        .badge-warning {
+            background-color: #fef3c7;
+            color: #b45309;
+        }
+        .badge-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .badge-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
     </style>
 </head>
 <body>
@@ -307,40 +511,71 @@
     </header>
 
     <div class="layout-grid">
-        <!-- --- Form Request --- -->
-        <div class="card">
-            <h2>Tạo Yêu Cầu Mới</h2>
-            <form id="recycleForm" onsubmit="handleRecycleSubmit(event)">
-                <div class="form-group">
-                    <label>Tên thiết bị</label>
-                    <input type="text" id="deviceName" required placeholder="VD: iPhone 12 Pro Max, Laptop Dell Latitude 7400">
-                </div>
-                <div class="form-group">
-                    <label>Hãng sản xuất</label>
-                    <input type="text" id="deviceBrand" required placeholder="VD: Apple, Dell, Asus">
-                </div>
-                <div class="form-group">
-                    <label>Model / Dòng máy</label>
-                    <input type="text" id="deviceModel" required placeholder="VD: A2411, 7400">
-                </div>
-                <div class="form-group">
-                    <label>Mô tả tình trạng lỗi / Hỏng hóc</label>
-                    <textarea id="deviceCondition" rows="3" required placeholder="VD: Bể màn hình góc dưới, liệt cảm ứng, chai pin sạc không vào..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Khối lượng ước tính (kg)</label>
-                    <input type="number" step="0.1" id="deviceWeight" required placeholder="VD: 1.5">
-                </div>
-                <div class="form-group">
-                    <label>Hình thức mong muốn</label>
-                    <select id="requestType" required>
-                        <option value="Repair">Sửa chữa thiết bị (Nhận lại sau khi sửa)</option>
-                        <option value="Resell">Bán lại thiết bị (Thanh lý đổi tiền mặt)</option>
-                        <option value="Recycle">Tái chế rác điện tử (Bỏ thiết bị hỏng hoàn toàn)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Gửi yêu cầu & Chẩn đoán AI</button>
-            </form>
+        <!-- --- Form Request with Tabs --- -->
+        <div class="card" style="padding: 24px;">
+            <!-- Tab Buttons -->
+            <div class="tab-buttons" style="display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">
+                <button class="tab-btn active" id="tabRequestBtn" onclick="switchRecycleTab('request')" style="flex: 1; border: none; padding: 12px; background: transparent; font-weight: 700; color: var(--primary); font-size: 1rem; cursor: pointer; transition: all 0.2s; border-bottom: 3px solid var(--primary);"><i class="fa-solid fa-truck-ramp-box"></i> Thu Gom & Sửa Chữa</button>
+                <button class="tab-btn" id="tabValuationBtn" onclick="switchRecycleTab('valuation')" style="flex: 1; border: none; padding: 12px; background: transparent; font-weight: 700; color: var(--text-muted); font-size: 1rem; cursor: pointer; transition: all 0.2s; border-bottom: 3px solid transparent;"><i class="fa-solid fa-robot"></i> Định Giá AI Nhanh</button>
+            </div>
+
+            <!-- Tab Content: Collection Request -->
+            <div id="requestTabContent">
+                <form id="recycleForm" onsubmit="handleRecycleSubmit(event)">
+                    <div class="form-group">
+                        <label>Tên thiết bị</label>
+                        <input type="text" id="deviceName" required placeholder="VD: iPhone 12 Pro Max, Laptop Dell Latitude 7400">
+                    </div>
+                    <div class="form-group">
+                        <label>Hãng sản xuất</label>
+                        <input type="text" id="deviceBrand" required placeholder="VD: Apple, Dell, Asus">
+                    </div>
+                    <div class="form-group">
+                        <label>Model / Dòng máy</label>
+                        <input type="text" id="deviceModel" required placeholder="VD: A2411, 7400">
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả tình trạng lỗi / Hỏng hóc</label>
+                        <textarea id="deviceCondition" rows="3" required placeholder="VD: Bể màn hình góc dưới, liệt cảm ứng, chai pin sạc không vào..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Khối lượng ước tính (kg)</label>
+                        <input type="number" step="0.1" id="deviceWeight" required placeholder="VD: 1.5">
+                    </div>
+                    
+                    <!-- Live Fee Preview -->
+                    <div class="form-group" style="background: var(--primary-light); padding: 12px; border-radius: var(--radius-md); border: 1px dashed var(--primary); margin-top: 10px;">
+                        <div style="font-weight: 600; color: var(--primary-dark); font-size: 0.95rem; display: flex; justify-content: space-between;">
+                            <span>Phí xử lý rác thải điện tử tạm tính:</span>
+                            <span id="liveRecycleFee">20.000đ</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Công thức: 20.000đ phí cơ bản + 10.000đ/kg</div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Gửi yêu cầu & Chẩn đoán AI</button>
+                </form>
+            </div>
+
+            <!-- Tab Content: AI Valuation -->
+            <div id="valuationTabContent" style="display: none;">
+                <form id="valuationForm" onsubmit="handleValuationSubmit(event)">
+                    <div class="form-group">
+                        <label>Tên thiết bị / Model</label>
+                        <input type="text" id="valDeviceName" required placeholder="VD: iPhone 12 Pro Max, Laptop Dell XPS 13">
+                    </div>
+                    <div class="form-group">
+                        <label>Tình trạng hiện tại</label>
+                        <select id="valDeviceCondition" required>
+                            <option value="Như mới">Như mới (Không trầy xước, còn bảo hành)</option>
+                            <option value="Đẹp">Đẹp (Trầy xước cực nhẹ, hoạt động tốt)</option>
+                            <option value="Trầy xước">Trầy xước (Có vết xước rõ, hoạt động bình thường)</option>
+                            <option value="Hư hỏng nhẹ">Hư hỏng nhẹ (Có lỗi linh kiện phụ, sửa chữa rẻ)</option>
+                            <option value="Hư hỏng nặng">Hư hỏng nặng (Hỏng nặng nguồn/màn hình/cháy nổ)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit" style="background-color: var(--ai-color);"><i class="fa-solid fa-wand-magic-sparkles"></i> Định giá thiết bị ngay</button>
+                </form>
+            </div>
         </div>
 
         <!-- --- AI Diagnosis --- -->
@@ -357,6 +592,44 @@
                 <div class="spinner"></div>
                 <h3>AI Đang Phân Tích Lỗi...</h3>
                 <p>Đang liên kết với Gemini AI chẩn đoán giải pháp sửa chữa và khoảng giá cho thiết bị của bạn.</p>
+            </div>
+
+            <!-- AI Valuation Result Card -->
+            <div class="ai-card" id="valuationResultCard" style="display: none; border-color: var(--primary);">
+                <div class="ai-card-header" style="background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%); color: var(--primary-dark);">
+                    <i class="fa-solid fa-coins"></i> Kết Quả Định Giá AI Tích Hợp
+                </div>
+                <div class="ai-card-body">
+                    <span class="ai-badge" style="background-color: var(--primary-light); color: var(--primary-dark);">Giá trị thu mua ước tính</span>
+                    <div class="ai-title" id="valResultDeviceName">iPhone 12</div>
+                    
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Tình trạng khai báo</span>
+                        <span class="ai-val" id="valResultCondition">Đẹp</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Giá ước tính nhận lại</span>
+                        <span class="ai-price" id="valResultPrice" style="color: var(--primary);">3.000.000đ</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Khoảng giá thị trường</span>
+                        <span class="ai-val" id="valResultRange">2.400.000đ - 3.600.000đ</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Phân khúc thiết bị</span>
+                        <span class="ai-val" id="valResultCategory" style="text-transform: uppercase;">IPHONE</span>
+                    </div>
+
+                    <div class="ai-recommendation-box" style="background-color: var(--primary-light); border-left-color: var(--primary);">
+                        <strong>Nhận xét từ hệ thống:</strong><br>
+                        <span id="valResultNote">Thiết bị hoạt động bình thường, ngoại hình còn đẹp. Bạn có thể đăng bán trên Marketplace để được giá tốt nhất!</span>
+                    </div>
+                    
+                    <div style="margin-top: 25px; display: flex; gap: 10px;">
+                        <button type="button" class="btn-submit" onclick="goToMarketplaceToSell()" style="margin-top:0; flex:1; background-color: var(--primary);"><i class="fa-solid fa-store"></i> Đăng bán chợ cũ</button>
+                        <button type="button" class="btn-submit" onclick="prefillRecycleForm()" style="margin-top:0; flex:1; background-color: var(--text-muted);"><i class="fa-solid fa-recycle"></i> Đặt lịch thu gom</button>
+                    </div>
+                </div>
             </div>
 
             <!-- AI Result Card -->
@@ -385,73 +658,236 @@
                         <span class="ai-label">Thời gian ước tính</span>
                         <span class="ai-val" id="aiTime">2 ngày</span>
                     </div>
-                    <div class="ai-detail-row">
-                        <span class="ai-label">Chi phí sửa chữa dự kiến</span>
-                        <span class="ai-price" id="aiCost">1.200.000đ</span>
-                    </div>
-                    <div class="ai-detail-row" id="resellRow" style="display: none;">
-                        <span class="ai-label">Giá mua lại đề xuất (sau sửa)</span>
-                        <span class="ai-val" id="aiResellPrice" style="color: var(--primary); font-weight:700;">3.600.000đ</span>
-                    </div>
 
-                    <div class="ai-recommendation-box" id="aiRecommendation">
-                        Vui lòng gửi máy tới điểm thu gom gần nhất để được kiểm tra trực tiếp.
+                    <!-- Options Section -->
+                    <div id="aiOptionsContainer" style="margin-top: 25px;"></div>
+                    
+                    <!-- Pickup Scheduling Form (Hidden initially, shown after selecting an option) -->
+                    <div id="pickupScheduleSection" style="display: none; margin-top: 25px; padding-top: 20px; border-top: 2px dashed var(--border-color);">
+                        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 15px; color: var(--text-main);"><i class="fa-solid fa-calendar-days me-2" style="color:var(--primary);"></i>Đặt lịch thu gom thiết bị</h3>
+                        <input type="hidden" id="selectedOptionType">
+                        <input type="hidden" id="selectedOptionCost">
+                        <input type="hidden" id="selectedOptionUnit">
+                        
+                        <div class="form-group">
+                            <label>Địa chỉ thu gom</label>
+                            <input type="text" id="pickupAddress" required placeholder="VD: 123 Đường Xanh, Quận 1, TP.HCM">
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày thu gom mong muốn</label>
+                            <input type="date" id="pickupDate" required>
+                        </div>
+                        <button type="button" class="btn-submit" onclick="submitPickupSchedule()" style="background-color: var(--ai-color);">Xác nhận & Hoàn tất yêu cầu</button>
                     </div>
                 </div>
+            </div>
         </div>
+
+        <!-- --- Tracking and Simulation --- -->
+        <div class="tracking-section">
+            <div class="tracking-table-card">
+                <h2>
+                    <span><i class="fa-solid fa-truck-ramp-box me-2" style="color:var(--primary);"></i>Theo dõi trạng thái & Mô phỏng quy trình</span>
+                    <button class="btn-refresh" onclick="loadTrackingTable()"><i class="fa-solid fa-rotate"></i>Làm mới</button>
+                </h2>
+                <div class="table-responsive">
+                    <table class="tracking-table">
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Thiết bị</th>
+                                <th>Hình thức</th>
+                                <th>Chi phí / Báo giá</th>
+                                <th>Đơn vị liên kết</th>
+                                <th>Gửi hàng</th>
+                                <th>Trạng thái xử lý</th>
+                                <th>Mô phỏng quy trình</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trackingTableBody">
+                            <tr><td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Đang tải dữ liệu...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
+
 <iframe src="footer.html" style="width:100%; height:380px; border:none; margin-top:50px;" scrolling="no"></iframe>
 
-<script>
-    async function handleRecycleSubmit(e) {
+<script src="js/data-loader.js">
+    // --- INTEGRATED VALUATION & TAB SWITCHING FUNCTIONS ---
+    function switchRecycleTab(tab) {
+        const tabRequestBtn = document.getElementById("tabRequestBtn");
+        const tabValuationBtn = document.getElementById("tabValuationBtn");
+        const requestTabContent = document.getElementById("requestTabContent");
+        const valuationTabContent = document.getElementById("valuationTabContent");
+
+        if (tab === 'request') {
+            requestTabContent.style.display = "block";
+            valuationTabContent.style.display = "none";
+            tabRequestBtn.classList.add("active");
+            tabValuationBtn.classList.remove("active");
+            tabRequestBtn.style.color = "var(--primary)";
+            tabRequestBtn.style.borderBottom = "3px solid var(--primary)";
+            tabValuationBtn.style.color = "var(--text-muted)";
+            tabValuationBtn.style.borderBottom = "3px solid transparent";
+            
+            // Show placeholder or restore card
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+            document.getElementById("aiResultCard").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "none";
+            document.getElementById("pickupScheduleSection").style.display = "none";
+        } else {
+            requestTabContent.style.display = "none";
+            valuationTabContent.style.display = "block";
+            tabRequestBtn.classList.remove("active");
+            tabValuationBtn.classList.add("active");
+            tabValuationBtn.style.color = "var(--ai-color)";
+            tabValuationBtn.style.borderBottom = "3px solid var(--ai-color)";
+            tabRequestBtn.style.color = "var(--text-muted)";
+            tabRequestBtn.style.borderBottom = "3px solid transparent";
+            
+            // Show placeholder or restore card
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+            document.getElementById("aiResultCard").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "none";
+            document.getElementById("pickupScheduleSection").style.display = "none";
+        }
+    }
+
+    async function handleValuationSubmit(e) {
         e.preventDefault();
 
+        const deviceName = document.getElementById("valDeviceName").value;
+        const condition = document.getElementById("valDeviceCondition").value;
+
+        document.getElementById("aiPlaceholder").classList.add("hidden");
+        document.getElementById("aiResultCard").classList.remove("active");
+        document.getElementById("valuationResultCard").style.display = "none";
+        document.getElementById("aiLoading").classList.add("active");
+
+        try {
+            const res = await fetch("/api/price", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    deviceModel: deviceName,
+                    condition: condition
+                })
+            });
+
+            if (!res.ok) throw new Error("Lỗi kết nối định giá");
+            const resultObj = await res.json();
+            const valData = resultObj.data;
+
+            document.getElementById("valResultDeviceName").textContent = deviceName;
+            document.getElementById("valResultCondition").textContent = condition;
+            document.getElementById("valResultPrice").textContent = valData.estimated_price.toLocaleString("vi-VN") + "đ";
+            document.getElementById("valResultRange").textContent = valData.price_range.min.toLocaleString("vi-VN") + "đ - " + valData.price_range.max.toLocaleString("vi-VN") + "đ";
+            document.getElementById("valResultCategory").textContent = valData.device_category;
+            document.getElementById("valResultNote").textContent = valData.condition_note;
+
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "block";
+
+        } catch (error) {
+            console.error(error);
+            alert("Đã xảy ra lỗi khi liên kết chẩn đoán định giá.");
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+        }
+    }
+
+    function goToMarketplaceToSell() {
+        window.location.href = "customer_marketplace.html";
+    }
+
+    function prefillRecycleForm() {
+        const deviceName = document.getElementById("valResultDeviceName").textContent;
+        const condition = document.getElementById("valResultCondition").textContent;
+        const category = document.getElementById("valResultCategory").textContent;
+
+        switchRecycleTab('request');
+        document.getElementById("deviceName").value = deviceName;
+        document.getElementById("deviceBrand").value = category.charAt(0).toUpperCase() + category.slice(1);
+        document.getElementById("deviceModel").value = "Model AI";
+        document.getElementById("deviceCondition").value = `Thiết bị có tình trạng: ${condition}. Cần đặt lịch thu gom/sửa chữa qua ECOcycle.`;
+        document.getElementById("deviceWeight").value = "1.0";
+        document.getElementById("liveRecycleFee").textContent = "30.000đ";
+
+        document.getElementById("deviceName").scrollIntoView({ behavior: "smooth" });
+    }
+</script>
+<script>
+    const customerID = localStorage.getItem("customerId") || "CM000001";
+    let activeRequest = null;
+    let storeList = [];
+    let wasteUnitList = [
+        "Công ty Cổ phần Môi trường Đô thị Xanh",
+        "Nhà máy Xử lý Rác thải Điện tử Công nghệ cao",
+        "Trung tâm Phân tách & Tái chế Kim loại Quý"
+    ];
+
+    document.addEventListener("DOMContentLoaded", async function() {
         if (!localStorage.getItem("role") || localStorage.getItem("role") !== "customer") {
             window.top.location.href = "login.html";
             return;
         }
 
-        const customerID = localStorage.getItem("customerId") || "CM000001";
+        const customer = await ECOcycleAPI.getCustomer(customerID);
+        if (customer && customer.address) {
+            document.getElementById("pickupAddress").value = customer.address;
+        }
+
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("pickupDate").setAttribute("min", today);
+        document.getElementById("pickupDate").value = today;
+
+        storeList = await ECOcycleAPI.getRepairStores();
+
+        document.getElementById("deviceWeight").addEventListener("input", function() {
+            const weight = parseFloat(this.value) || 0;
+            const fee = 20000 + weight * 10000;
+            document.getElementById("liveRecycleFee").textContent = fee.toLocaleString("vi-VN") + "đ";
+        });
+
+        loadTrackingTable();
+    });
+
+    async function handleRecycleSubmit(e) {
+        e.preventDefault();
+
         const deviceName = document.getElementById("deviceName").value;
         const brand = document.getElementById("deviceBrand").value;
         const model = document.getElementById("deviceModel").value;
         const condition = document.getElementById("deviceCondition").value;
         const weight = document.getElementById("deviceWeight").value;
-        const requestType = document.getElementById("requestType").value;
 
-        // Switch screens to Loading
         document.getElementById("aiPlaceholder").classList.add("hidden");
         document.getElementById("aiResultCard").classList.remove("active");
         document.getElementById("aiLoading").classList.add("active");
+        document.getElementById("pickupScheduleSection").style.display = "none";
 
         try {
-            // 1. Post request details to main server processrequests
-            const reqRes = await fetch("http://localhost:3000/api/processrequests", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    customerID: customerID,
-                    productName: deviceName,
-                    brand: brand,
-                    model: model,
-                    condition: condition,
-                    weight: weight + "kg",
-                    requestType: requestType,
-                    status: "Pending"
-                })
+            const savedReq = await ECOcycleAPI.createProcessRequest({
+                customerID: customerID,
+                productName: deviceName,
+                brand: brand,
+                model: model,
+                condition: condition,
+                weight: weight + "kg",
+                requestType: "Pending",
+                status: "Pending"
             });
 
-            if (!reqRes.ok) {
+            if (!savedReq) {
                 throw new Error("Lỗi lưu yêu cầu chính");
             }
-            
-            const savedReq = await reqRes.json();
-            const requestID = savedReq.requestID;
+            activeRequest = savedReq;
 
-            // 2. Fetch AI diagnosis from RepairAI service on port 3001
-            const aiRes = await fetch("http://localhost:3001/api/evaluate", {
+            const aiRes = await fetch("/api/evaluate", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -466,75 +902,503 @@
                 aiData = aiResultObj.data;
             }
 
-            // 3. If AI results available, populate card and save to main server
-            if (aiData) {
-                // Populate Card UI
-                document.getElementById("aiDeviceModel").textContent = aiData.device_model || deviceName;
-                document.getElementById("aiIssues").textContent = aiData.detected_issues.join(", ") || "Chưa phát hiện lỗi cụ thể";
-                document.getElementById("aiSeverity").textContent = aiData.severity || "trung bình";
-                document.getElementById("aiSolution").textContent = aiData.repair_solution || "Kiểm tra thực tế";
-                document.getElementById("aiTime").textContent = aiData.repair_time_days + " ngày";
-                document.getElementById("aiCost").textContent = (aiData.repair_cost || 0).toLocaleString() + " VNĐ";
-                document.getElementById("aiRecommendation").textContent = aiData.recommendation || "";
+            renderAIOptions(deviceName, weight, aiData);
 
-                if (requestType === 'Resell') {
-                    document.getElementById("resellRow").style.display = "flex";
-                    document.getElementById("aiResellPrice").textContent = (aiData.resell_price_after_repair || 0).toLocaleString() + " VNĐ";
-                } else {
-                    document.getElementById("resellRow").style.display = "none";
-                }
-
-                // Save assessment to main server
-                await fetch("http://localhost:3000/api/aiassessments", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        requestID: requestID,
-                        recommendedAction: aiData.repair_solution,
-                        estimatedRepairCost: (aiData.repair_cost || 0).toLocaleString() + "đ"
-                    })
-                });
-            } else {
-                // Fallback display if AI server has issue
-                document.getElementById("aiDeviceModel").textContent = deviceName;
-                document.getElementById("aiIssues").textContent = "Cần kiểm tra thực tế";
-                document.getElementById("aiSeverity").textContent = "Chưa xác định";
-                document.getElementById("aiSolution").textContent = "Đang kiểm tra";
-                document.getElementById("aiTime").textContent = "Chờ xử lý";
-                document.getElementById("aiCost").textContent = "Đang thẩm định";
-                document.getElementById("aiRecommendation").textContent = "Đã gửi yêu cầu. Kỹ thuật viên sẽ liên hệ lại báo giá.";
-                document.getElementById("resellRow").style.display = "none";
-            }
-
-            // 4. Update customer's green coin balance based on requestType
-            let coinsEarned = 50;
-            if (requestType === 'Recycle') coinsEarned = 70;
-            else if (requestType === 'Resell') coinsEarned = 90;
-
-            await fetch("http://localhost:3000/api/greencoins", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    customerID: customerID,
-                    action: requestType === 'Repair' ? "Sửa chữa thiết bị" : (requestType === 'Resell' ? "Bán lại thiết bị" : "Xử lý rác điện tử"),
-                    orderID: requestID,
-                    greenCoins: coinsEarned
-                })
-            });
-
-            // Display UI
             document.getElementById("aiLoading").classList.remove("active");
             document.getElementById("aiResultCard").classList.add("active");
-            
-            alert(`Gửi yêu cầu thành công! Bạn nhận được +${coinsEarned} Green Coins.`);
-            document.getElementById("recycleForm").reset();
 
         } catch (error) {
             console.error(error);
-            alert("Đã xảy ra lỗi khi gửi yêu cầu.");
+            alert("Đã xảy ra lỗi khi phân tích AI.");
             document.getElementById("aiLoading").classList.remove("active");
             document.getElementById("aiPlaceholder").classList.remove("hidden");
         }
+    }
+
+    function renderAIOptions(deviceName, weight, aiData) {
+        document.getElementById("aiDeviceModel").textContent = aiData ? (aiData.device_model || deviceName) : deviceName;
+        document.getElementById("aiIssues").textContent = aiData ? (aiData.detected_issues.join(", ")) : "Cần kiểm tra trực tiếp";
+        document.getElementById("aiSeverity").textContent = aiData ? aiData.severity : "Chưa xác định";
+        document.getElementById("aiSolution").textContent = aiData ? aiData.repair_solution : "Kiểm tra thực tế";
+        document.getElementById("aiTime").textContent = aiData ? (aiData.repair_time_days + " ngày") : "Đang thẩm định";
+
+        const canRepair = aiData ? (aiData.can_repair !== false) : true;
+        const repairCost = aiData ? (aiData.repair_cost || 500000) : 500000;
+        const resellPrice = aiData ? (aiData.resell_price_after_repair || 1500000) : 1500000;
+        const recycleCost = 20000 + parseFloat(weight) * 10000;
+
+        let storeOptions = storeList.map(s => `<option value="${s.storeID}">${s.storeName} - ${s.address}</option>`).join('');
+        let wasteOptions = wasteUnitList.map(w => `<option value="${w}">${w}</option>`).join('');
+
+        let container = document.getElementById("aiOptionsContainer");
+        container.innerHTML = "";
+
+        if (canRepair) {
+            container.innerHTML = `
+                <div style="font-weight: 700; margin-bottom: 12px; font-size: 1rem; color: var(--text-main);">Đề xuất từ hệ thống (Vui lòng chọn 1 phương án):</div>
+                <div class="option-cards">
+                    <div class="option-card" onclick="selectOption('Repair', ${repairCost}, this)">
+                        <div>
+                            <div class="option-card-title"><i class="fa-solid fa-screwdriver-wrench me-1"></i>Sửa chữa & Dùng tiếp</div>
+                            <div class="option-card-price">${repairCost.toLocaleString()}đ</div>
+                            <div class="option-card-coins">+50 Green Coins</div>
+                        </div>
+                        <div class="option-card-unit" onclick="event.stopPropagation()">
+                            <label>Chọn cửa hàng sửa chữa:</label>
+                            <select id="repairStoreSelect">${storeOptions}</select>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" onclick="selectOption('Resell', ${resellPrice}, this)">
+                        <div>
+                            <div class="option-card-title"><i class="fa-solid fa-money-bill-wave me-1"></i>Bán lại cho Web</div>
+                            <div class="option-card-price" style="color: var(--primary);">${resellPrice.toLocaleString()}đ</div>
+                            <div class="option-card-coins">+90 Green Coins</div>
+                        </div>
+                        <div class="option-card-unit" onclick="event.stopPropagation()">
+                            <label>Cửa hàng giám định chất lượng:</label>
+                            <select id="resellStoreSelect">${storeOptions}</select>
+                        </div>
+                    </div>
+                    
+                    <div class="option-card" onclick="selectOption('Recycle', ${recycleCost}, this)">
+                        <div>
+                            <div class="option-card-title"><i class="fa-solid fa-recycle me-1"></i>Tái chế rác điện tử</div>
+                            <div class="option-card-price" style="color: var(--text-muted);">${recycleCost.toLocaleString()}đ</div>
+                            <div class="option-card-coins">+70 Green Coins</div>
+                        </div>
+                        <div class="option-card-unit" onclick="event.stopPropagation()">
+                            <label>Chọn đơn vị xử lý rác:</label>
+                            <select id="recycleUnitSelect">${wasteOptions}</select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div style="font-weight: 700; margin-bottom: 12px; font-size: 1rem; color: var(--danger);"><i class="fa-solid fa-circle-exclamation me-1"></i>Thiết bị hỏng quá nặng, không thể sửa chữa. Đề xuất:</div>
+                <div class="option-cards" style="grid-template-columns: 1fr;">
+                    <div class="option-card" onclick="selectOption('Recycle', ${recycleCost}, this)">
+                        <div>
+                            <div class="option-card-title"><i class="fa-solid fa-recycle me-1"></i>Tái chế rác điện tử</div>
+                            <div class="option-card-price">${recycleCost.toLocaleString()}đ</div>
+                            <div class="option-card-coins">+70 Green Coins</div>
+                        </div>
+                        <div class="option-card-unit" onclick="event.stopPropagation()">
+                            <label>Chọn đơn vị xử lý rác:</label>
+                            <select id="recycleUnitSelectSingle">${wasteOptions}</select>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        ECOcycleAPI.createAIAssessment({
+            requestID: activeRequest.requestID,
+            recommendedAction: canRepair ? "Repair" : "Recycle",
+            estimatedRepairCost: repairCost.toLocaleString() + "đ",
+            estimatedResalePrice: resellPrice.toLocaleString() + "đ",
+            estimatedRecycleCost: recycleCost.toLocaleString() + "đ"
+        });
+    }
+
+    function selectOption(type, cost, element) {
+        document.querySelectorAll(".option-card").forEach(c => c.classList.remove("selected"));
+        element.classList.add("selected");
+
+        document.getElementById("selectedOptionType").value = type;
+        document.getElementById("selectedOptionCost").value = cost;
+
+        let unit = "";
+        if (type === 'Repair') {
+            unit = document.getElementById("repairStoreSelect").value;
+        } else if (type === 'Resell') {
+            unit = document.getElementById("resellStoreSelect").value;
+        } else if (type === 'Recycle') {
+            const selectEl = document.getElementById("recycleUnitSelect") || document.getElementById("recycleUnitSelectSingle");
+            unit = selectEl.value;
+        }
+        document.getElementById("selectedOptionUnit").value = unit;
+
+        document.getElementById("pickupScheduleSection").style.display = "block";
+        document.getElementById("pickupScheduleSection").scrollIntoView({ behavior: "smooth" });
+    }
+
+    async function submitPickupSchedule() {
+        const type = document.getElementById("selectedOptionType").value;
+        const costVal = document.getElementById("selectedOptionCost").value;
+        const unit = document.getElementById("selectedOptionUnit").value;
+        const address = document.getElementById("pickupAddress").value;
+        const date = document.getElementById("pickupDate").value;
+
+        if (!address || !date) {
+            alert("Vui lòng điền đầy đủ địa chỉ và ngày thu gom!");
+            return;
+        }
+
+        try {
+            await ECOcycleAPI.updateProcessRequestStatus(activeRequest.requestID, "Processed");
+            
+            await fetch(`/api/processrequests/${activeRequest.requestID}/status`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ requestType: type })
+            });
+
+            const costFormatted = parseFloat(costVal).toLocaleString("vi-VN") + "đ";
+            let coinsEarned = 50;
+
+            if (type === 'Repair') {
+                coinsEarned = 50;
+                await ECOcycleAPI.createRepairOrder({
+                    requestID: activeRequest.requestID,
+                    customerID: customerID,
+                    storeID: unit,
+                    pickupDate: date,
+                    pickupAddress: address,
+                    finalCost: costFormatted,
+                    status: "In Progress",
+                    repairStatus: "Chưa sửa chữa",
+                    shippingStatus: "Chưa gửi đi xử lý"
+                });
+            } else if (type === 'Resell') {
+                coinsEarned = 90;
+                await ECOcycleAPI.createResellOrder({
+                    requestID: activeRequest.requestID,
+                    customerID: customerID,
+                    storeID: unit,
+                    pickupDate: date,
+                    pickupAddress: address,
+                    finalPrice: costFormatted,
+                    status: "In Progress",
+                    repairStatus: "Chưa sửa chữa",
+                    shippingStatus: "Chưa gửi đi xử lý"
+                });
+            } else {
+                coinsEarned = 70;
+                await ECOcycleAPI.createRecycleOrder({
+                    requestID: activeRequest.requestID,
+                    customerID: customerID,
+                    connectedUnit: unit,
+                    pickupDate: date,
+                    pickupAddress: address,
+                    finalCost: costFormatted,
+                    co2ReducedKg: Math.round((parseFloat(activeRequest.weight) || 1.5) * 1.2) + "kg",
+                    status: "In Progress",
+                    processingStatus: "Chưa xử lý",
+                    shippingStatus: "Chưa gửi đi xử lý"
+                });
+            }
+
+            await ECOcycleAPI.createGreenCoinTransaction({
+                customerID: customerID,
+                action: type === 'Repair' ? "Sửa chữa thiết bị" : (type === 'Resell' ? "Bán lại thiết bị" : "Xử lý rác điện tử"),
+                orderID: activeRequest.requestID,
+                greenCoins: coinsEarned
+            });
+
+            alert(`Gửi yêu cầu đặt lịch thành công! Bạn nhận được +${coinsEarned} Green Coins.`);
+
+            document.getElementById("recycleForm").reset();
+            document.getElementById("aiResultCard").classList.remove("active");
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+            document.getElementById("pickupScheduleSection").style.display = "none";
+
+            loadTrackingTable();
+
+        } catch (error) {
+            console.error(error);
+            alert("Lỗi khi hoàn tất yêu cầu.");
+        }
+    }
+
+    async function loadTrackingTable() {
+        const tbody = document.getElementById("trackingTableBody");
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Đang tải dữ liệu...</td></tr>`;
+
+        try {
+            const requests = await ECOcycleAPI.getProcessRequestsByCustomer(customerID);
+            const repairOrders = await ECOcycleAPI.getRepairOrders();
+            const resellOrders = await ECOcycleAPI.getResellOrders();
+            const recycleOrders = await ECOcycleAPI.getRecycleOrders();
+
+            const stores = await ECOcycleAPI.getRepairStores();
+            const storeMap = {};
+            stores.forEach(s => storeMap[s.storeID] = s.storeName);
+
+            const processedReqs = requests.filter(r => r.requestType !== "Pending");
+
+            if (processedReqs.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--text-muted);">Bạn chưa có đơn sửa chữa hoặc tái chế nào.</td></tr>`;
+                return;
+            }
+
+            processedReqs.reverse();
+
+            let html = "";
+            for (const r of processedReqs) {
+                const repOrder = repairOrders.find(o => o.requestID === r.requestID);
+                const resOrder = resellOrders.find(o => o.requestID === r.requestID);
+                const recOrder = recycleOrders.find(o => o.requestID === r.requestID);
+
+                let orderID = "";
+                let typeText = "";
+                let costText = "";
+                let unitName = "";
+                let shippingStatus = "";
+                let processStatus = "";
+                let simButtons = "";
+
+                if (r.requestType === 'Repair' && repOrder) {
+                    orderID = repOrder.repairOrderID;
+                    typeText = "<span style='color:var(--ai-color); font-weight:600;'><i class='fa-solid fa-screwdriver-wrench me-1'></i>Sửa chữa</span>";
+                    costText = repOrder.finalCost;
+                    unitName = storeMap[repOrder.storeID] || "Cửa hàng liên kết";
+                    shippingStatus = repOrder.shippingStatus || "Chưa gửi đi xử lý";
+                    processStatus = repOrder.repairStatus || "Chưa sửa chữa";
+
+                    if (shippingStatus === 'Chưa gửi đi xử lý') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateShip('Repair', '${orderID}')">Gửi máy</button>`;
+                    } else if (processStatus === 'Chưa sửa chữa') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateStartProcess('Repair', '${orderID}')">Bắt đầu sửa</button>`;
+                    } else if (processStatus === 'Đang sửa chữa') {
+                        simButtons = `<button class="btn-sim btn-sim-success" onclick="simulateComplete('Repair', '${orderID}')">Hoàn tất sửa</button>`;
+                    } else {
+                        simButtons = "<span style='color:var(--primary); font-size:0.8rem; font-weight:600;'><i class='fa-solid fa-circle-check me-1'></i>Đã xong</span>";
+                    }
+
+                } else if (r.requestType === 'Resell' && resOrder) {
+                    orderID = resOrder.resellOrderID;
+                    typeText = "<span style='color:var(--primary); font-weight:600;'><i class='fa-solid fa-money-bill-wave me-1'></i>Bán lại</span>";
+                    costText = resOrder.finalPrice;
+                    unitName = storeMap[resOrder.storeID] || "Cửa hàng giám định";
+                    shippingStatus = resOrder.shippingStatus || "Chưa gửi đi xử lý";
+                    processStatus = resOrder.repairStatus || "Chưa sửa chữa";
+
+                    if (shippingStatus === 'Chưa gửi đi xử lý') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateShip('Resell', '${orderID}')">Gửi máy</button>`;
+                    } else if (processStatus === 'Chưa sửa chữa') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateStartProcess('Resell', '${orderID}')">Bắt đầu kiểm tra</button>`;
+                    } else if (processStatus === 'Đang sửa chữa') {
+                        simButtons = `<button class="btn-sim btn-sim-success" onclick="simulateComplete('Resell', '${orderID}')">Đạt chuẩn & Hoàn tất</button>`;
+                    } else {
+                        simButtons = "<span style='color:var(--primary); font-size:0.8rem; font-weight:600;'><i class='fa-solid fa-circle-check me-1'></i>Đã thanh toán</span>";
+                    }
+
+                } else if (r.requestType === 'Recycle' && recOrder) {
+                    orderID = recOrder.recycleOrderID;
+                    typeText = "<span style='color:var(--text-muted); font-weight:600;'><i class='fa-solid fa-recycle me-1'></i>Tái chế</span>";
+                    costText = recOrder.finalCost;
+                    unitName = recOrder.connectedUnit || "Đơn vị xử lý rác";
+                    shippingStatus = recOrder.shippingStatus || "Chưa gửi đi xử lý";
+                    processStatus = recOrder.processingStatus || "Chưa xử lý";
+
+                    if (shippingStatus === 'Chưa gửi đi xử lý') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateShip('Recycle', '${orderID}')">Gửi rác thải</button>`;
+                    } else if (processStatus === 'Chưa xử lý') {
+                        simButtons = `<button class="btn-sim btn-sim-primary" onclick="simulateStartProcess('Recycle', '${orderID}')">Bắt đầu xử lý</button>`;
+                    } else if (processStatus === 'Đang xử lý') {
+                        simButtons = `<button class="btn-sim btn-sim-success" onclick="simulateComplete('Recycle', '${orderID}')">Hoàn tất xử lý</button>`;
+                    } else {
+                        simButtons = "<span style='color:var(--primary); font-size:0.8rem; font-weight:600;'><i class='fa-solid fa-circle-check me-1'></i>Đã phân tách</span>";
+                    }
+                } else {
+                    orderID = r.requestID;
+                    typeText = "<span style='color:var(--danger); font-weight:600;'>Đang xử lý</span>";
+                    costText = "Chờ đặt lịch";
+                    unitName = "Chưa kết nối";
+                    shippingStatus = "Chờ đặt lịch";
+                    processStatus = "Chờ đặt lịch";
+                    simButtons = `<button class="btn-sim btn-sim-primary" onclick="activeRequest={requestID:'${r.requestID}', productName:'${r.productName}', weight:'${r.weight}'}; renderAIOptions('${r.productName}', '${r.weight.replace("kg","")}', null); document.getElementById('aiPlaceholder').classList.add('hidden'); document.getElementById('aiResultCard').classList.add('active');">Đặt lịch ngay</button>`;
+                }
+
+                let shipBadge = "";
+                if (shippingStatus === 'Chưa gửi đi xử lý' || shippingStatus === 'Chờ đặt lịch') shipBadge = `<span class="badge badge-warning">${shippingStatus}</span>`;
+                else shipBadge = `<span class="badge badge-info">${shippingStatus}</span>`;
+
+                let procBadge = "";
+                if (processStatus.includes("Chưa")) procBadge = `<span class="badge badge-warning">${processStatus}</span>`;
+                else if (processStatus.includes("Đang")) procBadge = `<span class="badge badge-info">${processStatus}</span>`;
+                else procBadge = `<span class="badge badge-success">${processStatus}</span>`;
+
+                html += `
+                    <tr>
+                        <td style="font-weight: 700; color: var(--text-main);">${orderID}</td>
+                        <td>
+                            <div style="font-weight: 600;">${r.productName}</div>
+                            <div style="font-size:0.8rem; color:var(--text-muted);">${r.brand} (${r.model}) - ${r.weight}</div>
+                        </td>
+                        <td>${typeText}</td>
+                        <td style="font-weight:700;">${costText}</td>
+                        <td style="font-size:0.85rem;">${unitName}</td>
+                        <td>${shipBadge}</td>
+                        <td>${procBadge}</td>
+                        <td>
+                            <div class="simulation-actions">
+                                ${simButtons}
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            tbody.innerHTML = html;
+
+        } catch (error) {
+            console.error(error);
+            tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--danger);">Lỗi tải bảng theo dõi.</td></tr>`;
+        }
+    }
+
+    async function simulateShip(type, orderId) {
+        try {
+            if (type === 'Repair') {
+                await ECOcycleAPI.updateRepairOrder(orderId, { shippingStatus: "Đã gửi đi xử lý" });
+            } else if (type === 'Resell') {
+                await ECOcycleAPI.updateResellOrder(orderId, { shippingStatus: "Đã gửi đi xử lý" });
+            } else {
+                await ECOcycleAPI.updateRecycleOrder(orderId, { shippingStatus: "Đã gửi đi xử lý" });
+            }
+            alert("Mô phỏng: Thiết bị đã được gửi đi vận chuyển!");
+            loadTrackingTable();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function simulateStartProcess(type, orderId) {
+        try {
+            if (type === 'Repair') {
+                await ECOcycleAPI.updateRepairOrder(orderId, { repairStatus: "Đang sửa chữa" });
+            } else if (type === 'Resell') {
+                await ECOcycleAPI.updateResellOrder(orderId, { repairStatus: "Đang sửa chữa" });
+            } else {
+                await ECOcycleAPI.updateRecycleOrder(orderId, { processingStatus: "Đang xử lý" });
+            }
+            alert("Mô phỏng: Đơn vị liên kết bắt đầu quá trình sửa chữa/phân tách!");
+            loadTrackingTable();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async function simulateComplete(type, orderId) {
+        try {
+            if (type === 'Repair') {
+                await ECOcycleAPI.updateRepairOrder(orderId, { repairStatus: "Đã sửa chữa", status: "Completed" });
+            } else if (type === 'Resell') {
+                await ECOcycleAPI.updateResellOrder(orderId, { repairStatus: "Đã sửa chữa", status: "Completed" });
+            } else {
+                await ECOcycleAPI.updateRecycleOrder(orderId, { processingStatus: "Đã xử lý", status: "Completed" });
+            }
+            alert("Mô phỏng: Quá trình xử lý hoàn tất thành công!");
+            loadTrackingTable();
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    // --- INTEGRATED VALUATION & TAB SWITCHING FUNCTIONS ---
+    function switchRecycleTab(tab) {
+        const tabRequestBtn = document.getElementById("tabRequestBtn");
+        const tabValuationBtn = document.getElementById("tabValuationBtn");
+        const requestTabContent = document.getElementById("requestTabContent");
+        const valuationTabContent = document.getElementById("valuationTabContent");
+
+        if (tab === 'request') {
+            requestTabContent.style.display = "block";
+            valuationTabContent.style.display = "none";
+            tabRequestBtn.classList.add("active");
+            tabValuationBtn.classList.remove("active");
+            tabRequestBtn.style.color = "var(--primary)";
+            tabRequestBtn.style.borderBottom = "3px solid var(--primary)";
+            tabValuationBtn.style.color = "var(--text-muted)";
+            tabValuationBtn.style.borderBottom = "3px solid transparent";
+            
+            // Show placeholder or restore card
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+            document.getElementById("aiResultCard").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "none";
+            document.getElementById("pickupScheduleSection").style.display = "none";
+        } else {
+            requestTabContent.style.display = "none";
+            valuationTabContent.style.display = "block";
+            tabRequestBtn.classList.remove("active");
+            tabValuationBtn.classList.add("active");
+            tabValuationBtn.style.color = "var(--ai-color)";
+            tabValuationBtn.style.borderBottom = "3px solid var(--ai-color)";
+            tabRequestBtn.style.color = "var(--text-muted)";
+            tabRequestBtn.style.borderBottom = "3px solid transparent";
+            
+            // Show placeholder or restore card
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+            document.getElementById("aiResultCard").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "none";
+            document.getElementById("pickupScheduleSection").style.display = "none";
+        }
+    }
+
+    async function handleValuationSubmit(e) {
+        e.preventDefault();
+
+        const deviceName = document.getElementById("valDeviceName").value;
+        const condition = document.getElementById("valDeviceCondition").value;
+
+        document.getElementById("aiPlaceholder").classList.add("hidden");
+        document.getElementById("aiResultCard").classList.remove("active");
+        document.getElementById("valuationResultCard").style.display = "none";
+        document.getElementById("aiLoading").classList.add("active");
+
+        try {
+            const res = await fetch("/api/price", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    deviceModel: deviceName,
+                    condition: condition
+                })
+            });
+
+            if (!res.ok) throw new Error("Lỗi kết nối định giá");
+            const resultObj = await res.json();
+            const valData = resultObj.data;
+
+            document.getElementById("valResultDeviceName").textContent = deviceName;
+            document.getElementById("valResultCondition").textContent = condition;
+            document.getElementById("valResultPrice").textContent = valData.estimated_price.toLocaleString("vi-VN") + "đ";
+            document.getElementById("valResultRange").textContent = valData.price_range.min.toLocaleString("vi-VN") + "đ - " + valData.price_range.max.toLocaleString("vi-VN") + "đ";
+            document.getElementById("valResultCategory").textContent = valData.device_category;
+            document.getElementById("valResultNote").textContent = valData.condition_note;
+
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("valuationResultCard").style.display = "block";
+
+        } catch (error) {
+            console.error(error);
+            alert("Đã xảy ra lỗi khi liên kết chẩn đoán định giá.");
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+        }
+    }
+
+    function goToMarketplaceToSell() {
+        window.location.href = "customer_marketplace.html";
+    }
+
+    function prefillRecycleForm() {
+        const deviceName = document.getElementById("valResultDeviceName").textContent;
+        const condition = document.getElementById("valResultCondition").textContent;
+        const category = document.getElementById("valResultCategory").textContent;
+
+        switchRecycleTab('request');
+        document.getElementById("deviceName").value = deviceName;
+        document.getElementById("deviceBrand").value = category.charAt(0).toUpperCase() + category.slice(1);
+        document.getElementById("deviceModel").value = "Model AI";
+        document.getElementById("deviceCondition").value = `Thiết bị có tình trạng: ${condition}. Cần đặt lịch thu gom/sửa chữa qua ECOcycle.`;
+        document.getElementById("deviceWeight").value = "1.0";
+        document.getElementById("liveRecycleFee").textContent = "30.000đ";
+
+        document.getElementById("deviceName").scrollIntoView({ behavior: "smooth" });
     }
 </script>
 </body>

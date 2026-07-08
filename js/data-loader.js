@@ -441,6 +441,51 @@ async function updateRepairOrderStatus(orderId, status) {
     }
 }
 
+async function updateRepairOrder(orderId, data) {
+    try {
+        const response = await fetch(`${API_BASE}/repairorders/${orderId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    } catch (error) {
+        console.error(`Error updating repair order ${orderId}:`, error);
+        return null;
+    }
+}
+
+async function updateResellOrder(orderId, data) {
+    try {
+        const response = await fetch(`${API_BASE}/resellorders/${orderId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    } catch (error) {
+        console.error(`Error updating resell order ${orderId}:`, error);
+        return null;
+    }
+}
+
+async function updateRecycleOrder(orderId, data) {
+    try {
+        const response = await fetch(`${API_BASE}/recycleorders/${orderId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+    } catch (error) {
+        console.error(`Error updating recycle order ${orderId}:`, error);
+        return null;
+    }
+}
+
 // ==================== RESELL ORDERS ====================
 async function getResellOrders() {
     try {
@@ -769,9 +814,9 @@ if (typeof window !== 'undefined') {
         // AI Assessments
         getAIAssessments, getAIAssessmentByRequest, createAIAssessment,
         // Service Orders
-        getRepairOrders, getRepairOrdersByStore, createRepairOrder, updateRepairOrderStatus,
-        getResellOrders, createResellOrder,
-        getRecycleOrders, createRecycleOrder,
+        getRepairOrders, getRepairOrdersByStore, createRepairOrder, updateRepairOrderStatus, updateRepairOrder,
+        getResellOrders, createResellOrder, updateResellOrder,
+        getRecycleOrders, createRecycleOrder, updateRecycleOrder,
         // Reviews
         getReviews, getReviewsByProduct, getReviewsByCustomer, createReview,
         // Complaints

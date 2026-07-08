@@ -448,6 +448,14 @@ async function loadRepairOrders() {
     try {
         const storeId = localStorage.getItem('storeId') || 'BR000001';
         const orders = await callAPI(`repairorders/store/${storeId}`);
+        const requests = await callAPI('processrequests');
+        const customers = await callAPI('users/customers');
+        
+        const requestsMap = {};
+        (requests || []).forEach(r => requestsMap[r.requestID] = r);
+        
+        const customersMap = {};
+        (customers || []).forEach(c => customersMap[c.customerID] = c.fullName);
         
         const stats = document.querySelectorAll('.stat-value');
         if (stats.length >= 4) {
@@ -475,22 +483,28 @@ async function loadRepairOrders() {
             const statusMap = { 'Pending': 'waiting', 'In Progress': 'repairing', 'Waiting': 'wait', 'Completed': 'done', 'Delivered': 'done' };
             const statusText = { 'Pending': 'Chờ xử lý', 'In Progress': 'Đang sửa', 'Waiting': 'Chờ nhận máy', 'Completed': 'Hoàn tất', 'Delivered': 'Đã giao' };
             
-            tbody.innerHTML = orders.map(o => `
+            tbody.innerHTML = orders.map(o => {
+                const req = requestsMap[o.requestID];
+                const productName = req ? req.productName : 'Thiết bị';
+                const customerName = customersMap[o.customerID] || 'Khách hàng';
+                
+                return `
                 <tr>
                     <td>${o.repairOrderID || 'N/A'}</td>
                     <td>
                         <div class="device">
-                            <div class="device-img"><i class="fa-solid fa-${getDeviceIcon(o.productName)}"></i></div>
-                            <div>${o.productName || 'N/A'}</div>
+                            <div class="device-img"><i class="fa-solid fa-${getDeviceIcon(productName)}"></i></div>
+                            <div>${productName}</div>
                         </div>
                     </td>
-                    <td>${o.customerID || 'N/A'}</td>
+                    <td>${customerName}</td>
                     <td>${o.finalCost || 'Chờ báo giá'}</td>
                     <td><span class="badge ${statusMap[o.status] || 'waiting'}">${statusText[o.status] || o.status}</span></td>
                     <td>${o.orderDate || o.pickupDate || 'N/A'}</td>
                     <td><a href="order_details.html?id=${o.repairOrderID}"><button class="btn-view">Chi tiết</button></a></td>
                 </tr>
-            `).join('');
+                `;
+            }).join('');
         }
     } catch (error) {
         console.error('Error loading repair orders:', error);
@@ -581,18 +595,85 @@ async function loadOrderDetails() {
         const order = (orders || []).find(o => o.repairOrderID === orderId);
         
         if (order) {
+            const requests = await callAPI('processrequests');
+            const request = (requests || []).find(r => r.requestID === order.requestID);
+            
+            const customers = await callAPI('users/customers');
+            const customer = (customers || []).find(c => c.customerID === order.customerID || (request && c.customerID === request.customerID));
+            
             const statusBadge = document.querySelector('.status-badge');
             if (statusBadge) {
-                const statusMap = { 'Pending': 'Chờ báo giá', 'In Progress': 'Đang sửa', 'Waiting': 'Chờ nhận máy', 'Completed': 'Hoàn tất' };
+                const statusMap = { 'Pending': 'Chờ báo giá', 'In Progress': 'Đang sửa', 'Waiting': 'Chờ nhận máy', 'Completed': 'Hoàn tất', 'Delivered': 'Đã giao' };
                 statusBadge.textContent = statusMap[order.status] || order.status;
             }
             
-            // Cập nhật thông tin thiết bị
-            const deviceName = document.querySelector('.device-info h3');
-            if (deviceName) {
-                const requests = await callAPI('processrequests');
-                const request = (requests || []).find(r => r.requestID === order.requestID);
-                deviceName.textContent = request?.productName || 'N/A';
+            // Cập nhật thông tin thiết bị và khách hàng
+            const deviceBox = document.querySelector('.device-info');
+            if (deviceBox) {
+                deviceBox.innerHTML = `
+                    <h3>${request ? request.productName : 'Thiết bị'}</h3>
+                    <p><b>Lỗi:</b> ${request ? request.condition : 'N/A'}</p>
+                    <p><b>Khách hàng:</b> ${customer ? customer.fullName : 'N/A'}</p>
+                    <p><b>SĐT:</b> ${customer ? customer.phoneNumber : 'N/A'}</p>
+                    <p><b>Địa chỉ thu gom:</b> ${order.pickupAddress || 'N/A'}</p>
+                    <p><b>Ngày thu gom:</b> ${order.pickupDate || 'N/A'}</p>
+                    <p><b>Báo giá:</b> ${order.finalCost || 'N/A'}</p>
+                `;
+            }
+
+            // Đồng bộ thanh tiến trình (Process steps)
+            const statusOrder = ['Pending', 'In Progress', 'Waiting', 'Completed', 'Delivered'];
+            let selectedStatus = order.status;
+
+            function highlightSteps(status) {
+                const currentIdx = statusOrder.indexOf(status);
+                document.querySelectorAll('.process .step').forEach((stepEl) => {
+                    const stepStatus = stepEl.getAttribute('data-status');
+                    const stepIdx = statusOrder.indexOf(stepStatus);
+                    if (stepIdx <= currentIdx) {
+                        stepEl.classList.add('active');
+                    } else {
+                        stepEl.classList.remove('active');
+                    }
+                });
+            }
+
+            highlightSteps(selectedStatus);
+
+            // Gắn click listener cho các bước
+            document.querySelectorAll('.process .step').forEach((stepEl) => {
+                stepEl.style.cursor = 'pointer';
+                stepEl.addEventListener('click', () => {
+                    selectedStatus = stepEl.getAttribute('data-status');
+                    highlightSteps(selectedStatus);
+                });
+            });
+
+            // Gắn click listener cho nút Cập nhật trạng thái
+            const updateBtn = document.querySelector('.update-btn');
+            if (updateBtn) {
+                // Remove any existing listeners
+                const newUpdateBtn = updateBtn.cloneNode(true);
+                updateBtn.parentNode.replaceChild(newUpdateBtn, updateBtn);
+
+                newUpdateBtn.addEventListener('click', async () => {
+                    try {
+                        const note = document.querySelector('.card textarea')?.value || '';
+                        const result = await ECOcycleAPI.updateRepairOrderStatus(orderId, selectedStatus);
+                        if (result) {
+                            showNotification('Cập nhật trạng thái đơn hàng thành công!', 'success');
+                            if (statusBadge) {
+                                const statusMap = { 'Pending': 'Chờ báo giá', 'In Progress': 'Đang sửa', 'Waiting': 'Chờ nhận máy', 'Completed': 'Hoàn tất', 'Delivered': 'Đã giao' };
+                                statusBadge.textContent = statusMap[selectedStatus] || selectedStatus;
+                            }
+                        } else {
+                            showNotification('Lỗi khi cập nhật trạng thái', 'error');
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        showNotification('Lỗi kết nối máy chủ', 'error');
+                    }
+                });
             }
         }
     } catch (error) {
@@ -610,21 +691,73 @@ async function loadQuotationDetail() {
         const request = (requests || []).find(r => r.requestID === requestId);
         const assessments = await callAPI('aiassessments');
         const assessment = (assessments || []).find(a => a.requestID === requestId);
+        const customers = await callAPI('users/customers');
+        const customer = (customers || []).find(c => c.customerID === request?.customerID);
         
         if (request) {
-            const deviceName = document.querySelector('.device-detail h4');
-            if (deviceName) deviceName.textContent = request.productName || 'N/A';
+            const deviceDetail = document.querySelector('.device-detail');
+            if (deviceDetail) {
+                deviceDetail.innerHTML = `
+                    <h4>${request.productName || 'N/A'}</h4>
+                    <p><b>Hãng:</b> ${request.brand || 'N/A'} | <b>Model:</b> ${request.model || 'N/A'}</p>
+                    <p><b>Lỗi:</b> ${request.condition || 'N/A'}</p>
+                    <p><b>Khách hàng:</b> ${customer ? customer.fullName : 'N/A'}</p>
+                    <p><b>Khối lượng:</b> ${request.weight || 'N/A'}</p>
+                `;
+            }
         }
         
         if (assessment) {
             const aiBox = document.querySelector('.ai-box');
             if (aiBox) {
-                const paragraphs = aiBox.querySelectorAll('p');
-                if (paragraphs.length >= 2) {
-                    paragraphs[0].textContent = assessment.recommendedAction || 'Đang phân tích...';
-                    paragraphs[1].textContent = `Chi phí sửa chữa dự kiến: ${assessment.estimatedRepairCost || 'N/A'}`;
-                }
+                aiBox.innerHTML = `
+                    <h4>🤖 AI chẩn đoán</h4>
+                    <p><b>Giải pháp đề xuất:</b> ${assessment.recommendedAction || 'Đang phân tích...'}</p>
+                    <p><b>Chi phí sửa dự kiến:</b> ${assessment.estimatedRepairCost || 'Chưa có'}</p>
+                    <p><b>Giá bán lại đề xuất:</b> ${assessment.estimatedResalePrice || 'Chưa có'}</p>
+                    <p><b>Phí tái chế đề xuất:</b> ${assessment.estimatedRecycleCost || 'Chưa có'}</p>
+                `;
             }
+        }
+
+        // Gắn click listener cho nút Gửi báo giá
+        const submitBtn = document.querySelector('.btn-submit');
+        if (submitBtn) {
+            submitBtn.addEventListener('click', async () => {
+                try {
+                    const priceInput = document.querySelector('.quote-layout input[type="number"]');
+                    const priceVal = priceInput ? priceInput.value : '0';
+                    const partsSelect = document.querySelectorAll('.form-control')[1]?.value || 'Linh kiện gốc';
+                    const timeSelect = document.querySelectorAll('.form-control')[2]?.value || 'Trong ngày';
+                    const warrantySelect = document.querySelectorAll('.form-control')[3]?.value || '6 tháng';
+                    const noteText = document.querySelector('textarea.form-control')?.value || '';
+
+                    // 1. Cập nhật trạng thái yêu cầu sang "Sent"
+                    const result = await ECOcycleAPI.updateProcessRequestStatus(requestId, 'Sent');
+                    
+                    // 2. Cập nhật báo giá trong cơ sở dữ liệu AI Assessments
+                    if (assessment) {
+                        const allAssessments = await callAPI('aiassessments');
+                        const index = allAssessments.findIndex(a => a.requestID === requestId);
+                        if (index !== -1) {
+                            allAssessments[index].estimatedRepairCost = parseFloat(priceVal).toLocaleString('vi-VN') + 'đ';
+                            await callAPI(`aiassessments`, 'POST', allAssessments[index]); // callAPI POST overwrites or saves
+                        }
+                    }
+
+                    if (result) {
+                        showNotification('Gửi báo giá thành công!', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'quotation_list.html';
+                        }, 1000);
+                    } else {
+                        showNotification('Lỗi khi gửi báo giá', 'error');
+                    }
+                } catch (e) {
+                    console.error(e);
+                    showNotification('Lỗi kết nối máy chủ', 'error');
+                }
+            });
         }
     } catch (error) {
         console.error('Error loading quotation detail:', error);

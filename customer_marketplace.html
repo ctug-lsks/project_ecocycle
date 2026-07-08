@@ -11,17 +11,27 @@
             --primary: #1f9d47;
             --primary-dark: #167e35;
             --primary-light: #e8f9ec;
-            --bg-color: #f7f9f8;
+            --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --border-color: #e5e7eb;
-            --radius-lg: 16px;
-            --radius-md: 10px;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --radius-sm: 6px;
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
             --vnu-color: #0d6efd;
             --vnu-light: #e7f1ff;
+            --accent: #7c3aed;
+            --accent-light: #f5f3ff;
+            --danger: #ef4444;
+            --danger-light: #fef2f2;
+            --warning-light: #fffbeb;
+            --warning-text: #f59e0b;
+            --info-bg: #e0f2fe;
+            --info-text: #0369a1;
+            --info-border: #bae6fd;
         }
 
         * {
@@ -73,7 +83,7 @@
             color: white;
             border: none;
             padding: 14px 28px;
-            border-radius: 30px;
+            border-radius: var(--radius-lg);
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -127,7 +137,7 @@
             width: 100%;
             padding: 14px 20px 14px 50px;
             border: 1.5px solid var(--border-color);
-            border-radius: 30px;
+            border-radius: var(--radius-lg);
             font-size: 1rem;
             outline: none;
             transition: border-color 0.3s;
@@ -142,7 +152,7 @@
             align-items: center;
             gap: 10px;
             padding: 10px 20px;
-            border-radius: 30px;
+            border-radius: var(--radius-lg);
             background-color: var(--vnu-light);
             color: var(--vnu-color);
             font-weight: 600;
@@ -174,7 +184,7 @@
 
         .categories-row::-webkit-scrollbar-thumb {
             background-color: #ddd;
-            border-radius: 10px;
+            border-radius: var(--radius-md);
         }
 
         .category-tab {
@@ -350,7 +360,7 @@
             max-width: 600px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
-            animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: slideUp 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         @keyframes slideUp {
@@ -516,6 +526,192 @@
             font-size: 0.85rem;
             color: var(--text-muted);
         }
+
+        /* Dynamic / inline style overrides for polish */
+        .checkout-summary-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 15px;
+        }
+        .checkout-summary-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .checkout-summary-img-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--primary-light);
+        }
+        .checkout-summary-img-wrapper i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        .checkout-summary-details h4 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+        .checkout-summary-details span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .checkout-summary-pricing {
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .checkout-pricing-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .checkout-pricing-row span {
+            color: var(--text-muted);
+        }
+        .checkout-pricing-row b {
+            color: var(--text-main);
+        }
+        .checkout-pricing-row.total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .checkout-pricing-row.total span {
+            color: var(--primary-dark);
+        }
+
+        .form-group-spaced {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .form-group-spaced label {
+            font-weight: 600;
+            display: block;
+        }
+        .form-group-spaced input, 
+        .form-group-spaced select, 
+        .form-group-spaced textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: white;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .form-group-spaced input:focus, 
+        .form-group-spaced select:focus, 
+        .form-group-spaced textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .rating-summary-alert {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: var(--warning-light);
+            border-radius: var(--radius-md);
+        }
+        .rating-avg-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--warning-text);
+        }
+        .rating-avg-stars {
+            color: var(--warning-text);
+            font-size: 1.1rem;
+        }
+        .rating-avg-count {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .review-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .review-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .review-item-buyer {
+            font-size: 0.85rem;
+        }
+        .review-item-stars {
+            color: var(--warning-text);
+            font-size: 0.85rem;
+        }
+        .review-item-comment {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .my-product-alert {
+            margin-top: 15px;
+            padding: 12px;
+            background: var(--info-bg);
+            color: var(--info-text);
+            border-radius: var(--radius-md);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--info-border);
+        }
+        .chat-seller-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1.5px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+        .chat-seller-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .star-rating-stars {
+            display: flex;
+            gap: 6px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #d1d5db;
+        }
+
+        .complaint-alert {
+            background: var(--danger-light);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -641,32 +837,32 @@
         <div class="modal-body" style="padding: 24px;">
             <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
                 <!-- Tóm tắt sản phẩm -->
-                <div id="checkoutSummaryCard" style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 15px;">
+                <div id="checkoutSummaryCard" class="checkout-summary-card">
                     <!-- Rendered dynamically -->
                 </div>
                 
                 <!-- Form nhận hàng -->
                 <div style="display: flex; flex-direction: column; gap: 15px;">
-                    <h4 style="font-weight: 700; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; color: var(--text-main);">Thông Tin Giao Nhận</h4>
+                    <h4 style="font-weight: 700; border-bottom: 2px solid var(--border-color); padding-bottom: 8px; color: var(--text-main);">Thông Tin Giao Nhận</h4>
                     
-                    <div class="form-group" style="margin-bottom: 0;">
-                        <label style="font-weight:600; margin-bottom:5px; display:block;">Họ và tên người nhận</label>
-                        <input type="text" id="checkoutName" required style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px;">
+                    <div class="form-group-spaced">
+                        <label>Họ và tên người nhận</label>
+                        <input type="text" id="checkoutName" required>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 0;">
-                        <label style="font-weight:600; margin-bottom:5px; display:block;">Số điện thoại</label>
-                        <input type="text" id="checkoutPhone" required style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px;">
+                    <div class="form-group-spaced">
+                        <label>Số điện thoại</label>
+                        <input type="text" id="checkoutPhone" required>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 0;">
-                        <label style="font-weight:600; margin-bottom:5px; display:block;">Địa chỉ giao hàng</label>
-                        <input type="text" id="checkoutAddress" required style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px;">
+                    <div class="form-group-spaced">
+                        <label>Địa chỉ giao hàng</label>
+                        <input type="text" id="checkoutAddress" required>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 0;">
-                        <label style="font-weight:600; margin-bottom:5px; display:block;">Phương thức thanh toán</label>
-                        <select id="checkoutPayment" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; background: white;">
+                    <div class="form-group-spaced">
+                        <label>Phương thức thanh toán</label>
+                        <select id="checkoutPayment">
                             <option value="COD">Thanh toán khi nhận hàng (COD)</option>
                             <option value="Coins">Sử dụng Green Coins (Tích lũy)</option>
                             <option value="Momo">Ví điện tử MoMo</option>
@@ -676,7 +872,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal-footer" style="background: #f8fafc; border-top: 1px solid var(--border-color);">
+        <div class="modal-footer" >
             <button class="btn-cancel" onclick="closeModal('checkoutModal')">Hủy bỏ</button>
             <button class="btn-confirm" onclick="confirmPurchase()">Xác Nhận Đặt Mua</button>
         </div>
@@ -691,10 +887,10 @@
             <button class="modal-close" onclick="closeModal('reviewModal')">&times;</button>
         </div>
         <div class="modal-body" style="padding: 24px;">
-            <div id="reviewProductInfo" style="background: #f8fafc; border-radius: 10px; padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
+            <div id="reviewProductInfo" style="background: #f8fafc; border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
             <div style="margin-bottom: 16px;">
                 <label style="font-weight: 600; display: block; margin-bottom: 8px;">Số sao đánh giá</label>
-                <div id="starRating" style="display: flex; gap: 6px; font-size: 2rem; cursor: pointer; color: #d1d5db;">
+                <div id="starRating" class="star-rating-stars">
                     <span onclick="setRating(1)" data-star="1">★</span>
                     <span onclick="setRating(2)" data-star="2">★</span>
                     <span onclick="setRating(3)" data-star="3">★</span>
@@ -704,7 +900,7 @@
             </div>
             <div>
                 <label style="font-weight: 600; display: block; margin-bottom: 8px;">Nhận xét của bạn</label>
-                <textarea id="reviewComment" rows="4" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..." style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                <textarea id="reviewComment" rows="4" placeholder="Chia sẻ trải nghiệm của bạn về sản phẩm..."></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -722,10 +918,10 @@
             <button class="modal-close" onclick="closeModal('complaintModal')">&times;</button>
         </div>
         <div class="modal-body" style="padding: 24px;">
-            <div id="complaintOrderInfo" style="background: #fef2f2; border-radius: 10px; padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
+            <div id="complaintOrderInfo" style="background: #fef2f2; border-radius: var(--radius-md); padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
             <div>
                 <label style="font-weight: 600; display: block; margin-bottom: 8px;">Lý do khiếu nại</label>
-                <select id="complaintReason" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; background: white; margin-bottom: 12px;">
+                <select id="complaintReason" style="margin-bottom: 12px;">
                     <option value="Sản phẩm không đúng mô tả">Sản phẩm không đúng mô tả</option>
                     <option value="Sản phẩm bị hỏng/lỗi">Sản phẩm bị hỏng/lỗi</option>
                     <option value="Giao hàng chậm trễ">Giao hàng chậm trễ</option>
@@ -735,7 +931,7 @@
             </div>
             <div>
                 <label style="font-weight: 600; display: block; margin-bottom: 8px;">Mô tả chi tiết</label>
-                <textarea id="complaintDetail" rows="4" placeholder="Mô tả chi tiết vấn đề bạn gặp phải..." style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                <textarea id="complaintDetail" rows="4" placeholder="Mô tả chi tiết vấn đề bạn gặp phải..."></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -819,7 +1015,7 @@
 
         if (filtered.length === 0) {
             grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: var(--text-muted);">
-                <i class="fa-solid fa-box-open" style="font-size: 3rem; margin-bottom: 15px; color: #ccc;"></i>
+                <i class="fa-solid fa-box-open" style="font-size: 3rem; margin-bottom: 15px; color: var(--text-muted);"></i>
                 <p>Không tìm thấy sản phẩm nào phù hợp.</p>
             </div>`;
             return;
@@ -902,20 +1098,20 @@
             const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
             const stars = (rating) => '★'.repeat(rating) + '☆'.repeat(5 - rating);
             container.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 10px; background: #fffbeb; border-radius: 8px;">
-                    <span style="font-size: 1.8rem; font-weight: 800; color: #f59e0b;">${avgRating}</span>
+                <div class="rating-summary-alert">
+                    <span class="rating-avg-number">${avgRating}</span>
                     <div>
-                        <div style="color: #f59e0b; font-size: 1.1rem;">${stars(Math.round(avgRating))}</div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted);">${reviews.length} đánh giá</span>
+                        <div class="rating-avg-stars">${stars(Math.round(avgRating))}</div>
+                        <span class="rating-avg-count">${reviews.length} đánh giá</span>
                     </div>
                 </div>
                 ${reviews.map(r => `
-                    <div style="padding: 10px 0; border-bottom: 1px solid #f3f4f6;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                            <b style="font-size: 0.85rem;">Người mua ${r.buyerID}</b>
-                            <span style="color: #f59e0b; font-size: 0.85rem;">${stars(r.rating)}</span>
+                    <div class="review-item">
+                        <div class="review-item-header">
+                            <b class="review-item-buyer">Người mua ${r.buyerID}</b>
+                            <span class="review-item-stars">${stars(r.rating)}</span>
                         </div>
-                        <p style="margin: 0; font-size: 0.85rem; color: #374151;">${r.comment}</p>
+                        <p class="review-item-comment">${r.comment}</p>
                         <span style="font-size: 0.75rem; color: var(--text-muted);">${r.date}</span>
                     </div>
                 `).join('')}
@@ -941,7 +1137,7 @@
         let actionArea = "";
         if (isMyProduct) {
             actionArea = `
-                <div style="margin-top: 15px; padding: 12px; background: #e0f2fe; color: #0369a1; border-radius: 8px; text-align: center; font-weight: 600; font-size: 0.9rem; border: 1px solid #bae6fd;">
+                <div class="my-product-alert">
                     <i class="fa-solid fa-circle-info"></i> Đây là sản phẩm do bạn đang đăng bán
                 </div>
             `;
@@ -950,8 +1146,7 @@
         } else {
             actionArea = `
                 <div style="margin-top: 15px; display: flex; gap: 10px;">
-                    <button onclick="openChatWithSeller('${prod.sellerid}', '${seller ? seller.fullName : 'Người bán'}')" style="flex:1; padding: 10px; border: 1.5px solid var(--primary); background: white; color: var(--primary); border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s;"
-                    onmouseover="this.style.background='var(--primary)';this.style.color='white'" onmouseout="this.style.background='white';this.style.color='var(--primary)'"><i class='fa-solid fa-comment-dots'></i> Chat với người bán</button>
+                    <button class="chat-seller-btn" onclick="openChatWithSeller('${prod.sellerid}', '${seller ? seller.fullName : 'Người bán'}')"><i class='fa-solid fa-comment-dots'></i> Chat với người bán</button>
                 </div>
             `;
             const buyBtn = document.getElementById("detailBuyBtn");
@@ -985,14 +1180,14 @@
             <div class="seller-card">
                 <div class="seller-avatar">${seller ? seller.fullName.charAt(0) : '?'}</div>
                 <div class="seller-info">
-                    <h4>${seller ? seller.fullName : 'Người bán ECOcycle'} ${isVnu ? `<span style="color:var(--vnu-color); font-size:0.8rem;"><i class="fa-solid fa-graduation-cap"></i> Verified VNU</span>` : ''}</h4>
+                    <h4>${seller ? seller.fullName : 'Người bán ECOcycle'} ${isVnu ? `<span style="color:var(--vnu-color); font-size:0.85rem; font-weight:700;"><i class="fa-solid fa-graduation-cap"></i> Verified VNU</span>` : ''}</h4>
                     <p>Mã tài khoản: ${prod.sellerid}</p>
                     <p>Liên hệ: ${seller ? seller.phoneNumber : 'N/A'}</p>
                 </div>
             </div>
             ${actionArea}
             <div style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px;">
-                <h4 style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-star" style="color: #f59e0b;"></i> Đánh giá & Nhận xét</h4>
+                <h4 style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-star" style="color: var(--warning-text);"></i> Đánh giá & Nhận xét</h4>
                 <div id="reviewsContainer" style="font-size: 0.9rem; color: var(--text-muted);">Đang tải đánh giá...</div>
             </div>
         `;
@@ -1064,27 +1259,27 @@
         const summaryCard = document.getElementById("checkoutSummaryCard");
         if (summaryCard) {
             summaryCard.innerHTML = `
-                <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 12px;">
-                    <div style="width: 60px; height: 60px; border-radius: 8px; overflow: hidden; background: #e8f9ec; display: flex; align-items: center; justify-content: center; border: 1px solid var(--primary-light);">
-                        <i class="fa-solid fa-mobile-screen" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <div class="checkout-summary-item">
+                    <div class="checkout-summary-img-wrapper">
+                        <i class="fa-solid fa-mobile-screen"></i>
                     </div>
-                    <div style="flex: 1;">
-                        <h4 style="font-weight: 700; font-size: 1.05rem; color: var(--text-main); margin-bottom: 4px;">${selectedProduct.title}</h4>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Mã thiết bị: ${selectedProduct.id}</span>
+                    <div class="checkout-summary-details">
+                        <h4>${selectedProduct.title}</h4>
+                        <span>Mã thiết bị: ${selectedProduct.id}</span>
                     </div>
                 </div>
-                <div style="border-top: 1px dashed var(--border-color); padding-top: 10px; font-size: 0.9rem; display: flex; flex-direction: column; gap: 6px;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Giá bán sản phẩm:</span>
-                        <b style="color: var(--text-main);">${selectedProduct.fromPrice}</b>
+                <div class="checkout-summary-pricing">
+                    <div class="checkout-pricing-row">
+                        <span>Giá bán sản phẩm:</span>
+                        <b>${selectedProduct.fromPrice}</b>
                     </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <span style="color: var(--text-muted);">Phí giao hàng:</span>
-                        <b style="color: var(--text-main);">15.000₫</b>
+                    <div class="checkout-pricing-row">
+                        <span>Phí giao hàng:</span>
+                        <b>15.000₫</b>
                     </div>
-                    <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 8px; font-weight: 700; font-size: 1.05rem;">
-                        <span style="color: var(--primary-dark);">Tổng thanh toán:</span>
-                        <span style="color: var(--primary-dark);">${selectedProduct.fromPrice}</span>
+                    <div class="checkout-pricing-row total">
+                        <span>Tổng thanh toán:</span>
+                        <span>${selectedProduct.fromPrice}</span>
                     </div>
                 </div>
             `;
@@ -1230,7 +1425,7 @@
         if (!checkLogin()) return;
         complaintOrderID = orderID;
         document.getElementById('complaintDetail').value = '';
-        document.getElementById('complaintOrderInfo').innerHTML = `<b>Mã đơn hàng:</b> ${orderID} &nbsp;|&nbsp; <span style="color: #ef4444;">Khiếu nại sẽ được Admin xem xét trong 24h.</span>`;
+        document.getElementById('complaintOrderInfo').innerHTML = `<b>Mã đơn hàng:</b> ${orderID} &nbsp;|&nbsp; <span style="color: var(--danger); font-weight: 600;">Khiếu nại sẽ được Admin xem xét trong 24h.</span>`;
         openModal('complaintModal');
     }
 

@@ -18,7 +18,7 @@
         "model": "Galaxy S21",
         "condition": " Vertical lines on the screen",
         "weight": "0.2kg",
-        "requestType": "Resell",
+        "requestType": "Recycle",
         "status": "Processed"
     },
     {
@@ -30,6 +30,72 @@
         "condition": "Cracked Back Cover",
         "weight": "0.5kg",
         "requestType": "Recycle",
+        "status": "Processed"
+    },
+    {
+        "requestID": "RQ000004",
+        "customerID": "CM000001",
+        "productName": "6ret41234",
+        "brand": "5345436",
+        "model": "56456465",
+        "condition": "gfdsgdfgdsfgwègdsfgsdfg",
+        "weight": "3kg",
+        "requestType": "Pending",
+        "status": "Pending"
+    },
+    {
+        "requestID": "RQ000005",
+        "customerID": "CM000001",
+        "productName": "6ret41234",
+        "brand": "5345436",
+        "model": "56456465",
+        "condition": "gfdsgdfgdsfgwègdsfgsdfg",
+        "weight": "3kg",
+        "requestType": "Pending",
+        "status": "Pending"
+    },
+    {
+        "requestID": "RQ000006",
+        "customerID": "CM000001",
+        "productName": "6ret41234",
+        "brand": "5345436",
+        "model": "56456465",
+        "condition": "édfadsfádf",
+        "weight": "2kg",
+        "requestType": "Pending",
+        "status": "Pending"
+    },
+    {
+        "requestID": "RQ000007",
+        "customerID": "CM000001",
+        "productName": "redmi note 13 pro",
+        "brand": "redmi",
+        "model": "2312DRA50C",
+        "condition": "hơi trầy nhẹ",
+        "weight": "0.4kg",
+        "requestType": "Repair",
+        "status": "Processed"
+    },
+    {
+        "requestID": "RQ000008",
+        "customerID": "CM000001",
+        "productName": "redmi note 13 pro",
+        "brand": "Default",
+        "model": "Model AI",
+        "condition": "Thiết bị có tình trạng: Trầy xước. Cần đặt lịch thu gom/sửa chữa qua ECOcycle.",
+        "weight": "1.0kg",
+        "requestType": "Recycle",
+        "status": "Processed"
+    },
+    {
+        "requestID": "RQ000009",
+        "customerID": "CM000001",
+        "productName": "fx casio 580",
+        "brand": "Default",
+        "model": "Model AI",
+        "condition": "Thiết bị có tình trạng: Đẹp. Cần đặt lịch thu gom/sửa chữa qua ECOcycle.",
+        "weight": "1.0kg",
+        "requestType": "Resell",
         "status": "Processed"
     }
 ]

@@ -23,6 +23,29 @@
         "estimatedResalePrice": "300.000đ",
         "estimatedRecycleCost": "10.000đ",
         "recommendedAction": "Recycle"
+    },
+    {
+        "assessmentID": "AI000004",
+        "requestID": "RQ000007",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "500,000đ",
+        "estimatedResalePrice": "1,500,000đ",
+        "estimatedRecycleCost": "24,000đ"
+    },
+    {
+        "assessmentID": "AI000005",
+        "requestID": "RQ000008",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "500,000đ",
+        "estimatedResalePrice": "1,500,000đ",
+        "estimatedRecycleCost": "30,000đ"
+    },
+    {
+        "assessmentID": "AI000006",
+        "requestID": "RQ000009",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "500,000đ",
+        "estimatedResalePrice": "1,500,000đ",
+        "estimatedRecycleCost": "30,000đ"
     }
-
 ]

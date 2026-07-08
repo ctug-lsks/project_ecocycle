@@ -7,5 +7,18 @@
         "finalPrice": "800.000đ",
         "status": "In Progress",
         "orderDate": "2024-06-15"
+    },
+    {
+        "resellOrderID": "RS000002",
+        "requestID": "RQ000009",
+        "customerID": "CM000001",
+        "storeID": "BR000001",
+        "pickupDate": "2026-07-08",
+        "pickupAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "finalPrice": "1.500.000đ",
+        "status": "Completed",
+        "repairStatus": "Đã sửa chữa",
+        "shippingStatus": "Đã gửi đi xử lý",
+        "orderDate": "2026-07-08"
     }
 ]

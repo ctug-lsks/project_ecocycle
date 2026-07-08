@@ -80,41 +80,27 @@
                     Cập nhật trạng thái đơn hàng
                 </div>
                 <div class="process">
-                    <div class="step active">
+                    <div class="step" data-status="Pending">
                         <div class="circle">
                             <i class="fa-solid fa-file-invoice-dollar"></i>
                         </div>
                         <div class="step-name">
-                            Chờ báo giá
+                            Chờ xử lý
                         </div>
                     </div>
 
                     <div class="line"></div>
-                    <div class="step">
-                        <div class="circle">
-                            <i class="fa-regular fa-comments"></i>
-                        </div>
-
-                        <div class="step-name">
-                            Đang trao đổi
-                        </div>
-                    </div>
-
-                    <div class="line"></div>
-
-                    <div class="step">
+                    <div class="step" data-status="In Progress">
                         <div class="circle">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </div>
-
                         <div class="step-name">
                             Đang sửa
                         </div>
                     </div>
 
                     <div class="line"></div>
-
-                    <div class="step">
+                    <div class="step" data-status="Waiting">
                         <div class="circle">
                             <i class="fa-solid fa-box"></i>
                         </div>
@@ -124,14 +110,22 @@
                     </div>
 
                     <div class="line"></div>
-
-                    <div class="step">
+                    <div class="step" data-status="Completed">
                         <div class="circle">
                             <i class="fa-solid fa-circle-check"></i>
                         </div>
-
                         <div class="step-name">
                             Hoàn tất
+                        </div>
+                    </div>
+
+                    <div class="line"></div>
+                    <div class="step" data-status="Delivered">
+                        <div class="circle">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <div class="step-name">
+                            Đã giao
                         </div>
                     </div>
                 </div>
