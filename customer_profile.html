@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOcycle - Hồ Sơ Cá Nhân</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1f9d47;
+            --primary-dark: #167e35;
+            --primary-light: #e8f9ec;
+            --bg-color: #f7f9f8;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --vnu-color: #0d6efd;
+            --vnu-light: #e7f1ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- Cards --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .profile-side-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-large {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 4px solid var(--primary-light);
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .profile-id {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+        }
+
+        .badge-vnu-profile {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--vnu-light);
+            color: var(--vnu-color);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .badge-vnu-profile.not-verified {
+            background-color: #f3f4f6;
+            color: var(--text-muted);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+
+        .stat-item h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Profile Info --- */
+        .info-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .info-label {
+            flex: 0 0 120px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .info-value {
+            font-weight: 500;
+        }
+
+        /* --- Verification Section --- */
+        .verification-box {
+            background-color: #f9fafb;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .verification-box h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .verification-box p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .verification-input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .verification-input-row input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .verification-input-row input:focus {
+            border-color: var(--vnu-color);
+        }
+
+        .btn-verify {
+            background-color: var(--vnu-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .btn-verify:hover {
+            background-color: #0b5ed7;
+        }
+
+        /* --- History Tabs & Tables --- */
+        .history-tabs {
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .history-tab {
+            padding: 10px 5px;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            position: relative;
+            outline: none;
+        }
+
+        .history-tab.active {
+            color: var(--primary);
+        }
+
+        .history-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .history-table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background-color: #f9fafb;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-pending { background-color: #fef3c7; color: #d97706; }
+        .badge-processed { background-color: #dbeafe; color: #2563eb; }
+        .badge-agreed { background-color: #dcfce7; color: #16a34a; }
+        .badge-cancelled { background-color: #fde8e8; color: #e11d48; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="layout-grid">
+        <!-- --- Sidebar Card --- -->
+        <div class="profile-side-card">
+            <div class="card" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                <div class="avatar-large" id="avatarChar">?</div>
+                <h2 class="profile-name" id="profileName">Loading...</h2>
+                <p class="profile-id" id="profileID">CM000000</p>
+                
+                <div id="vnuBadge" class="badge-vnu-profile not-verified">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Chưa xác thực VNU
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <h4 id="statCoins">0</h4>
+                        <p>Green Coins</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 id="statRank">Bạc</h4>
+                        <p>Hạng</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 id="statReputation">98</h4>
+                        <p>Uy tín</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- --- Info & History Cards --- -->
+        <div>
+            <div class="card">
+                <div class="info-title">
+                    Thông Tin Cá Nhân
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">Email</span>
+                    <span class="info-value" id="profileEmail">...</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Số điện thoại</span>
+                    <span class="info-value" id="profilePhone">...</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Địa chỉ</span>
+                    <span class="info-value" id="profileAddress">...</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Ngày gia nhập</span>
+                    <span class="info-value" id="profileJoinDate">...</span>
+                </div>
+
+                <!-- Verification Panel -->
+                <div class="verification-box" id="verificationBox">
+                    <h3><i class="fa-solid fa-circle-check" style="color: var(--vnu-color);"></i> Xác thực Email Đại học Quốc gia (VNU)</h3>
+                    <p>Nhận ngay huy hiệu <b>"Verified VNU"</b> hiển thị trên các sản phẩm đăng bán của bạn và nhận thưởng thêm <b>+100 Green Coins</b> chào mừng!</p>
+                    <div class="verification-input-row">
+                        <input type="email" id="vnuEmailInput" placeholder="VD: an.nm@vnu.edu.vn">
+                        <button class="btn-verify" onclick="verifyVnuEmail()">Xác thực</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="history-tabs">
+                    <button class="history-tab active" onclick="switchHistoryTab('recycle', this)">Sửa chữa & Tái chế</button>
+                    <button class="history-tab" onclick="switchHistoryTab('orders', this)">Đơn mua hàng</button>
+                    <button class="history-tab" onclick="switchHistoryTab('complaints', this)">Khiếu nại</button>
+                    <button class="history-tab" onclick="switchHistoryTab('myproducts', this)">Sản phẩm đang bán</button>
+                </div>
+
+                <div class="history-table-container">
+                    <table id="historyTable">
+                        <thead>
+                            <tr id="tableHeaders">
+                                <th>Mã yêu cầu</th>
+                                <th>Thiết bị</th>
+                                <th>Loại</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Đang tải dữ liệu...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+</div>
+</div>
+</div>
+<!-- MODAL ĐÁNH GIÁ -->
+<div class="modal-overlay" id="reviewModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1000; align-items:center; justify-content:center;">
+    <div style="background: white; border-radius: 16px; max-width: 480px; width: 90%; padding: 0; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">⭐ Đánh Giá Sản Phẩm</h3>
+            <button onclick="document.getElementById('reviewModal').style.display='none'" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color: var(--text-muted);">&times;</button>
+        </div>
+        <div style="padding: 24px;">
+            <div id="reviewProductInfoProfile" style="background: #f8fafc; border-radius: 10px; padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
+            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Số sao đánh giá</label>
+            <div id="starRatingProfile" style="display: flex; gap: 6px; font-size: 2rem; cursor: pointer; color: #d1d5db; margin-bottom: 16px;">
+                <span onclick="setProfileRating(1)" data-star="1">★</span>
+                <span onclick="setProfileRating(2)" data-star="2">★</span>
+                <span onclick="setProfileRating(3)" data-star="3">★</span>
+                <span onclick="setProfileRating(4)" data-star="4">★</span>
+                <span onclick="setProfileRating(5)" data-star="5">★</span>
+            </div>
+            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Nhận xét</label>
+            <textarea id="reviewCommentProfile" rows="3" placeholder="Chia sẻ trải nghiệm..." style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+        </div>
+        <div style="padding: 16px 24px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 10px; background: #f9fafb;">
+            <button onclick="document.getElementById('reviewModal').style.display='none'" style="padding: 10px 20px; border: 1px solid var(--border-color); border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">Hủy</button>
+            <button onclick="submitProfileReview()" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--primary); color: white; cursor: pointer; font-weight: 600;">Gửi Đánh Giá</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL KHIẾU NẠI -->
+<div class="modal-overlay" id="complaintModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1000; align-items:center; justify-content:center;">
+    <div style="background: white; border-radius: 16px; max-width: 480px; width: 90%; padding: 0; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">⚠️ Khiếu Nại Đơn Hàng</h3>
+            <button onclick="document.getElementById('complaintModal').style.display='none'" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color: var(--text-muted);">&times;</button>
+        </div>
+        <div style="padding: 24px;">
+            <div id="complaintOrderInfoProfile" style="background: #fef2f2; border-radius: 10px; padding: 12px; margin-bottom: 16px; font-size: 0.9rem;"></div>
+            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Lý do khiếu nại</label>
+            <select id="complaintReasonProfile" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; background: white; margin-bottom: 12px;">
+                <option value="Sản phẩm không đúng mô tả">Sản phẩm không đúng mô tả</option>
+                <option value="Sản phẩm bị hỏng/lỗi">Sản phẩm bị hỏng/lỗi</option>
+                <option value="Giao hàng chậm trễ">Giao hàng chậm trễ</option>
+                <option value="Thiếu sản phẩm/phụ kiện">Thiếu sản phẩm/phụ kiện</option>
+                <option value="Khác">Lý do khác</option>
+            </select>
+            <label style="font-weight: 600; display: block; margin-bottom: 8px;">Mô tả chi tiết</label>
+            <textarea id="complaintDetailProfile" rows="3" placeholder="Mô tả chi tiết vấn đề..." style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+        </div>
+        <div style="padding: 16px 24px; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 10px; background: #f9fafb;">
+            <button onclick="document.getElementById('complaintModal').style.display='none'" style="padding: 10px 20px; border: 1px solid var(--border-color); border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">Hủy</button>
+            <button onclick="submitProfileComplaint()" style="padding: 10px 20px; border: none; border-radius: 8px; background: #ef4444; color: white; cursor: pointer; font-weight: 600;">Gửi Khiếu Nại</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL THEO DÕI ĐƠN HÀNG -->
+<div class="modal-overlay" id="trackingModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 1000; align-items:center; justify-content:center;">
+    <div style="background: white; border-radius: 16px; max-width: 520px; width: 90%; padding: 0; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden;">
+        <div style="padding: 20px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">📦 Theo Dõi Đơn Hàng</h3>
+            <button onclick="document.getElementById('trackingModal').style.display='none'" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color: var(--text-muted);">&times;</button>
+        </div>
+        <div id="trackingContent" style="padding: 24px;">Đang tải...</div>
+    </div>
+</div>
+
+<iframe src="footer.html" style="width:100%; height:380px; border:none; margin-top:50px;" scrolling="no"></iframe>
+
+<script>
+    if (!localStorage.getItem("role") || localStorage.getItem("role") !== "customer") {
+        window.top.location.href = "login.html";
+    }
+    const customerID = localStorage.getItem("customerId") || "CM000001";
+    let customerData = null;
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        await loadProfileData();
+        await loadRecycleHistory();
+    });
+
+    async function loadProfileData() {
+        try {
+            const res = await fetch(`http://localhost:3000/api/users/customer/${customerID}`);
+            if (res.ok) {
+                customerData = await res.json();
+                
+                // Populate Profile
+                document.getElementById("profileName").textContent = customerData.fullName;
+                document.getElementById("profileID").textContent = customerData.customerID;
+                document.getElementById("avatarChar").textContent = customerData.fullName.charAt(0);
+                document.getElementById("profileEmail").textContent = customerData.email;
+                document.getElementById("profilePhone").textContent = customerData.phoneNumber;
+                document.getElementById("profileAddress").textContent = customerData.address;
+                document.getElementById("profileJoinDate").textContent = customerData.joinDate;
+                document.getElementById("statCoins").textContent = customerData.greenCoins || 0;
+
+                // Rank based on coins
+                const coins = customerData.greenCoins || 0;
+                let rank = "Đồng";
+                if (coins > 500) rank = "Kim Cương";
+                else if (coins > 200) rank = "Vàng";
+                else if (coins > 100) rank = "Bạc";
+                document.getElementById("statRank").textContent = rank;
+                document.getElementById("statReputation").textContent = (customerData.reputation || 98) + "/100";
+
+                // VNU Status
+                const vnuBadge = document.getElementById("vnuBadge");
+                const vnuBox = document.getElementById("verificationBox");
+                if (customerData.isVerifiedVNU) {
+                    vnuBadge.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Verified VNU`;
+                    vnuBadge.className = "badge-vnu-profile";
+                    vnuBadge.style.backgroundColor = "var(--vnu-light)";
+                    vnuBadge.style.color = "var(--vnu-color)";
+                    vnuBox.style.display = "none";
+                } else {
+                    vnuBadge.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Chưa xác thực VNU`;
+                    vnuBadge.className = "badge-vnu-profile not-verified";
+                    vnuBox.style.display = "block";
+                }
+            }
+        } catch (error) {
+            console.error("Lỗi nạp thông tin cá nhân:", error);
+        }
+    }
+
+    async function verifyVnuEmail() {
+        const emailInput = document.getElementById("vnuEmailInput").value.trim();
+        if (!emailInput || !emailInput.endsWith(".vnu.edu.vn") && !emailInput.endsWith("vnu.edu.vn")) {
+            alert("Vui lòng nhập địa chỉ email hợp lệ thuộc tên miền Đại học Quốc gia (*.vnu.edu.vn)!");
+            return;
+        }
+
+        try {
+            // Update customer on server
+            const updateRes = await fetch(`http://localhost:3000/api/users/customer/${customerID}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ isVerifiedVNU: true })
+            });
+
+            if (updateRes.ok) {
+                // Add bonus Green Coins
+                await fetch("http://localhost:3000/api/greencoins", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        customerID: customerID,
+                        action: "Thành viên Verified VNU",
+                        orderID: "VNU-" + Math.floor(Math.random() * 100000),
+                        greenCoins: 100
+                    })
+                });
+
+                alert("Chúc mừng! Tài khoản VNU của bạn đã được xác thực thành công. Nhận ngay +100 Green Coins!");
+                await loadProfileData();
+            } else {
+                alert("Lỗi máy chủ khi xác thực.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Lỗi kết nối.");
+        }
+    }
+
+    async function switchHistoryTab(tab, element) {
+        // Toggle tabs
+        const tabs = document.querySelectorAll('.history-tab');
+        tabs.forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
+
+        // Render appropriate data
+        if (tab === 'recycle') {
+            await loadRecycleHistory();
+        } else if (tab === 'orders') {
+            await loadOrdersHistory();
+        } else if (tab === 'complaints') {
+            await loadComplaintsHistory();
+        } else if (tab === 'myproducts') {
+            await loadMyProductsHistory();
+        }
+    }
+
+    async function loadRecycleHistory() {
+        const body = document.getElementById("tableBody");
+        const headers = document.getElementById("tableHeaders");
+        body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Đang tải...</td></tr>`;
+
+        headers.innerHTML = `
+            <th>Mã yêu cầu</th>
+            <th>Thiết bị</th>
+            <th>Loại</th>
+            <th>Trạng thái</th>
+        `;
+
+        try {
+            const res = await fetch(`http://localhost:3000/api/processrequests/customer/${customerID}`);
+            if (res.ok) {
+                const list = await res.json();
+                if (list.length === 0) {
+                    body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Bạn chưa tạo yêu cầu nào.</td></tr>`;
+                    return;
+                }
+
+                const typeMap = { 'Repair': 'Sửa chữa', 'Resell': 'Thanh lý', 'Recycle': 'Tái chế rác' };
+                const statusText = { 'Pending': 'Chờ xử lý', 'Processed': 'Chờ báo giá', 'Agreed': 'Đã đồng ý', 'Cancelled': 'Đã hủy' };
+                const badgeMap = { 'Pending': 'pending', 'Processed': 'processed', 'Agreed': 'agreed', 'Cancelled': 'cancelled' };
+
+                body.innerHTML = list.map(r => `
+                    <tr>
+                        <td><b>${r.requestID}</b></td>
+                        <td>${r.productName}</td>
+                        <td>${typeMap[r.requestType] || r.requestType}</td>
+                        <td><span class="badge-status badge-${badgeMap[r.status] || 'pending'}">${statusText[r.status] || r.status}</span></td>
+                    </tr>
+                `).join('');
+            }
+        } catch (error) {
+            console.error(error);
+            body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Lỗi tải dữ liệu.</td></tr>`;
+        }
+    }
+
+    async function loadOrdersHistory() {
+        const body = document.getElementById("tableBody");
+        const headers = document.getElementById("tableHeaders");
+        body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Đang tải...</td></tr>`;
+
+        headers.innerHTML = `
+            <th>Mã đơn</th>
+            <th>Số lượng SP</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        `;
+
+        try {
+            const res = await fetch(`http://localhost:3000/api/orders/customer/${customerID}`);
+            if (res.ok) {
+                const list = await res.json();
+                if (list.length === 0) {
+                    body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Bạn chưa mua sản phẩm nào.</td></tr>`;
+                    return;
+                }
+
+                const statusText = { 'Pending': 'Chờ thanh toán', 'Paid': 'Đã thanh toán', 'In Transit': 'Đang giao', 'Delivered': 'Đã giao', 'Cancelled': 'Đã hủy' };
+                const badgeMap = { 'Pending': 'pending', 'Paid': 'agreed', 'In Transit': 'processed', 'Delivered': 'agreed', 'Cancelled': 'cancelled' };
+
+                body.innerHTML = list.map(o => {
+                    const productID = o.products?.[0]?.productID || '';
+                    const productName = productID;
+                    return `
+                    <tr>
+                        <td><b>${o.orderID}</b></td>
+                        <td>${o.products?.length || 0} sản phẩm</td>
+                        <td>${o.total || 'N/A'}</td>
+                        <td><span class="badge-status badge-${badgeMap[o.status] || 'pending'}">${statusText[o.status] || o.status}</span></td>
+                        <td>
+                            <div style="display: flex; gap: 4px; flex-wrap: wrap;">
+                                <button onclick="openTrackingModal('${o.orderID}', '${o.status}', '${o.orderDate || ''}', '${(o.shippingAddress || '').replace(/'/g, '')}')" style="padding: 4px 8px; font-size: 0.75rem; border: 1px solid var(--primary); background: var(--primary-light); color: var(--primary-dark); border-radius: 6px; cursor: pointer; font-weight: 600;">Theo dõi</button>
+                                <button onclick="openProfileReviewModal('${o.orderID}', '${productID}', '${productName}')" style="padding: 4px 8px; font-size: 0.75rem; border: 1px solid #f59e0b; background: #fffbeb; color: #b45309; border-radius: 6px; cursor: pointer; font-weight: 600;">Đánh giá</button>
+                                <button onclick="openProfileComplaintModal('${o.orderID}')" style="padding: 4px 8px; font-size: 0.75rem; border: 1px solid #ef4444; background: #fef2f2; color: #dc2626; border-radius: 6px; cursor: pointer; font-weight: 600;">Khiếu nại</button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                }).join('');
+            }
+        } catch (error) {
+            console.error(error);
+            body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Lỗi tải dữ liệu.</td></tr>`;
+        }
+    }
+
+    async function loadComplaintsHistory() {
+        const body = document.getElementById("tableBody");
+        const headers = document.getElementById("tableHeaders");
+        body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Đang tải...</td></tr>`;
+
+        headers.innerHTML = `
+            <th>Mã khiếu nại</th>
+            <th>Mã đơn hàng</th>
+            <th>Lý do</th>
+            <th>Trạng thái</th>
+        `;
+
+        try {
+            const res = await fetch(`http://localhost:3000/api/complaints/customer/${customerID}`);
+            if (res.ok) {
+                const list = await res.json();
+                if (list.length === 0) {
+                    body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Bạn chưa có khiếu nại nào.</td></tr>`;
+                    return;
+                }
+                const statusText = { 'Pending': 'Đang chờ', 'In Progress': 'Đang xử lý', 'Resolved': 'Đã giải quyết', 'Rejected': 'Từ chối' };
+                const badgeMap = { 'Pending': 'pending', 'In Progress': 'processed', 'Resolved': 'agreed', 'Rejected': 'cancelled' };
+                body.innerHTML = list.map(c => `
+                    <tr>
+                        <td><b>${c.complaintID}</b></td>
+                        <td>${c.orderID}</td>
+                        <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${c.reason}</td>
+                        <td><span class="badge-status badge-${badgeMap[c.status] || 'pending'}">${statusText[c.status] || c.status}</span></td>
+                    </tr>
+                `).join('');
+            }
+        } catch (error) {
+            console.error(error);
+            body.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--text-muted);">Lỗi tải dữ liệu.</td></tr>`;
+        }
+    }
+
+    let profileRating = 0;
+    let profileReviewOrderID = null;
+    let profileReviewProductID = null;
+    let profileComplaintOrderID = null;
+
+    function setProfileRating(rating) {
+        profileRating = rating;
+        const stars = document.querySelectorAll('#starRatingProfile span');
+        stars.forEach((s, i) => {
+            s.style.color = i < rating ? '#f59e0b' : '#d1d5db';
+        });
+    }
+
+    function openProfileReviewModal(orderID, productID, productName) {
+        profileReviewOrderID = orderID;
+        profileReviewProductID = productID;
+        profileRating = 0;
+        setProfileRating(0);
+        document.getElementById('reviewCommentProfile').value = '';
+        document.getElementById('reviewProductInfoProfile').innerHTML = `<b>Đơn hàng:</b> ${orderID} &nbsp;|&nbsp; <b>Sản phẩm:</b> ${productName || productID}`;
+        document.getElementById('reviewModal').style.display = 'flex';
+    }
+
+    async function submitProfileReview() {
+        if (profileRating === 0) { alert('Vui lòng chọn số sao!'); return; }
+        const comment = document.getElementById('reviewCommentProfile').value.trim();
+        if (!comment) { alert('Vui lòng nhập nhận xét!'); return; }
+        try {
+            const res = await fetch('http://localhost:3000/api/reviews', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    productID: profileReviewProductID,
+                    buyerID: customerID,
+                    date: new Date().toISOString().split('T')[0],
+                    rating: profileRating,
+                    comment: comment
+                })
+            });
+            if (res.ok) {
+                alert('Đánh giá thành công!');
+                document.getElementById('reviewModal').style.display = 'none';
+            } else { alert('Lỗi gửi đánh giá.'); }
+        } catch (e) { console.error(e); alert('Lỗi kết nối.'); }
+    }
+
+    function openProfileComplaintModal(orderID) {
+        profileComplaintOrderID = orderID;
+        document.getElementById('complaintDetailProfile').value = '';
+        document.getElementById('complaintOrderInfoProfile').innerHTML = `<b>Mã đơn hàng:</b> ${orderID} &nbsp;|&nbsp; <span style="color: #ef4444;">Admin sẽ xem xét trong 24h.</span>`;
+        document.getElementById('complaintModal').style.display = 'flex';
+    }
+
+    async function submitProfileComplaint() {
+        const reason = document.getElementById('complaintReasonProfile').value;
+        const detail = document.getElementById('complaintDetailProfile').value.trim();
+        try {
+            const res = await fetch('http://localhost:3000/api/complaints', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    customerID: customerID,
+                    orderID: profileComplaintOrderID,
+                    date: new Date().toISOString().split('T')[0],
+                    reason: reason + (detail ? ' - ' + detail : ''),
+                    status: 'Pending'
+                })
+            });
+            if (res.ok) {
+                alert('Khiếu nại đã được gửi thành công!');
+                document.getElementById('complaintModal').style.display = 'none';
+            } else { alert('Lỗi gửi khiếu nại.'); }
+        } catch (e) { console.error(e); alert('Lỗi kết nối.'); }
+    }
+
+    function openTrackingModal(orderID, status, orderDate, address) {
+        const steps = [
+            { key: 'Paid', label: 'Đã thanh toán', icon: '💳' },
+            { key: 'In Transit', label: 'Đang vận chuyển', icon: '🚚' },
+            { key: 'Delivered', label: 'Đã giao hàng', icon: '✅' }
+        ];
+        const statusOrder = ['Paid', 'In Transit', 'Delivered'];
+        const currentIndex = statusOrder.indexOf(status);
+
+        let html = `<div style="margin-bottom: 16px; background: #f8fafc; border-radius: 10px; padding: 14px;">
+            <div style="font-size: 0.9rem;"><b>Mã đơn:</b> ${orderID}</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;"><b>Ngày đặt:</b> ${orderDate || 'N/A'}</div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;"><b>Địa chỉ:</b> ${address || 'N/A'}</div>
+        </div>`;
+
+        if (status === 'Cancelled') {
+            html += '<div style="text-align:center; padding: 20px; color: #ef4444; font-weight: 700;">❌ Đơn hàng đã bị hủy</div>';
+        } else if (status === 'Pending') {
+            html += '<div style="text-align:center; padding: 20px; color: #d97706; font-weight: 700;">⏳ Đơn hàng đang chờ thanh toán</div>';
+        } else {
+            html += '<div style="display: flex; flex-direction: column; gap: 0;">';
+            steps.forEach((step, i) => {
+                const isActive = i <= currentIndex;
+                const isCurrent = i === currentIndex;
+                html += `<div style="display: flex; align-items: flex-start; gap: 14px; position: relative;">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div style="width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; background: ${isActive ? 'var(--primary)' : '#e5e7eb'}; color: ${isActive ? 'white' : '#9ca3af'}; font-weight: 700; border: ${isCurrent ? '3px solid #86efac' : 'none'};">${step.icon}</div>
+                        ${i < steps.length - 1 ? `<div style="width: 2px; height: 30px; background: ${i < currentIndex ? 'var(--primary)' : '#e5e7eb'};"></div>` : ''}
+                    </div>
+                    <div style="padding-top: 6px;">
+                        <div style="font-weight: ${isCurrent ? '700' : '500'}; font-size: 0.9rem; color: ${isActive ? 'var(--text-main)' : '#9ca3af'};">${step.label}</div>
+                    </div>
+                </div>`;
+            });
+            html += '</div>';
+        }
+
+        document.getElementById('trackingContent').innerHTML = html;
+        document.getElementById('trackingModal').style.display = 'flex';
+    }
+
+    async function loadMyProductsHistory() {
+        const body = document.getElementById("tableBody");
+        const headers = document.getElementById("tableHeaders");
+        body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Đang tải...</td></tr>`;
+
+        headers.innerHTML = `
+            <th>Mã SP</th>
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá bán</th>
+            <th>Hành động</th>
+        `;
+
+        try {
+            const res = await fetch("http://localhost:3000/api/products/all");
+            if (res.ok) {
+                const list = await res.json();
+                const myProds = list.filter(p => p.sellerid === customerID);
+                
+                if (myProds.length === 0) {
+                    body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Bạn chưa đăng bán sản phẩm nào.</td></tr>`;
+                    return;
+                }
+
+                body.innerHTML = myProds.map(p => `
+                    <tr>
+                        <td><b>${p.id}</b></td>
+                        <td><img src="${p.img || 'images/default.png'}" style="width:40px; height:40px; object-fit:cover; border-radius:6px;" onerror="this.src='../images/default.png'"></td>
+                        <td>${p.title}</td>
+                        <td><b style="color:var(--primary);">${p.fromPrice}</b></td>
+                        <td>
+                            <button onclick="deleteMyProduct('${p.id}', '${p.title.replace(/'/g, "\\'")}')" style="padding: 6px 12px; font-size: 0.8rem; border: none; background: #ef4444; color: white; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.2s;" onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='#ef4444'">Gỡ bán</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        } catch (error) {
+            console.error(error);
+            body.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-muted);">Lỗi tải danh sách sản phẩm.</td></tr>`;
+        }
+    }
+
+    async function deleteMyProduct(id, name) {
+        if (!confirm(`Bạn có chắc chắn muốn gỡ bán sản phẩm "${name}" không?`)) return;
+        try {
+            const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+                method: 'DELETE'
+            });
+            if (res.ok) {
+                alert("Gỡ bán sản phẩm thành công!");
+                await loadMyProductsHistory();
+            } else {
+                alert("Lỗi khi gỡ bán sản phẩm.");
+            }
+        } catch (e) {
+            console.error(e);
+            alert("Lỗi kết nối máy chủ.");
+        }
+    }
+</script>
+</body>
+</html>

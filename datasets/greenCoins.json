@@ -1,0 +1,126 @@
+[
+    {
+        "transactionID": "TS000001",
+        "orderID": "RC000001",
+        "action": "Recycle Device",
+        "greenCoins": 20
+    },
+    {
+        "transactionID": "TS000002",
+        "orderID": "OD000001",
+        "action": "Buy Device",
+        "greenCoins": 20
+    },
+    {
+        "transactionID": "TS000003",
+        "orderID": "RP000001",
+        "action": "Repair Device",
+        "greenCoins": 15
+    },
+    {
+        "transactionID": "TS000004",
+        "orderID": "RS000001",
+        "action": "Sell Device",
+        "greenCoins": 25
+    },
+    {
+        "transactionID": "TS000005",
+        "orderID": "OD000002",
+        "action": "Buy Device",
+        "greenCoins": 10
+    },
+    {
+        "transactionID": "TS000006",
+        "orderID": "OD000003",
+        "action": "Buy Device",
+        "greenCoins": 20
+    },
+    {
+        "transactionID": "TS000004",
+        "customerID": "CM000001",
+        "action": "Tái chế thiết bị",
+        "orderID": "RQ000003",
+        "greenCoins": 50,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS000004",
+        "customerID": "CM000001",
+        "action": "Tái chế thiết bị",
+        "orderID": "RQ000003",
+        "greenCoins": 50,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS000004",
+        "customerID": "CM000001",
+        "action": "Tái chế thiết bị",
+        "orderID": "RQ000003",
+        "greenCoins": 50,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS000004",
+        "customerID": "CM000005",
+        "action": "Thành viên Verified VNU",
+        "orderID": "VNU-16327",
+        "greenCoins": 100,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS016328",
+        "customerID": "CM000005",
+        "action": "Mua sản phẩm Máy tính bảng Samsung Galaxy Tab S9 WiFi 8GB/128GB",
+        "orderID": "OD-24538",
+        "greenCoins": 90,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS024539",
+        "customerID": "CM000005",
+        "action": "Mua sản phẩm Máy tính bảng Samsung Galaxy Tab S9 WiFi 8GB/128GB",
+        "orderID": "OD-9300",
+        "greenCoins": 90,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS009301",
+        "customerID": "CM000005",
+        "action": "Mua sản phẩm Máy tính bảng Samsung Galaxy Tab S9 5G 12GB/256GB",
+        "orderID": "OD-93730",
+        "greenCoins": 90,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS093731",
+        "customerID": "CM000005",
+        "action": "Đăng bán sản phẩm",
+        "orderID": "POST-6535",
+        "greenCoins": 100,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS006536",
+        "customerID": "CM000005",
+        "action": "Đăng bán sản phẩm",
+        "orderID": "POST-2413",
+        "greenCoins": 100,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS002414",
+        "customerID": "CM000005",
+        "action": "Đăng bán sản phẩm",
+        "orderID": "POST-9293",
+        "greenCoins": 100,
+        "date": "2026-07-08"
+    },
+    {
+        "transactionID": "TS009294",
+        "customerID": "CM000005",
+        "action": "Đăng bán sản phẩm",
+        "orderID": "POST-6950",
+        "greenCoins": 100,
+        "date": "2026-07-08"
+    }
+]

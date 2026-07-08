@@ -1,0 +1,139 @@
+[
+    {
+        "orderID": "OD000001",
+        "customerID": "CM000001",
+        "invoiceNumber": "INV2024001",
+        "orderDate": "2026-06-16",
+        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "products": [
+            {
+                "productID": "DV000002",
+                "quantity": 1,
+                "price": "11.150.000₫"
+            },
+            {
+                "productID": "DV000020",
+                "quantity": 1,
+                "price": "4.250.000₫"
+            }
+        ],
+        "subtotal": "15.400.000₫",
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "total": "15.415.000₫",
+        "status": "Delivered"
+    },
+    {
+        "orderID": "OD000002",
+        "customerID": "CM000001",
+        "invoiceNumber": "INV2024002",
+        "orderDate": "2026-07-02",
+        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "products": [
+            {
+                "productID": "DV000004",
+                "quantity": 1,
+                "price": "2.840.000₫"
+            }
+        ],
+        "subtotal": "2.840.000₫",
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "total": "2.855.000₫",
+        "status": "Delivered"
+    },
+    {
+        "orderID": "OD000003",
+        "customerID": "CM000002",
+        "invoiceNumber": "INV2024003",
+        "orderDate": "2026-07-03",
+        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "products": [
+            {
+                "productID": "DV000040",
+                "quantity": 1,
+                "price": "4.930.000₫"
+            },
+            {
+                "productID": "DV000043",
+                "quantity": 1,
+                "price": "5.460.000₫"
+            }
+        ],
+        "subtotal": "10.390.000₫",
+        "shippingFee": "25.000₫",
+        "tax": 0,
+        "total": "10.415.000₫",
+        "status": "In Transit"
+    },
+    {
+        "orderID": "OD000004",
+        "customerID": "CM000001",
+        "invoiceNumber": "INV2026999",
+        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "products": [
+            {
+                "productID": "DV000002",
+                "quantity": 1,
+                "price": "11.150.000₫"
+            }
+        ],
+        "subtotal": "11.150.000₫",
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "total": "11.165.000₫",
+        "status": "Paid",
+        "orderDate": "2026-07-08"
+    },
+    {
+        "orderID": "OD000005",
+        "customerID": "CM000005",
+        "invoiceNumber": "INV310686",
+        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "products": [
+            {
+                "quantity": 1
+            }
+        ],
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "status": "Paid",
+        "orderDate": "2026-07-08"
+    },
+    {
+        "orderID": "OD000006",
+        "customerID": "CM000005",
+        "invoiceNumber": "INV428687",
+        "shippingAddress": "Thien Phan | SĐT: 0392006710 | Đ/C: dfd]ádfsadf",
+        "products": [
+            {
+                "quantity": 1
+            }
+        ],
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "status": "Paid",
+        "paymentMethod": "VNPay",
+        "orderDate": "2026-07-08"
+    },
+    {
+        "orderID": "OD000007",
+        "customerID": "CM000005",
+        "invoiceNumber": "INV510099",
+        "shippingAddress": "Thien Phan | SĐT: 0392006710 | Đ/C: dfd]ádfsadf",
+        "products": [
+            {
+                "productID": "DV000002",
+                "quantity": 1,
+                "price": "11.150.000₫"
+            }
+        ],
+        "subtotal": "11.150.000₫",
+        "shippingFee": "15.000₫",
+        "tax": 0,
+        "total": "11.150.000₫",
+        "status": "Paid",
+        "paymentMethod": "COD",
+        "orderDate": "2026-07-08"
+    }
+]

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOcycle - Sửa Chữa & Tái Chế</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1f9d47;
+            --primary-dark: #167e35;
+            --primary-light: #e8f9ec;
+            --bg-color: #f7f9f8;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            --ai-color: #7c3aed;
+            --ai-light: #f5f3ff;
+            --danger: #ef4444;
+            --danger-light: #fef2f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-title h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .header-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- Form Card --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+            color: #4b5563;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 0.95rem;
+            background-color: #f9fafb;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* --- AI Result Panel --- */
+        .ai-result-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ai-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            display: none;
+        }
+
+        .ai-card.active {
+            display: block;
+        }
+
+        .ai-card-header {
+            background: linear-gradient(135deg, var(--ai-light) 0%, #ffffff 100%);
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ai-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .ai-card-body {
+            padding: 24px;
+        }
+
+        .ai-badge {
+            display: inline-block;
+            background-color: var(--ai-light);
+            color: var(--ai-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .ai-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .ai-detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.95rem;
+        }
+
+        .ai-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .ai-val {
+            font-weight: 600;
+        }
+
+        .ai-price {
+            color: var(--danger);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .ai-recommendation-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .placeholder-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 2px dashed #d1d5db;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-muted);
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .placeholder-card.hidden {
+            display: none;
+        }
+
+        .placeholder-card i {
+            font-size: 3.5rem;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .loading-spinner {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .loading-spinner.active {
+            display: flex;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--ai-color);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- --- Page Header --- -->
+    <header class="page-header">
+        <div class="header-title">
+            <h1>Sửa Chữa & Tái Chế Thiết Bị</h1>
+            <p>Gửi yêu cầu chẩn đoán thông minh, sửa chữa linh kiện hoặc thanh lý rác điện tử.</p>
+        </div>
+    </header>
+
+    <div class="layout-grid">
+        <!-- --- Form Request --- -->
+        <div class="card">
+            <h2>Tạo Yêu Cầu Mới</h2>
+            <form id="recycleForm" onsubmit="handleRecycleSubmit(event)">
+                <div class="form-group">
+                    <label>Tên thiết bị</label>
+                    <input type="text" id="deviceName" required placeholder="VD: iPhone 12 Pro Max, Laptop Dell Latitude 7400">
+                </div>
+                <div class="form-group">
+                    <label>Hãng sản xuất</label>
+                    <input type="text" id="deviceBrand" required placeholder="VD: Apple, Dell, Asus">
+                </div>
+                <div class="form-group">
+                    <label>Model / Dòng máy</label>
+                    <input type="text" id="deviceModel" required placeholder="VD: A2411, 7400">
+                </div>
+                <div class="form-group">
+                    <label>Mô tả tình trạng lỗi / Hỏng hóc</label>
+                    <textarea id="deviceCondition" rows="3" required placeholder="VD: Bể màn hình góc dưới, liệt cảm ứng, chai pin sạc không vào..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Khối lượng ước tính (kg)</label>
+                    <input type="number" step="0.1" id="deviceWeight" required placeholder="VD: 1.5">
+                </div>
+                <div class="form-group">
+                    <label>Hình thức mong muốn</label>
+                    <select id="requestType" required>
+                        <option value="Repair">Sửa chữa thiết bị (Nhận lại sau khi sửa)</option>
+                        <option value="Resell">Bán lại thiết bị (Thanh lý đổi tiền mặt)</option>
+                        <option value="Recycle">Tái chế rác điện tử (Bỏ thiết bị hỏng hoàn toàn)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Gửi yêu cầu & Chẩn đoán AI</button>
+            </form>
+        </div>
+
+        <!-- --- AI Diagnosis --- -->
+        <div class="ai-result-panel">
+            <!-- Placeholder -->
+            <div class="placeholder-card" id="aiPlaceholder">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Chẩn Đoán Trí Tuệ Nhân Tạo</h3>
+                <p>Nhập thông tin thiết bị và gửi yêu cầu để AI tự động đánh giá tình trạng hỏng hóc và đề xuất báo giá.</p>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading-spinner" id="aiLoading">
+                <div class="spinner"></div>
+                <h3>AI Đang Phân Tích Lỗi...</h3>
+                <p>Đang liên kết với Gemini AI chẩn đoán giải pháp sửa chữa và khoảng giá cho thiết bị của bạn.</p>
+            </div>
+
+            <!-- AI Result Card -->
+            <div class="ai-card" id="aiResultCard">
+                <div class="ai-card-header">
+                    <i class="fa-solid fa-robot"></i>
+                    Kết Quả Đánh Giá Từ Gemini AI
+                </div>
+                <div class="ai-card-body">
+                    <span class="ai-badge">Chẩn đoán thông minh</span>
+                    <div class="ai-title" id="aiDeviceModel">iPhone 12</div>
+                    
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Lỗi phát hiện</span>
+                        <span class="ai-val" id="aiIssues">Màn hình bể, chai pin</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Mức độ nghiêm trọng</span>
+                        <span class="ai-val" id="aiSeverity">Trung bình</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Giải pháp kỹ thuật</span>
+                        <span class="ai-val" id="aiSolution">Thay màn hình mới</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Thời gian ước tính</span>
+                        <span class="ai-val" id="aiTime">2 ngày</span>
+                    </div>
+                    <div class="ai-detail-row">
+                        <span class="ai-label">Chi phí sửa chữa dự kiến</span>
+                        <span class="ai-price" id="aiCost">1.200.000đ</span>
+                    </div>
+                    <div class="ai-detail-row" id="resellRow" style="display: none;">
+                        <span class="ai-label">Giá mua lại đề xuất (sau sửa)</span>
+                        <span class="ai-val" id="aiResellPrice" style="color: var(--primary); font-weight:700;">3.600.000đ</span>
+                    </div>
+
+                    <div class="ai-recommendation-box" id="aiRecommendation">
+                        Vui lòng gửi máy tới điểm thu gom gần nhất để được kiểm tra trực tiếp.
+                    </div>
+                </div>
+        </div>
+</div>
+</div>
+</div>
+<iframe src="footer.html" style="width:100%; height:380px; border:none; margin-top:50px;" scrolling="no"></iframe>
+
+<script>
+    async function handleRecycleSubmit(e) {
+        e.preventDefault();
+
+        if (!localStorage.getItem("role") || localStorage.getItem("role") !== "customer") {
+            window.top.location.href = "login.html";
+            return;
+        }
+
+        const customerID = localStorage.getItem("customerId") || "CM000001";
+        const deviceName = document.getElementById("deviceName").value;
+        const brand = document.getElementById("deviceBrand").value;
+        const model = document.getElementById("deviceModel").value;
+        const condition = document.getElementById("deviceCondition").value;
+        const weight = document.getElementById("deviceWeight").value;
+        const requestType = document.getElementById("requestType").value;
+
+        // Switch screens to Loading
+        document.getElementById("aiPlaceholder").classList.add("hidden");
+        document.getElementById("aiResultCard").classList.remove("active");
+        document.getElementById("aiLoading").classList.add("active");
+
+        try {
+            // 1. Post request details to main server processrequests
+            const reqRes = await fetch("http://localhost:3000/api/processrequests", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    customerID: customerID,
+                    productName: deviceName,
+                    brand: brand,
+                    model: model,
+                    condition: condition,
+                    weight: weight + "kg",
+                    requestType: requestType,
+                    status: "Pending"
+                })
+            });
+
+            if (!reqRes.ok) {
+                throw new Error("Lỗi lưu yêu cầu chính");
+            }
+            
+            const savedReq = await reqRes.json();
+            const requestID = savedReq.requestID;
+
+            // 2. Fetch AI diagnosis from RepairAI service on port 3001
+            const aiRes = await fetch("http://localhost:3001/api/evaluate", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    deviceName: deviceName,
+                    errorDescription: condition
+                })
+            });
+
+            let aiData = null;
+            if (aiRes.ok) {
+                const aiResultObj = await aiRes.json();
+                aiData = aiResultObj.data;
+            }
+
+            // 3. If AI results available, populate card and save to main server
+            if (aiData) {
+                // Populate Card UI
+                document.getElementById("aiDeviceModel").textContent = aiData.device_model || deviceName;
+                document.getElementById("aiIssues").textContent = aiData.detected_issues.join(", ") || "Chưa phát hiện lỗi cụ thể";
+                document.getElementById("aiSeverity").textContent = aiData.severity || "trung bình";
+                document.getElementById("aiSolution").textContent = aiData.repair_solution || "Kiểm tra thực tế";
+                document.getElementById("aiTime").textContent = aiData.repair_time_days + " ngày";
+                document.getElementById("aiCost").textContent = (aiData.repair_cost || 0).toLocaleString() + " VNĐ";
+                document.getElementById("aiRecommendation").textContent = aiData.recommendation || "";
+
+                if (requestType === 'Resell') {
+                    document.getElementById("resellRow").style.display = "flex";
+                    document.getElementById("aiResellPrice").textContent = (aiData.resell_price_after_repair || 0).toLocaleString() + " VNĐ";
+                } else {
+                    document.getElementById("resellRow").style.display = "none";
+                }
+
+                // Save assessment to main server
+                await fetch("http://localhost:3000/api/aiassessments", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        requestID: requestID,
+                        recommendedAction: aiData.repair_solution,
+                        estimatedRepairCost: (aiData.repair_cost || 0).toLocaleString() + "đ"
+                    })
+                });
+            } else {
+                // Fallback display if AI server has issue
+                document.getElementById("aiDeviceModel").textContent = deviceName;
+                document.getElementById("aiIssues").textContent = "Cần kiểm tra thực tế";
+                document.getElementById("aiSeverity").textContent = "Chưa xác định";
+                document.getElementById("aiSolution").textContent = "Đang kiểm tra";
+                document.getElementById("aiTime").textContent = "Chờ xử lý";
+                document.getElementById("aiCost").textContent = "Đang thẩm định";
+                document.getElementById("aiRecommendation").textContent = "Đã gửi yêu cầu. Kỹ thuật viên sẽ liên hệ lại báo giá.";
+                document.getElementById("resellRow").style.display = "none";
+            }
+
+            // 4. Update customer's green coin balance based on requestType
+            let coinsEarned = 50;
+            if (requestType === 'Recycle') coinsEarned = 70;
+            else if (requestType === 'Resell') coinsEarned = 90;
+
+            await fetch("http://localhost:3000/api/greencoins", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    customerID: customerID,
+                    action: requestType === 'Repair' ? "Sửa chữa thiết bị" : (requestType === 'Resell' ? "Bán lại thiết bị" : "Xử lý rác điện tử"),
+                    orderID: requestID,
+                    greenCoins: coinsEarned
+                })
+            });
+
+            // Display UI
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("aiResultCard").classList.add("active");
+            
+            alert(`Gửi yêu cầu thành công! Bạn nhận được +${coinsEarned} Green Coins.`);
+            document.getElementById("recycleForm").reset();
+
+        } catch (error) {
+            console.error(error);
+            alert("Đã xảy ra lỗi khi gửi yêu cầu.");
+            document.getElementById("aiLoading").classList.remove("active");
+            document.getElementById("aiPlaceholder").classList.remove("hidden");
+        }
+    }
+</script>
+</body>
+</html>

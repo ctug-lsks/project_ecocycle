@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOcycle - Đăng Nhập Hệ Thống</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1f9d47;
+            --primary-dark: #167e35;
+            --primary-light: #e8f9ec;
+            --bg-color: #0f172a;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --radius-lg: 24px;
+            --radius-md: 12px;
+            --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 10% 20%, rgba(31, 157, 71, 0.15) 0%, transparent 45%),
+                              radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 45%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .login-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #374151;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px 14px 45px;
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            background-color: #f9fafb;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(31, 157, 71, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            background-color: #fef2f2;
+            color: #ef4444;
+            padding: 12px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #fee2e2;
+        }
+
+        .back-home {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-home a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-home a:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="login-header">
+            <div class="logo"><span>ECO</span>cycle</div>
+            <p>Vui lòng đăng nhập để tiếp tục vào hệ thống</p>
+        </div>
+
+        <div class="tabs" style="display: flex; margin-bottom: 25px; border-bottom: 2.5px solid var(--border-color);">
+            <div id="tabLogin" onclick="switchTab('login')" style="flex: 1; text-align: center; padding-bottom: 12px; font-weight: 700; cursor: pointer; border-bottom: 3.5px solid var(--primary); color: var(--primary);">Đăng Nhập</div>
+            <div id="tabRegister" onclick="switchTab('register')" style="flex: 1; text-align: center; padding-bottom: 12px; font-weight: 700; cursor: pointer; color: var(--text-muted);">Đăng Ký</div>
+        </div>
+
+        <div class="error-message" id="errorBox">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="errorText">Lỗi đăng nhập</span>
+        </div>
+
+        <!-- FORM ĐĂNG NHẬP -->
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Tên đăng nhập / Username</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="username" required placeholder="VD: nguyenvanloi, fastfix, nguyenvanson">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Đăng Nhập</button>
+        </form>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <form id="registerForm" onsubmit="handleRegister(event)" style="display: none; max-height: 420px; overflow-y: auto; padding-right: 5px;">
+            <div class="form-group">
+                <label>Tên đăng nhập / Username</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="regUsername" required placeholder="VD: nguyenvanbinh">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-id-card"></i>
+                    <input type="text" id="regFullName" required placeholder="VD: Nguyễn Văn Bình">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email (Nhập mail @vnu.edu.vn để tự động xác thực!)</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="regEmail" required placeholder="VD: binhnv@vnu.edu.vn">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Số điện thoại</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="text" id="regPhone" required placeholder="VD: 0987654321">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Địa chỉ</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input type="text" id="regAddress" required placeholder="VD: Ký túc xá VNU, Thủ Đức, TP.HCM">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="regPassword" required placeholder="••••••••">
+                </div>
+            </div>
+
+            <div style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; border-bottom: 1px dashed var(--border-color); padding-bottom: 5px;">Thông tin ngân hàng (Tùy chọn)</div>
+            
+            <div class="form-group">
+                <label>Tên ngân hàng</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <input type="text" id="regBankName" placeholder="VD: BIDV, Vietcombank">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Số tài khoản</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <input type="text" id="regBankAccount" placeholder="VD: 103694371518">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Tên chủ tài khoản</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-signature"></i>
+                    <input type="text" id="regAccountName" placeholder="VD: NGUYEN VAN BINH">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Đăng Ký</button>
+        </form>
+    </div>
+
+    <script>
+        async function handleLogin(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value;
+            const errorBox = document.getElementById("errorBox");
+            const errorText = document.getElementById("errorText");
+
+            errorBox.style.display = "none";
+
+            try {
+                const res = await fetch("http://localhost:3000/api/users/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ userName: username, passwords: password })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    // Store credentials in localStorage
+                    localStorage.setItem("role", data.role);
+                    localStorage.setItem("fullName", data.user.fullName || data.user.storeName);
+                    
+                    if (data.role === 'customer') {
+                        localStorage.setItem("customerId", data.user.customerID);
+                        window.top.location.href = "index.html";
+                    } else if (data.role === 'store') {
+                        localStorage.setItem("storeId", data.user.storeID);
+                        window.top.location.href = "main_repairstore.html";
+                    } else if (data.role === 'admin') {
+                        localStorage.setItem("adminId", data.user.adminID);
+                        window.top.location.href = "main_admin.html";
+                    }
+                } else {
+                    errorText.textContent = data.error || "Tên đăng nhập hoặc mật khẩu không chính xác.";
+                    errorBox.style.display = "flex";
+                }
+            } catch (err) {
+                console.error("Lỗi:", err);
+                errorText.textContent = "Không thể kết nối tới máy chủ.";
+                errorBox.style.display = "flex";
+            }
+        }
+
+        function switchTab(mode) {
+            const tabLogin = document.getElementById("tabLogin");
+            const tabRegister = document.getElementById("tabRegister");
+            const loginForm = document.getElementById("loginForm");
+            const registerForm = document.getElementById("registerForm");
+            const errorBox = document.getElementById("errorBox");
+
+            errorBox.style.display = "none";
+
+            if (mode === "login") {
+                tabLogin.style.borderBottom = "3.5px solid var(--primary)";
+                tabLogin.style.color = "var(--primary)";
+                tabRegister.style.borderBottom = "none";
+                tabRegister.style.color = "var(--text-muted)";
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+            } else {
+                tabRegister.style.borderBottom = "3.5px solid var(--primary)";
+                tabRegister.style.color = "var(--primary)";
+                tabLogin.style.borderBottom = "none";
+                tabLogin.style.color = "var(--text-muted)";
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+            }
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const errorBox = document.getElementById("errorBox");
+            const errorText = document.getElementById("errorText");
+            errorBox.style.display = "none";
+
+            const username = document.getElementById("regUsername").value.trim();
+            const fullName = document.getElementById("regFullName").value.trim();
+            const email = document.getElementById("regEmail").value.trim();
+            const phone = document.getElementById("regPhone").value.trim();
+            const address = document.getElementById("regAddress").value.trim();
+            const password = document.getElementById("regPassword").value;
+            const bankName = document.getElementById("regBankName").value.trim();
+            const bankAccount = document.getElementById("regBankAccount").value.trim();
+            const bankAccountName = document.getElementById("regAccountName").value.trim();
+
+            const isVNU = email.endsWith("vnu.edu.vn") || email.endsWith(".vnu.edu.vn") || email.endsWith("vnu.vn");
+            const initialCoins = isVNU ? 100 : 0;
+
+            const payload = {
+                userName: username,
+                fullName: fullName,
+                email: email,
+                phoneNumber: phone,
+                address: address,
+                passwords: password,
+                bankName: bankName || "",
+                bankAccount: bankAccount || "",
+                nameAccount: bankAccountName || "",
+                greenCoins: initialCoins,
+                isVerifiedVNU: isVNU
+            };
+
+            try {
+                const res = await fetch("http://localhost:3000/api/users/customer", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok) {
+                    alert("Đăng ký tài khoản thành công! " + (isVNU ? "Chúc mừng bạn nhận được +100 Green Coins vì đã xác thực email VNU!" : ""));
+                    switchTab("login");
+                    document.getElementById("username").value = username;
+                    document.getElementById("password").value = password;
+                } else {
+                    const data = await res.json();
+                    errorText.textContent = data.error || "Không thể đăng ký tài khoản.";
+                    errorBox.style.display = "flex";
+                }
+            } catch (err) {
+                console.error("Lỗi:", err);
+                errorText.textContent = "Không thể kết nối tới máy chủ.";
+                errorBox.style.display = "flex";
+            }
+        }
+    </script>
+</body>
+</html>
