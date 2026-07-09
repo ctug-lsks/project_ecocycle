@@ -14,27 +14,6 @@
         ]
     },
     {
-        "chatID": "CHAT000003",
-        "participants": [
-            "CM000005",
-            "AD001"
-        ]
-    },
-    {
-        "chatID": "CHAT000004",
-        "participants": [
-            "CM000005",
-            "CM000002"
-        ]
-    },
-    {
-        "chatID": "CHAT000005",
-        "participants": [
-            "CM000005",
-            "CM000003"
-        ]
-    },
-    {
         "chatID": "CHAT000006",
         "participants": [
             "CM000001",
@@ -46,6 +25,13 @@
         "participants": [
             "CM000001",
             "AD002"
+        ]
+    },
+    {
+        "chatID": "CHAT000008",
+        "participants": [
+            "CM000001",
+            "CM000004"
         ]
     }
 ]

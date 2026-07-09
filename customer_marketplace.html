@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOcycle - Chợ Điện Tử Cũ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -38,7 +38,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         body {
@@ -229,8 +229,9 @@
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
         }
 
         .product-img-wrapper {
@@ -950,6 +951,19 @@
     let filterVnuOnly = false;
     let selectedProduct = null;
 
+    function formatPriceDisplay(priceStr) {
+        if (!priceStr) return 'Liên hệ';
+        const str = String(priceStr).trim();
+        if (str.endsWith('đ') || str.endsWith('₫') || str.includes('.') || str.includes(',')) {
+            return str;
+        }
+        const num = parseFloat(str);
+        if (!isNaN(num)) {
+            return num.toLocaleString('vi-VN') + 'đ';
+        }
+        return str;
+    }
+
     document.addEventListener("DOMContentLoaded", async () => {
         await loadInitialData();
         const urlParams = new URLSearchParams(window.location.search);
@@ -961,18 +975,31 @@
                 renderProducts();
             }
         }
+
+        // Realtime price input formatting
+        const formPriceInput = document.getElementById("formPrice");
+        if (formPriceInput) {
+            formPriceInput.addEventListener("input", function(e) {
+                let value = this.value.replace(/\D/g, "");
+                if (value) {
+                    this.value = parseInt(value, 10).toLocaleString("vi-VN");
+                } else {
+                    this.value = "";
+                }
+            });
+        }
     });
 
     async function loadInitialData() {
         try {
             // Load customers
-            const customersRes = await fetch("http://localhost:3000/api/users/customers");
+            const customersRes = await fetch("/api/users/customers");
             if (customersRes.ok) {
                 customers = await customersRes.json();
             }
 
             // Load products
-            const productsRes = await fetch("http://localhost:3000/api/products/all");
+            const productsRes = await fetch("/api/products/all");
             if (productsRes.ok) {
                 allProducts = await productsRes.json();
             }
@@ -1026,7 +1053,7 @@
             const isVnu = seller ? seller.isVerifiedVNU : false;
             
             return `
-                <div class="product-card">
+                <div class="product-card" onclick="showProductDetails('${p.id}')" style="cursor: pointer;">
                     <div class="product-img-wrapper">
                         <img src="${p.img || 'images/default.png'}" onerror="this.src='../images/default.png'">
                         <span class="badge-category">${p.category || 'Linh kiện'}</span>
@@ -1034,11 +1061,10 @@
                     </div>
                     <div class="product-details-content">
                         <h3 class="product-title">${p.title || 'Sản phẩm'}</h3>
-                        <div class="product-meta">
-                            <span class="product-price">${p.fromPrice || 'Liên hệ'}</span>
-                            <span class="product-qty">SL: ${p.quantity || 1}</span>
-                        </div>
-                        <button class="btn-view-detail" onclick="showProductDetails('${p.id}')">Xem chi tiết</button>
+                         <div class="product-meta">
+                             <span class="product-price">${formatPriceDisplay(p.fromPrice)}</span>
+                             <span class="product-qty">SL: ${p.quantity || 1}</span>
+                         </div>
                     </div>
                 </div>
             `;
@@ -1089,7 +1115,7 @@
         const container = document.getElementById('reviewsContainer');
         if (!container) return;
         try {
-            const res = await fetch(`http://localhost:3000/api/reviews/product/${productId}`);
+            const res = await fetch(`/api/reviews/product/${productId}`);
             const reviews = await res.json();
             if (reviews.length === 0) {
                 container.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">Chưa có đánh giá nào cho sản phẩm này.</p>';
@@ -1122,77 +1148,7 @@
     }
 
     function showProductDetails(id) {
-        const prod = allProducts.find(p => p.id === id);
-        if (!prod) return;
-        selectedProduct = prod;
-
-        const currentCustomerID = localStorage.getItem("customerId") || "CM000001";
-        const isMyProduct = prod.sellerid.toLowerCase().trim() === currentCustomerID.toLowerCase().trim();
-
-        const seller = customers.find(c => c.customerID === prod.sellerid);
-        const isVnu = seller ? seller.isVerifiedVNU : false;
-
-        const body = document.getElementById("detailModalBody");
-        
-        let actionArea = "";
-        if (isMyProduct) {
-            actionArea = `
-                <div class="my-product-alert">
-                    <i class="fa-solid fa-circle-info"></i> Đây là sản phẩm do bạn đang đăng bán
-                </div>
-            `;
-            const buyBtn = document.getElementById("detailBuyBtn");
-            if (buyBtn) buyBtn.style.display = "none";
-        } else {
-            actionArea = `
-                <div style="margin-top: 15px; display: flex; gap: 10px;">
-                    <button class="chat-seller-btn" onclick="openChatWithSeller('${prod.sellerid}', '${seller ? seller.fullName : 'Người bán'}')"><i class='fa-solid fa-comment-dots'></i> Chat với người bán</button>
-                </div>
-            `;
-            const buyBtn = document.getElementById("detailBuyBtn");
-            if (buyBtn) buyBtn.style.display = "block";
-        }
-
-        body.innerHTML = `
-            <img class="detail-img" src="${prod.img || 'images/default.png'}" onerror="this.src='../images/default.png'">
-            <div class="detail-row">
-                <span class="detail-label">Mã sản phẩm</span>
-                <span class="detail-val">${prod.id}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Tên sản phẩm</span>
-                <span class="detail-val" style="text-align: right; max-width: 60%;">${prod.title}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Danh mục</span>
-                <span class="detail-val">${prod.category || 'Linh kiện'}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Số lượng còn lại</span>
-                <span class="detail-val">${prod.quantity || 1}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Giá bán</span>
-                <span class="detail-price">${prod.fromPrice || 'Liên hệ'}</span>
-            </div>
-            
-            <h4 style="margin: 15px 0 10px 0;">Thông tin người bán</h4>
-            <div class="seller-card">
-                <div class="seller-avatar">${seller ? seller.fullName.charAt(0) : '?'}</div>
-                <div class="seller-info">
-                    <h4>${seller ? seller.fullName : 'Người bán ECOcycle'} ${isVnu ? `<span style="color:var(--vnu-color); font-size:0.85rem; font-weight:700;"><i class="fa-solid fa-graduation-cap"></i> Verified VNU</span>` : ''}</h4>
-                    <p>Mã tài khoản: ${prod.sellerid}</p>
-                    <p>Liên hệ: ${seller ? seller.phoneNumber : 'N/A'}</p>
-                </div>
-            </div>
-            ${actionArea}
-            <div style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 15px;">
-                <h4 style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-star" style="color: var(--warning-text);"></i> Đánh giá & Nhận xét</h4>
-                <div id="reviewsContainer" style="font-size: 0.9rem; color: var(--text-muted);">Đang tải đánh giá...</div>
-            </div>
-        `;
-        openModal("detailModal");
-        loadProductReviews(prod.id);
+        window.location.href = `product_detail.html?id=${id}`;
     }
 
     async function submitProductForm(e) {
@@ -1201,7 +1157,12 @@
         const customerID = localStorage.getItem("customerId") || "CM000001";
         const title = document.getElementById("formTitle").value;
         const category = document.getElementById("formCategory").value;
-        const price = document.getElementById("formPrice").value;
+        const priceInput = document.getElementById("formPrice").value.replace(/\./g, "").trim();
+        let price = priceInput;
+        const numericPrice = parseFloat(priceInput);
+        if (!isNaN(numericPrice)) {
+            price = numericPrice.toLocaleString('vi-VN') + 'đ';
+        }
         const qty = document.getElementById("formQty").value;
         const img = document.getElementById("formImg").value;
 
@@ -1215,7 +1176,7 @@
         };
 
         try {
-            const res = await fetch("http://localhost:3000/api/products", {
+            const res = await fetch("/api/products", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(bodyData)
@@ -1227,16 +1188,34 @@
                 document.getElementById("sellForm").reset();
                 
                 // Add to customer's green coin
-                await fetch("http://localhost:3000/api/greencoins", {
+                const loggedInCustomer = customers.find(c => c.customerID === customerID);
+                const isVnu = loggedInCustomer ? loggedInCustomer.isVerifiedVNU : false;
+                const coinsToAward = isVnu ? Math.round(1000 * 1.5) : 1000;
+
+                await fetch("/api/greencoins", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         customerID: customerID,
                         action: "Đăng bán sản phẩm",
                         orderID: "POST-" + Math.floor(Math.random() * 10000),
-                        greenCoins: 100
+                        greenCoins: coinsToAward
                     })
                 });
+
+                // Add notification for selling
+                try {
+                    await fetch("/api/notifications", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            customerID: customerID,
+                            title: `Đăng bán sản phẩm thành công: "${title}" (+${coinsToAward} Green Coins).`
+                        })
+                    });
+                } catch (notifErr) {
+                    console.error("Lỗi tạo thông báo:", notifErr);
+                }
 
                 await loadInitialData();
             } else {
@@ -1254,50 +1233,19 @@
 
         closeModal("detailModal");
 
-        const customerID = localStorage.getItem("customerId") || "CM000001";
-        
-        const summaryCard = document.getElementById("checkoutSummaryCard");
-        if (summaryCard) {
-            summaryCard.innerHTML = `
-                <div class="checkout-summary-item">
-                    <div class="checkout-summary-img-wrapper">
-                        <i class="fa-solid fa-mobile-screen"></i>
-                    </div>
-                    <div class="checkout-summary-details">
-                        <h4>${selectedProduct.title}</h4>
-                        <span>Mã thiết bị: ${selectedProduct.id}</span>
-                    </div>
-                </div>
-                <div class="checkout-summary-pricing">
-                    <div class="checkout-pricing-row">
-                        <span>Giá bán sản phẩm:</span>
-                        <b>${selectedProduct.fromPrice}</b>
-                    </div>
-                    <div class="checkout-pricing-row">
-                        <span>Phí giao hàng:</span>
-                        <b>15.000₫</b>
-                    </div>
-                    <div class="checkout-pricing-row total">
-                        <span>Tổng thanh toán:</span>
-                        <span>${selectedProduct.fromPrice}</span>
-                    </div>
-                </div>
-            `;
-        }
+        // Parse price to double
+        const cleanPrice = parseFloat(selectedProduct.fromPrice.replace(/\./g, "").replace("đ", "").replace("₫", "").trim()) || 0;
 
-        try {
-            const res = await fetch(`http://localhost:3000/api/users/customer/${customerID}`);
-            if (res.ok) {
-                const customer = await res.json();
-                document.getElementById("checkoutName").value = customer.fullName || "";
-                document.getElementById("checkoutPhone").value = customer.phoneNumber || "";
-                document.getElementById("checkoutAddress").value = customer.address || "";
-            }
-        } catch (e) {
-            console.error("Error prefilling checkout info:", e);
-        }
+        // Save to localStorage for paymen_checkout.html
+        localStorage.setItem("checkout_type", "product");
+        localStorage.setItem("checkout_product_id", selectedProduct.id);
+        localStorage.setItem("checkout_title", selectedProduct.title);
+        localStorage.setItem("checkout_cost", cleanPrice);
+        localStorage.setItem("checkout_qty", selectedProduct.quantity || 1);
+        localStorage.setItem("checkout_img", selectedProduct.img || "");
 
-        openModal("checkoutModal");
+        // Redirect to paymen_checkout.html
+        window.location.href = "paymen_checkout.html";
     }
 
     async function confirmPurchase() {
@@ -1334,25 +1282,43 @@
         };
 
         try {
-            const res = await fetch("http://localhost:3000/api/orders", {
+            const res = await fetch("/api/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
             });
 
             if (res.ok) {
-                await fetch("http://localhost:3000/api/greencoins", {
+                const loggedInCustomer = customers.find(c => c.customerID === customerID);
+                const isVnu = loggedInCustomer ? loggedInCustomer.isVerifiedVNU : false;
+                const coinsToAward = isVnu ? Math.round(400 * 1.5) : 400;
+
+                await fetch("/api/greencoins", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         customerID: customerID,
                         action: "Mua sản phẩm " + selectedProduct.title,
                         orderID: "OD-" + Math.floor(Math.random() * 100000),
-                        greenCoins: 90
+                        greenCoins: coinsToAward
                     })
                 });
 
-                alert(`Đặt mua sản phẩm ${selectedProduct.title} thành công qua phương thức ${paymentMethod}!\nChúc mừng bạn được cộng +90 Green Coins tích lũy!`);
+                // Add notification for buying
+                try {
+                    await fetch("/api/notifications", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            customerID: customerID,
+                            title: `Đặt mua thành công sản phẩm "${selectedProduct.title}" (+${coinsToAward} Green Coins).`
+                        })
+                    });
+                } catch (notifErr) {
+                    console.error("Lỗi tạo thông báo:", notifErr);
+                }
+
+                alert(`Đặt mua sản phẩm ${selectedProduct.title} thành công qua phương thức ${paymentMethod}!\nChúc mừng bạn được cộng +${coinsToAward} Green Coins tích lũy!`);
                 closeModal("checkoutModal");
             } else {
                 alert("Lỗi máy chủ khi đặt hàng.");
@@ -1398,7 +1364,7 @@
         }
         const customerID = localStorage.getItem('customerId') || 'CM000001';
         try {
-            const res = await fetch('http://localhost:3000/api/reviews', {
+            const res = await fetch('/api/reviews', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -1434,7 +1400,7 @@
         const detail = document.getElementById('complaintDetail').value.trim();
         const customerID = localStorage.getItem('customerId') || 'CM000001';
         try {
-            const res = await fetch('http://localhost:3000/api/complaints', {
+            const res = await fetch('/api/complaints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

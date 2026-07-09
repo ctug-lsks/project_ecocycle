@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOcycle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
         body {
             padding: 0 !important;
@@ -356,11 +356,20 @@
                     const page = path.split('/').pop().replace('.html', '');
                     
                     const navLinks = document.querySelectorAll(".navbar a");
+                    let foundActive = false;
                     navLinks.forEach(link => {
                         const href = link.getAttribute("href");
                         if (href && href.includes(page)) {
-                            navLinks.forEach(l => l.classList.remove("active"));
+                            foundActive = true;
+                        }
+                    });
+                    
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute("href");
+                        if (foundActive && href && href.includes(page)) {
                             link.classList.add("active");
+                        } else {
+                            link.classList.remove("active");
                         }
                     });
                 }
@@ -394,7 +403,7 @@
         async function loadNotifications() {
             if (!fullName) return;
             try {
-                const res = await fetch(`http://localhost:3000/api/notifications/customer/${customerID}`);
+                const res = await fetch(`/api/notifications/customer/${customerID}`);
                 if (res.ok) {
                     notifications = await res.json();
                     
@@ -442,13 +451,23 @@
             if (dropdown) {
                 const isVisible = dropdown.style.display === "block";
                 dropdown.style.display = isVisible ? "none" : "block";
+                
+                // Toggle parent frameset rows to prevent dropdown clipping
+                const parentFrameset = window.parent.document.querySelector("frameset");
+                if (parentFrameset) {
+                    if (!isVisible) {
+                        parentFrameset.setAttribute("rows", "360,*");
+                    } else {
+                        parentFrameset.setAttribute("rows", "140,*");
+                    }
+                }
             }
         };
 
         window.markAsRead = async function(id, e) {
             if (e) e.stopPropagation();
             try {
-                const res = await fetch(`http://localhost:3000/api/notifications/${id}/read`, {
+                const res = await fetch(`/api/notifications/${id}/read`, {
                     method: 'PUT'
                 });
                 if (res.ok) {
@@ -466,7 +485,7 @@
             
             try {
                 await Promise.all(unread.map(n => 
-                    fetch(`http://localhost:3000/api/notifications/${n.notificationID}/read`, { method: 'PUT' })
+                    fetch(`/api/notifications/${n.notificationID}/read`, { method: 'PUT' })
                 ));
                 await loadNotifications();
             } catch (err) {
@@ -477,7 +496,15 @@
         // Close dropdown when clicking outside
         document.addEventListener('click', () => {
             const dropdown = document.getElementById("notifDropdown");
-            if (dropdown) dropdown.style.display = "none";
+            if (dropdown && dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+                
+                // Restore parent frameset rows
+                const parentFrameset = window.parent.document.querySelector("frameset");
+                if (parentFrameset) {
+                    parentFrameset.setAttribute("rows", "140,*");
+                }
+            }
         });
         
         // Prevent closing when clicking inside

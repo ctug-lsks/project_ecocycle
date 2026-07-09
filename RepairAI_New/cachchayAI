@@ -1,4 +1,0 @@
-cd C:\Users\PC\RepairAI_New
-npm install
-node server.js
-Mở trình duyệt chạy: http://localhost:3001

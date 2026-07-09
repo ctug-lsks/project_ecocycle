@@ -3,7 +3,7 @@
  * Dựa trên cấu trúc dữ liệu JSON thực tế
  */
 
-const API_BASE = 'http://localhost:3000/api';
+const API_BASE = '/api';
 
 // ==================== USERS ====================
 async function getUsers() {
@@ -205,32 +205,6 @@ async function updateOrderStatus(orderId, status) {
     }
 }
 
-// ==================== CART ====================
-async function getCart(customerId) {
-    try {
-        const response = await fetch(`${API_BASE}/cart/${customerId}`);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-    } catch (error) {
-        console.error(`Error fetching cart for customer ${customerId}:`, error);
-        return { cartID: null, customerID: customerId, products: [] };
-    }
-}
-
-async function updateCart(customerId, products) {
-    try {
-        const response = await fetch(`${API_BASE}/cart`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ customerID: customerId, products })
-        });
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return response.json();
-    } catch (error) {
-        console.error('Error updating cart:', error);
-        return null;
-    }
-}
 
 // ==================== PAYMENTS ====================
 async function getPayments() {
@@ -803,8 +777,7 @@ if (typeof window !== 'undefined') {
         getProducts, getProduct, getProductsByCategory,
         // Orders
         getOrders, getOrdersByCustomer, createOrder, updateOrderStatus,
-        // Cart
-        getCart, updateCart,
+
         // Payments
         getPayments, createPayment,
         // Green Coins

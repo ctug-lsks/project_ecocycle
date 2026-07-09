@@ -28,20 +28,6 @@
         "timestamp": "2026-07-02T14:05:00"
     },
     {
-        "messageID": "MS000003",
-        "chatID": "CHAT000003",
-        "senderID": "CM000005",
-        "content": "ádff",
-        "timestamp": "2026-07-08T14:15:55.575Z"
-    },
-    {
-        "messageID": "MS000004",
-        "chatID": "CHAT000003",
-        "senderID": "CM000005",
-        "content": "dấdffdsfdfs",
-        "timestamp": "2026-07-08T14:41:51.058Z"
-    },
-    {
         "messageID": "MS000004",
         "chatID": "CHAT000001",
         "senderID": "BR000001",

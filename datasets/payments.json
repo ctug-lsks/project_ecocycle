@@ -12,5 +12,17 @@
         "method": "Banking",
         "amount": "800.000₫",
         "status": "Paid"
+    },
+    {
+        "paymentID": "PM000003",
+        "customerID": "CM000001",
+        "orderID": "RS-2026-90849",
+        "amount": 11150000,
+        "deliveryFee": 0,
+        "discount": 0,
+        "greenCoinsDiscount": 0,
+        "total": 11150000,
+        "paymentMethod": "cod",
+        "status": "Pending"
     }
 ]

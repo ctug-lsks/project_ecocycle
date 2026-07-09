@@ -13,7 +13,7 @@
                 "bankName": "BIDV",
                 "bankAccount": "103694371518",
                 "nameAccount": "NGUYỄN VĂN LỢI",
-                "greenCoins": 471,
+                "greenCoins": 6911,
                 "isVerifiedVNU": true
             },
             {
@@ -60,21 +60,6 @@
                 "nameAccount": "DIỆP TÚY KHA",
                 "greenCoins": 0,
                 "isVerifiedVNU": false
-            },
-            {
-                "customerID": "CM000005",
-                "userName": "qthien",
-                "fullName": "Thien Phan",
-                "email": "thienphan370@gmail.com",
-                "phoneNumber": "0392006710",
-                "address": "dfd]ádfsadf",
-                "passwords": "123456",
-                "bankName": "",
-                "bankAccount": "",
-                "nameAccount": "",
-                "greenCoins": 770,
-                "isVerifiedVNU": true,
-                "joinDate": "2026-07-08"
             }
         ]
     },

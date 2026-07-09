@@ -2,25 +2,37 @@
     {
         "notificationID": "NT000001",
         "customerID": "CM000001",
-        "title": "Your order has been delivered",
+        "title": "Đơn hàng của bạn đã được giao thành công.",
         "isRead": true
     },
     {
         "notificationID": "NT000002",
         "customerID": "CM000001",
-        "title": "Your complaint has been resolved",
+        "title": "Khiếu nại của bạn đã được giải quyết.",
         "isRead": true
     },
     {
         "notificationID": "NT000003",
         "customerID": "CM000002",
-        "title": "Your order has been delivered",
+        "title": "Đơn hàng của bạn đã được giao thành công.",
         "isRead": true
     },
     {
         "notificationID": "NT000004",
         "customerID": "CM000003",
-        "title": "Your complaint is being processed",
+        "title": "Yêu cầu khiếu nại của bạn đang được xử lý.",
+        "isRead": false
+    },
+    {
+        "notificationID": "NT000005",
+        "customerID": "CM000001",
+        "title": "Đặt mua thành công sản phẩm \"Máy tính bảng Samsung Galaxy Tab S9 WiFi 8GB/128GB\" (+600 Green Coins).",
+        "isRead": true
+    },
+    {
+        "notificationID": "NT000006",
+        "customerID": "CM000001",
+        "title": "Thanh toán thành công đơn hàng RS-2026-90849 (11.150.000 VNĐ) qua phương thức COD.",
         "isRead": false
     }
 ]

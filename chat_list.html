@@ -829,9 +829,9 @@
 
       // Load all users for name resolution
       try {
-          const cRes = await fetch("http://localhost:3000/api/users/customers");
+          const cRes = await fetch("/api/users/customers");
           if (cRes.ok) customers = await cRes.json();
-          const sRes = await fetch("http://localhost:3000/api/users/repairstores");
+          const sRes = await fetch("/api/users/repairstores");
           if (sRes.ok) repairstores = await sRes.json();
       } catch (e) {
           console.error("Failed to load initial data:", e);
@@ -854,7 +854,7 @@
               } else {
                   // Create new chat
                   try {
-                      const res = await fetch("http://localhost:3000/api/chats", {
+                      const res = await fetch("/api/chats", {
                           method: "POST",
                           headers: { "Content-Type": "application/json" },
                           body: JSON.stringify({
@@ -884,7 +884,7 @@
 
   async function loadConversations() {
       try {
-          const res = await fetch(`http://localhost:3000/api/chats/user/${currentStoreID}`);
+          const res = await fetch(`/api/chats/user/${currentStoreID}`);
           if (res.ok) {
               const allChats = await res.json();
               chats = allChats.filter(c => {
@@ -1003,7 +1003,7 @@
   async function loadMessages() {
       if (!activeChatID) return;
       try {
-          const res = await fetch(`http://localhost:3000/api/messages/chat/${activeChatID}`);
+          const res = await fetch(`/api/messages/chat/${activeChatID}`);
           if (res.ok) {
               const msgs = await res.json();
               const container = document.querySelector('.chat-messages');
@@ -1051,7 +1051,7 @@
       };
 
       try {
-          const res = await fetch("http://localhost:3000/api/messages", {
+          const res = await fetch("/api/messages", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(bodyData)
@@ -1083,8 +1083,8 @@
 
       try {
           const [ordersRes, requestsRes] = await Promise.all([
-              fetch(`http://localhost:3000/api/repairorders/store/${currentStoreID}`),
-              fetch(`http://localhost:3000/api/processrequests`)
+              fetch(`/api/repairorders/store/${currentStoreID}`),
+              fetch(`/api/processrequests`)
           ]);
           if (ordersRes.ok && requestsRes.ok) {
               const allOrders = await ordersRes.json();

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ECOcycle - Trang Chủ Khách Hàng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>ECOcycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -26,7 +26,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         body {
@@ -345,7 +345,7 @@
             }
 
             try {
-                const res = await fetch("http://localhost:3000/api/dashboard/stats");
+                const res = await fetch("/api/dashboard/stats");
                 if (res.ok) {
                     const stats = await res.json();
                     

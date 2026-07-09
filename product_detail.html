@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - ECOcycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <style>
+        :root {
+            --primary: #1f9d47;
+            --primary-light: #f0fdf4;
+            --primary-dark: #14532d;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: white;
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0 0 40px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            background: transparent;
+            padding: 20px 0 40px 0;
+            border-radius: 0;
+            box-shadow: none;
+            border-bottom: 1.5px solid var(--border-color);
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
+            }
+        }
+
+        .image-section img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            background: #fafafa;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-cat {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            align-self: flex-start;
+            margin-bottom: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .detail-table {
+            margin-bottom: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .detail-label {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .detail-val {
+            font-weight: 600;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-buy-now {
+            flex: 1.2;
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 700;
+            padding: 14px 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(31, 157, 71, 0.25);
+        }
+
+        .btn-buy-now:hover {
+            background: #167e35;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(31, 157, 71, 0.35);
+        }
+
+        .seller-card {
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn-chat-seller {
+            background: white;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        .btn-chat-seller:hover {
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .seller-avatar {
+            width: 46px;
+            height: 46px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .seller-info h4 {
+            margin: 0 0 3px 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .seller-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .badge-vnu {
+            background: #f0fdf4;
+            color: #16a34a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            border: 1px solid rgba(22, 163, 74, 0.2);
+        }
+
+        .reviews-section {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .reviews-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .review-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+
+        .review-author {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .review-date {
+            color: var(--text-muted);
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+
+        .review-comment {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #0f172a;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            color: #10b981;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div style="border-bottom: 1px solid var(--border-color); padding: 15px 0; margin-bottom: 20px; display: flex; align-items: center;">
+    <div style="max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 20px;">
+        <a href="customer_marketplace.html" class="back-btn" style="margin-bottom: 0;"><i class="fa-solid fa-chevron-left"></i> Quay lại</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="product-grid" id="productDetailContainer">
+        <!-- Will render dynamically -->
+        <p style="grid-column: span 2; text-align: center; color: var(--text-muted);">Đang tải thông tin sản phẩm...</p>
+    </div>
+
+
+
+    <div class="seller-section" style="margin-top: 30px;">
+        <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-user-tie" style="color: var(--primary);"></i> Thông tin người bán</h4>
+        <div id="sellerContainer">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="cartToast">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toastMsg">Thêm vào giỏ hàng thành công!</span>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const customerID = localStorage.getItem("customerId") || "CM000001";
+    let selectedProduct = null;
+
+    function formatPriceDisplay(priceStr) {
+        if (!priceStr) return 'Liên hệ';
+        const str = String(priceStr).trim();
+        if (str.endsWith('đ') || str.endsWith('₫') || str.includes('.') || str.includes(',')) {
+            return str;
+        }
+        const num = parseFloat(str);
+        if (!isNaN(num)) {
+            return num.toLocaleString('vi-VN') + 'đ';
+        }
+        return str;
+    }
+
+    async function loadProductDetail() {
+        if (!productId) {
+            document.getElementById("productDetailContainer").innerHTML = `<p style="grid-column: span 2; text-align: center; color: #ef4444; font-weight:700;">Không tìm thấy mã sản phẩm.</p>`;
+            return;
+        }
+
+        try {
+            const prodRes = await fetch(`/api/products/${productId}`);
+            if (!prodRes.ok) throw new Error("Product not found");
+            const prod = await prodRes.json();
+            selectedProduct = prod;
+
+            // Fetch seller info
+            let seller = null;
+            let isVnu = false;
+            try {
+                const sellerRes = await fetch(`/api/users/customer/${prod.sellerid}`);
+                if (sellerRes.ok) {
+                    seller = await sellerRes.json();
+                    isVnu = seller ? seller.isVerifiedVNU : false;
+                }
+            } catch (err) {
+                console.error(err);
+            }
+
+            const isMyProduct = prod.sellerid.toLowerCase().trim() === customerID.toLowerCase().trim();
+
+            const container = document.getElementById("productDetailContainer");
+            container.innerHTML = `
+                <div class="image-section">
+                    <img src="${prod.img || 'images/default.png'}" onerror="this.src='../images/default.png'" alt="${prod.title}">
+                </div>
+                <div class="info-section">
+                    <span class="product-cat">${prod.category || 'Linh kiện'}</span>
+                    <h1 class="product-title">${prod.title}</h1>
+                    <div class="product-price">${formatPriceDisplay(prod.fromPrice)}</div>
+                    
+                    <div class="detail-table">
+                        <div class="detail-row">
+                            <span class="detail-label">Mã sản phẩm</span>
+                            <span class="detail-val">${prod.id}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Số lượng còn lại</span>
+                            <span class="detail-val">${prod.quantity || 1}</span>
+                        </div>
+                    </div>
+
+                    ${isMyProduct ? `
+                        <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; font-weight:600; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-solid fa-circle-info" style="color: #64748b;"></i> Đây là sản phẩm do bạn đang đăng bán
+                        </div>
+                    ` : `
+                        <div class="action-buttons">
+                            <button class="btn-add-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ</button>
+                            <button class="btn-buy-now" onclick="buyNow()"><i class="fa-solid fa-bag-shopping"></i> Đặt Mua Ngay</button>
+                        </div>
+                    `}
+
+                    <!-- Reviews placed in the sidebar column directly -->
+                    <div class="reviews-section" style="margin-top: 30px;">
+                        <h4 class="reviews-title" style="font-size: 1.15rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-star" style="color: #fbbf24;"></i> Đánh giá từ người dùng</h4>
+                        <div id="reviewsContainer">
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Đang tải đánh giá...</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Render seller card at the bottom in the sellerContainer
+            const sellerContainer = document.getElementById("sellerContainer");
+            if (sellerContainer) {
+                sellerContainer.innerHTML = `
+                    <div style="padding: 15px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+                        <div style="display: flex; gap: 15px; align-items: center;">
+                            <div style="width: 48px; height: 48px; background: var(--primary-light); color: var(--primary); border: 1.5px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; flex-shrink: 0;">${seller ? seller.fullName.charAt(0) : '?'}</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 6px; white-space: nowrap; flex-wrap: nowrap;">
+                                    ${seller ? seller.fullName : 'Người bán ECOcycle'} 
+                                    ${isVnu ? `<span class="badge-vnu" style="background: #f0fdf4; color: #16a34a; font-size: 0.7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(22, 163, 74, 0.2);"><i class="fa-solid fa-graduation-cap"></i> Verified VNU</span>` : ''}
+                                </h4>
+                                <div style="font-size: 0.9rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 15px; white-space: nowrap;">
+                                    <span>Mã người bán: ${prod.sellerid}</span>
+                                    <span>Liên hệ: ${seller ? seller.phoneNumber : 'N/A'}</span>
+                                </div>
+                            </div>
+                        </div>
+                        ${isMyProduct ? '' : `
+                            <button class="btn-chat-seller" style="margin-left: 0; padding: 8px 16px; font-size: 0.85rem;" onclick="openChatWithSeller('${prod.sellerid}', '${seller ? seller.fullName : 'Người bán'}')"><i class="fa-regular fa-comment-dots"></i> Chat với người bán</button>
+                        `}
+                    </div>
+                `;
+            }
+
+            loadReviews();
+        } catch (error) {
+            console.error(error);
+            document.getElementById("productDetailContainer").innerHTML = `<p style="grid-column: span 2; text-align: center; color: #ef4444; font-weight:700;">Lỗi tải thông tin chi tiết sản phẩm.</p>`;
+        }
+    }
+
+    async function loadReviews() {
+        const container = document.getElementById("reviewsContainer");
+        if (!container) return;
+
+        try {
+            const res = await fetch(`/api/reviews`);
+            if (res.ok) {
+                const allReviews = await res.json();
+                const reviews = allReviews.filter(r => r.productID === productId);
+
+                if (reviews.length === 0) {
+                    container.innerHTML = `<p style="color: var(--text-muted); padding: 10px 0;">Sản phẩm chưa có đánh giá nào.</p>`;
+                    return;
+                }
+
+                container.innerHTML = reviews.map(r => `
+                    <div class="review-item">
+                        <div class="review-meta">
+                            <span class="review-author">${r.buyerID}</span>
+                            <span class="review-date">${r.date}</span>
+                        </div>
+                        <div class="review-stars">
+                            ${Array(5).fill(0).map((_, i) => `<i class="${i < r.rating ? 'fa-solid' : 'fa-regular'} fa-star"></i>`).join('')}
+                        </div>
+                        <p class="review-comment">${r.comment}</p>
+                    </div>
+                `).join('');
+            }
+        } catch (e) {
+            container.innerHTML = `<p style="color: #ef4444;">Lỗi tải đánh giá.</p>`;
+        }
+    }
+
+    async function addToCart() {
+        if (!selectedProduct) return;
+        const fullName = localStorage.getItem("fullName");
+        if (!fullName) {
+            window.top.location.href = "login.html";
+            return;
+        }
+
+        const activeCustomerID = localStorage.getItem("customerId") || "CM000001";
+
+        try {
+            const res = await fetch("/api/cart", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    customerID: activeCustomerID,
+                    productID: selectedProduct.id,
+                    quantity: 1
+                })
+            });
+
+            if (res.ok) {
+                // Show custom toast notification
+                const toast = document.getElementById("cartToast");
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 3000);
+
+                // Instantly update parent badge
+                if (window.parent && typeof window.parent.loadCartBadge === 'function') {
+                    window.parent.loadCartBadge();
+                }
+            } else {
+                alert("Lỗi khi thêm vào giỏ hàng.");
+            }
+        } catch (err) {
+            console.error(err);
+            alert("Lỗi kết nối máy chủ.");
+        }
+    }
+
+    function buyNow() {
+        if (!selectedProduct) return;
+        const fullName = localStorage.getItem("fullName");
+        if (!fullName) {
+            window.top.location.href = "login.html";
+            return;
+        }
+
+        const cleanPrice = parseFloat(selectedProduct.fromPrice.replace(/\./g, "").replace("đ", "").replace("₫", "").trim()) || 0;
+
+        // Save to localStorage for checkout page
+        localStorage.setItem("checkout_type", "product");
+        localStorage.setItem("checkout_product_id", selectedProduct.id);
+        localStorage.setItem("checkout_title", selectedProduct.title);
+        localStorage.setItem("checkout_cost", cleanPrice);
+        localStorage.setItem("checkout_qty", 1);
+        localStorage.setItem("checkout_img", selectedProduct.img || "");
+
+        window.location.href = "paymen_checkout.html";
+    }
+
+    function openChatWithSeller(sellerID, sellerName) {
+        const currentCustomerID = localStorage.getItem("customerId");
+        if (!currentCustomerID) {
+            window.top.location.href = "login.html";
+            return;
+        }
+        
+        if (currentCustomerID.toLowerCase().trim() === sellerID.toLowerCase().trim()) {
+            alert("Bạn không thể tự trò chuyện với chính mình!");
+            return;
+        }
+
+        window.location.href = `chat.html?seller=${sellerID}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", loadProductDetail);
+</script>
+</body>
+</html>

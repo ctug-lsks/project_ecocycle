@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOcycle - Đăng Nhập Hệ Thống</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -25,7 +25,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         body {
@@ -302,7 +302,7 @@
             errorBox.style.display = "none";
 
             try {
-                const res = await fetch("http://localhost:3000/api/users/login", {
+                const res = await fetch("/api/users/login", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ userName: username, passwords: password })
@@ -311,6 +311,9 @@
                 const data = await res.json();
 
                 if (res.ok && data.success) {
+                    // Clear any previous credentials to prevent session bleeding
+                    localStorage.clear();
+                    
                     // Store credentials in localStorage
                     localStorage.setItem("role", data.role);
                     localStorage.setItem("fullName", data.user.fullName || data.user.storeName);
@@ -379,7 +382,7 @@
             const bankAccountName = document.getElementById("regAccountName").value.trim();
 
             const isVNU = email.endsWith("vnu.edu.vn") || email.endsWith(".vnu.edu.vn") || email.endsWith("vnu.vn");
-            const initialCoins = isVNU ? 100 : 0;
+            const initialCoins = isVNU ? 1000 : 0;
 
             const payload = {
                 userName: username,
@@ -396,14 +399,14 @@
             };
 
             try {
-                const res = await fetch("http://localhost:3000/api/users/customer", {
+                const res = await fetch("/api/users/customer", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
 
                 if (res.ok) {
-                    alert("Đăng ký tài khoản thành công! " + (isVNU ? "Chúc mừng bạn nhận được +100 Green Coins vì đã xác thực email VNU!" : ""));
+                    alert("Đăng ký tài khoản thành công! " + (isVNU ? "Chúc mừng bạn nhận được +1000 Green Coins vì đã xác thực email VNU!" : ""));
                     switchTab("login");
                     document.getElementById("username").value = username;
                     document.getElementById("password").value = password;

@@ -1,14 +1,588 @@
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <title>ECOcycle</title>
-        <link rel="stylesheet" href="css/mainstyle.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    </head>
-    <frameset rows="140,*" frameborder="0" framespacing="0" border="0">
-        <frame src="header.html" name="header" scrolling="no" noresize marginwidth="0" marginheight="0">
-        <frameset>
-            <frame src="customer_home.html" name="body" scrolling="auto" marginwidth="0" marginheight="0">
-        </frameset>
-    </frameset>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECOcycle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f8fafc;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+        .top-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 40px;
+            height: 80px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: 800;
+            cursor: pointer;
+            user-select: none;
+            letter-spacing: -0.5px;
+            transition: opacity 0.2s;
+        }
+        .logo:hover {
+            opacity: 0.85;
+        }
+        .logo-green {
+            color: #1f9d47;
+        }
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 99px;
+            background: #f8fafc;
+            transition: all 0.2s;
+            padding-right: 5px;
+        }
+        .search-box:focus-within {
+            border-color: #1f9d47;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(31, 157, 71, 0.15);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            background: transparent;
+            color: #1e293b;
+        }
+        .search-box button {
+            border: none;
+            background: #1f9d47;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 13px;
+        }
+        .search-box button:hover {
+            background: #167e35;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .coin-btn {
+            background: linear-gradient(135deg, #1f9d47, #10b981);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 99px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(31, 157, 71, 0.2);
+            transition: all 0.2s;
+        }
+        .coin-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(31, 157, 71, 0.3);
+        }
+        .icon-box {
+            position: relative;
+            font-size: 20px;
+            color: #475569;
+            cursor: pointer;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f1f5f9;
+            transition: all 0.2s;
+        }
+        .icon-box:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+        .badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: #ef4444;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 99px;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .user-info:hover {
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        .user-info .fa-circle-user {
+            font-size: 20px;
+            color: #1f9d47;
+        }
+        .user-info span {
+            font-weight: 600;
+            font-size: 14px;
+            color: #334155;
+        }
+        .user-info .fa-chevron-down {
+            font-size: 10px;
+            color: #64748b;
+        }
+        #logoutLink {
+            font-size: 16px;
+            color: #64748b;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            cursor: pointer;
+        }
+        #logoutLink:hover {
+            color: #ef4444;
+            background: #fee2e2;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            padding: 0 40px;
+            height: 50px;
+            border-top: 1px solid #f1f5f9;
+            background: #fafafa;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #475569;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .navbar a:hover {
+            color: #1f9d47;
+        }
+        .navbar a.active {
+            color: #1f9d47;
+        }
+        .navbar a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #1f9d47;
+            border-radius: 3px 3px 0 0;
+        }
+        #body {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="top-header">
+        <div class="logo" onclick="document.getElementById('body').contentWindow.location.href='customer_home.html'">
+            <span class="logo-green">ECO</span>cycle
+        </div>
+
+        <div class="search-box">
+            <input type="text" placeholder="Tìm kiếm sản phẩm, dịch vụ...">
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <div class="header-actions">
+            <a href="green_coin.html" target="body" style="text-decoration:none;">
+                <button class="coin-btn">
+                    <i class="fa-solid fa-coins"></i>
+                    Green Coin
+                </button>
+            </a>
+
+            <a href="chat.html" target="body" style="text-decoration:none; color:inherit;">
+                <div class="icon-box">
+                    <i class="fa-regular fa-comments"></i>
+                </div>
+            </a>
+
+            <div id="bellWrapper" style="position: relative; display: flex; align-items: center;">
+                <div class="icon-box notification" id="bellBtn" onclick="toggleNotifDropdown(event)" title="Thông báo">
+                    <i class="fa-regular fa-bell"></i>
+                    <span id="notifBadge" class="badge" style="display: none;">0</span>
+                </div>
+                <div id="notifDropdown" style="display: none; position: absolute; top: 48px; right: 0; width: 340px; background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 9999; overflow: hidden; padding: 10px 0;">
+                    <div style="padding: 10px 15px; border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: #0f172a;">Thông báo</h4>
+                        <button onclick="markAllNotificationsAsRead(event)" style="border: none; background: none; color: #1f9d47; font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Đã đọc tất cả</button>
+                    </div>
+                    <div id="notifItems" style="max-height: 250px; overflow-y: auto;">
+                        <!-- dynamic items -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="cart.html" id="cartLink" target="body" style="text-decoration:none; color:inherit;">
+                <div class="icon-box" title="Giỏ hàng">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartBadge" class="badge" style="display: none;">0</span>
+                </div>
+            </a>
+
+            <a id="userLink" href="customer_profile.html" target="body" style="text-decoration:none; color:inherit;">
+                <div class="user-info">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span id="usernameSpan">User</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </a>
+            <a id="logoutLink" href="index.html" target="_top" onclick="if (confirm('Bạn có chắc chắn muốn đăng xuất khỏi ECOcycle?')) { localStorage.clear(); return true; } else { return false; }" style="display:none;" title="Đăng xuất">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <a href="customer_home.html" target="body" class="active">Trang chủ</a>
+        <a href="customer_marketplace.html" target="body">Marketplace</a>
+        <a href="customer_recycle.html" target="body">Sửa chữa & tái chế</a>
+        <a href="green_dashboard.html" target="body">Môi trường</a>
+    </nav>
+</header>
+
+<iframe src="customer_home.html" name="body" id="body" scrolling="auto"></iframe>
+
+<script src="js/data-loader.js"></script>
+<script src="js/main.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fullName = localStorage.getItem("fullName");
+        const usernameSpan = document.getElementById("usernameSpan");
+        const userLink = document.getElementById("userLink");
+        const logoutLink = document.getElementById("logoutLink");
+        
+        const coinLink = document.querySelector('a[href="green_coin.html"]');
+        const envLink = document.querySelector('a[href="green_dashboard.html"]');
+        const chatLink = document.querySelector('a[href="chat.html"]');
+        const cartLink = document.getElementById("cartLink");
+
+        if (fullName) {
+            usernameSpan.textContent = fullName;
+            userLink.href = "customer_profile.html";
+            userLink.target = "body";
+            if (logoutLink) logoutLink.style.display = "flex";
+            
+            if (coinLink) {
+                coinLink.href = "green_coin.html";
+                coinLink.target = "body";
+            }
+            if (envLink) {
+                envLink.href = "green_dashboard.html";
+                envLink.target = "body";
+            }
+            if (chatLink) {
+                chatLink.href = "chat.html";
+                chatLink.target = "body";
+            }
+            if (cartLink) {
+                cartLink.href = "cart.html";
+                cartLink.target = "body";
+            }
+        } else {
+            usernameSpan.textContent = "Đăng nhập";
+            userLink.href = "login.html";
+            userLink.target = "_top";
+            if (logoutLink) logoutLink.style.display = "none";
+
+            if (coinLink) {
+                coinLink.href = "login.html";
+                coinLink.target = "_top";
+            }
+            if (envLink) {
+                envLink.href = "login.html";
+                envLink.target = "_top";
+            }
+            if (cartLink) {
+                cartLink.href = "login.html";
+                cartLink.target = "_top";
+            }
+            if (chatLink) {
+                chatLink.href = "login.html";
+                chatLink.target = "_top";
+            }
+        }
+
+        // Active state sync with body iframe URL
+        setInterval(() => {
+            try {
+                const bodyFrame = document.getElementById("body");
+                if (bodyFrame && bodyFrame.contentWindow) {
+                    const path = bodyFrame.contentWindow.location.pathname;
+                    const page = path.split('/').pop().replace('.html', '');
+                    
+                    const navLinks = document.querySelectorAll(".navbar a");
+                    let foundActive = false;
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute("href");
+                        if (href && href.includes(page)) {
+                            foundActive = true;
+                        }
+                    });
+                    
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute("href");
+                        if (foundActive && href && href.includes(page)) {
+                            link.classList.add("active");
+                        } else {
+                            link.classList.remove("active");
+                        }
+                    });
+                }
+            } catch(e) {
+                // Ignore cross-origin error on external redirects
+            }
+        }, 300);
+
+        // Search redirection functionality
+        const searchInput = document.querySelector(".search-box input");
+        const searchBtn = document.querySelector(".search-box button");
+
+        function triggerSearch() {
+            if (!searchInput) return;
+            const query = searchInput.value.trim();
+            if (query) {
+                const bodyFrame = document.getElementById("body");
+                if (bodyFrame) {
+                    bodyFrame.contentWindow.location.href = "customer_marketplace.html?q=" + encodeURIComponent(query);
+                }
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    triggerSearch();
+                }
+            });
+        }
+        if (searchBtn) {
+            searchBtn.addEventListener("click", triggerSearch);
+        }
+
+        // --- CART BADGE HANDLER ---
+        const customerID = localStorage.getItem("customerId") || "CM000001";
+        
+        async function loadCartBadge() {
+            if (!customerID) return;
+            try {
+                const res = await fetch(`/api/cart/${customerID}?t=${Date.now()}`);
+                if (res.ok) {
+                    const cartItems = await res.json();
+                    const badge = document.getElementById("cartBadge");
+                    if (badge) {
+                        const totalItems = cartItems.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                        if (totalItems > 0) {
+                            badge.textContent = totalItems;
+                            badge.style.display = "flex";
+                        } else {
+                            badge.style.display = "none";
+                        }
+                    }
+                }
+            } catch (err) {
+                console.error("Failed to load cart badge:", err);
+            }
+        }
+        window.loadCartBadge = loadCartBadge;
+
+        // --- NOTIFICATION HANDLER ---
+        let notifications = [];
+
+        async function loadNotifications() {
+            if (!fullName) return;
+            try {
+                const res = await fetch(`/api/notifications/user?fullName=${encodeURIComponent(fullName)}`);
+                if (res.ok) {
+                    notifications = await res.json();
+                    const unread = notifications.filter(n => !n.isRead);
+                    const badge = document.getElementById("notifBadge");
+                    if (badge) {
+                        if (unread.length > 0) {
+                            badge.textContent = unread.length;
+                            badge.style.display = "flex";
+                        } else {
+                            badge.style.display = "none";
+                        }
+                    }
+                    renderNotifDropdown(notifications);
+                }
+            } catch (err) {
+                console.error("Failed to load notifications:", err);
+            }
+        }
+
+        function renderNotifDropdown(notificationsList) {
+            const container = document.getElementById("notifItems");
+            if (!container) return;
+
+            if (!notificationsList || notificationsList.length === 0) {
+                container.innerHTML = `<div style="padding: 20px; text-align: center; color: #64748b; font-size: 13px;">Không có thông báo nào.</div>`;
+                return;
+            }
+
+            // Reverse array to show newest notifications first
+            const sortedNotifications = [...notificationsList].reverse();
+
+            container.innerHTML = sortedNotifications.map(n => `
+                <div onclick="markAsRead('${n.notificationID}', event)" style="padding: 10px 15px; border-bottom: 1px solid #f1f5f9; cursor: pointer; transition: background 0.2s; display: flex; align-items: flex-start; gap: 10px; background: ${n.isRead ? 'transparent' : '#f0fdf4'};" onmouseover="this.style.background='#f8fafc'" onmouseout="this.style.background='${n.isRead ? 'transparent' : '#f0fdf4'}'">
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: ${n.isRead ? 'transparent' : '#1f9d47'}; margin-top: 5px; flex-shrink: 0;"></div>
+                    <div style="flex: 1; font-size: 13px; color: #1e293b; line-height: 1.4; font-weight: ${n.isRead ? '400' : '600'};">${n.title}</div>
+                </div>
+            `).join('');
+        }
+
+        window.toggleNotifDropdown = function(e) {
+            if (e) e.stopPropagation();
+            if (!fullName) {
+                window.top.location.href = "login.html";
+                return;
+            }
+            const dropdown = document.getElementById("notifDropdown");
+            if (dropdown) {
+                const isVisible = dropdown.style.display === "block";
+                dropdown.style.display = isVisible ? "none" : "block";
+            }
+        };
+
+        window.markAsRead = async function(id, e) {
+            if (e) e.stopPropagation();
+            try {
+                const res = await fetch(`/api/notifications/${id}/read`, {
+                    method: 'PUT'
+                });
+                if (res.ok) {
+                    await loadNotifications();
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        window.markAllNotificationsAsRead = async function(e) {
+            if (e) e.stopPropagation();
+            const unread = notifications.filter(n => !n.isRead);
+            if (unread.length === 0) return;
+            
+            try {
+                await Promise.all(unread.map(n => 
+                    fetch(`/api/notifications/${n.notificationID}/read`, { method: 'PUT' })
+                ));
+                await loadNotifications();
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        // Close dropdown when clicking outside (including inside the iframe)
+        document.addEventListener('click', closeDropdown);
+        
+        setInterval(() => {
+            try {
+                const bodyFrame = document.getElementById("body");
+                if (bodyFrame && bodyFrame.contentWindow && bodyFrame.contentWindow.document) {
+                    if (!bodyFrame.contentWindow.document._hasDropdownListener) {
+                        bodyFrame.contentWindow.document.addEventListener('click', closeDropdown);
+                        bodyFrame.contentWindow.document._hasDropdownListener = true;
+                    }
+                }
+            } catch (e) {
+                // Ignore cross-origin issues
+            }
+        }, 500);
+
+        function closeDropdown() {
+            const dropdown = document.getElementById("notifDropdown");
+            if (dropdown) dropdown.style.display = "none";
+        }
+        
+        // Prevent closing when clicking inside
+        const dropdown = document.getElementById("notifDropdown");
+        if (dropdown) {
+            dropdown.addEventListener('click', e => e.stopPropagation());
+        }
+
+        // Initialize and set poll
+        if (fullName) {
+            loadNotifications();
+            loadCartBadge();
+            setInterval(loadNotifications, 5000);
+            setInterval(loadCartBadge, 5000);
+        }
+    });
+</script>
+</body>
 </html>

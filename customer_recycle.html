@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOcycle - Sửa Chữa & Tái Chế</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -30,7 +30,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         body {
@@ -56,6 +56,20 @@
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
+        }
+
+        .step-pill {
+            background: #f0fdf4;
+            color: #14532d;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 99px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(31, 157, 71, 0.15);
+            flex-shrink: 0;
         }
 
         .header-title h1 {
@@ -824,6 +838,7 @@
     const customerID = localStorage.getItem("customerId") || "CM000001";
     let activeRequest = null;
     let storeList = [];
+    let currentCustomerObj = null;
     let wasteUnitList = [
         "Công ty Cổ phần Môi trường Đô thị Xanh",
         "Nhà máy Xử lý Rác thải Điện tử Công nghệ cao",
@@ -836,9 +851,9 @@
             return;
         }
 
-        const customer = await ECOcycleAPI.getCustomer(customerID);
-        if (customer && customer.address) {
-            document.getElementById("pickupAddress").value = customer.address;
+        currentCustomerObj = await ECOcycleAPI.getCustomer(customerID);
+        if (currentCustomerObj && currentCustomerObj.address) {
+            document.getElementById("pickupAddress").value = currentCustomerObj.address;
         }
 
         const today = new Date().toISOString().split("T")[0];
@@ -927,6 +942,11 @@
         const resellPrice = aiData ? (aiData.resell_price_after_repair || 1500000) : 1500000;
         const recycleCost = 20000 + parseFloat(weight) * 10000;
 
+        const isVnu = currentCustomerObj ? currentCustomerObj.isVerifiedVNU : false;
+        const repairCoins = isVnu ? Math.round(800 * 1.5) : 800;
+        const resellCoins = isVnu ? Math.round(900 * 1.5) : 900;
+        const recycleCoins = isVnu ? Math.round(600 * 1.5) : 600;
+
         let storeOptions = storeList.map(s => `<option value="${s.storeID}">${s.storeName} - ${s.address}</option>`).join('');
         let wasteOptions = wasteUnitList.map(w => `<option value="${w}">${w}</option>`).join('');
 
@@ -941,7 +961,7 @@
                         <div>
                             <div class="option-card-title"><i class="fa-solid fa-screwdriver-wrench me-1"></i>Sửa chữa & Dùng tiếp</div>
                             <div class="option-card-price">${repairCost.toLocaleString()}đ</div>
-                            <div class="option-card-coins">+50 Green Coins</div>
+                            <div class="option-card-coins">+${repairCoins.toLocaleString()} Green Coins</div>
                         </div>
                         <div class="option-card-unit" onclick="event.stopPropagation()">
                             <label>Chọn cửa hàng sửa chữa:</label>
@@ -953,7 +973,7 @@
                         <div>
                             <div class="option-card-title"><i class="fa-solid fa-money-bill-wave me-1"></i>Bán lại cho Web</div>
                             <div class="option-card-price" style="color: var(--primary);">${resellPrice.toLocaleString()}đ</div>
-                            <div class="option-card-coins">+90 Green Coins</div>
+                            <div class="option-card-coins">+${resellCoins.toLocaleString()} Green Coins</div>
                         </div>
                         <div class="option-card-unit" onclick="event.stopPropagation()">
                             <label>Cửa hàng giám định chất lượng:</label>
@@ -965,7 +985,7 @@
                         <div>
                             <div class="option-card-title"><i class="fa-solid fa-recycle me-1"></i>Tái chế rác điện tử</div>
                             <div class="option-card-price" style="color: var(--text-muted);">${recycleCost.toLocaleString()}đ</div>
-                            <div class="option-card-coins">+70 Green Coins</div>
+                            <div class="option-card-coins">+${recycleCoins.toLocaleString()} Green Coins</div>
                         </div>
                         <div class="option-card-unit" onclick="event.stopPropagation()">
                             <label>Chọn đơn vị xử lý rác:</label>
@@ -982,7 +1002,7 @@
                         <div>
                             <div class="option-card-title"><i class="fa-solid fa-recycle me-1"></i>Tái chế rác điện tử</div>
                             <div class="option-card-price">${recycleCost.toLocaleString()}đ</div>
-                            <div class="option-card-coins">+70 Green Coins</div>
+                            <div class="option-card-coins">+${recycleCoins.toLocaleString()} Green Coins</div>
                         </div>
                         <div class="option-card-unit" onclick="event.stopPropagation()">
                             <label>Chọn đơn vị xử lý rác:</label>
@@ -1046,10 +1066,12 @@
             });
 
             const costFormatted = parseFloat(costVal).toLocaleString("vi-VN") + "đ";
-            let coinsEarned = 50;
+            const customer = await ECOcycleAPI.getCustomer(customerID);
+            const isVnu = customer ? customer.isVerifiedVNU : false;
+            let coinsEarned = 500;
 
             if (type === 'Repair') {
-                coinsEarned = 50;
+                coinsEarned = isVnu ? Math.round(800 * 1.5) : 800;
                 await ECOcycleAPI.createRepairOrder({
                     requestID: activeRequest.requestID,
                     customerID: customerID,
@@ -1062,7 +1084,7 @@
                     shippingStatus: "Chưa gửi đi xử lý"
                 });
             } else if (type === 'Resell') {
-                coinsEarned = 90;
+                coinsEarned = isVnu ? Math.round(900 * 1.5) : 900;
                 await ECOcycleAPI.createResellOrder({
                     requestID: activeRequest.requestID,
                     customerID: customerID,
@@ -1075,7 +1097,7 @@
                     shippingStatus: "Chưa gửi đi xử lý"
                 });
             } else {
-                coinsEarned = 70;
+                coinsEarned = isVnu ? Math.round(600 * 1.5) : 600;
                 await ECOcycleAPI.createRecycleOrder({
                     requestID: activeRequest.requestID,
                     customerID: customerID,
@@ -1097,14 +1119,32 @@
                 greenCoins: coinsEarned
             });
 
-            alert(`Gửi yêu cầu đặt lịch thành công! Bạn nhận được +${coinsEarned} Green Coins.`);
+            // Create notification for schedule booking
+            try {
+                await ECOcycleAPI.createNotification({
+                    customerID: customerID,
+                    title: `Đặt lịch thành công: ${type === 'Repair' ? 'Sửa chữa' : (type === 'Resell' ? 'Bán lại' : 'Tái chế')} thiết bị "${activeRequest.productName}" (+${coinsEarned} Green Coins).`
+                });
+            } catch (notifErr) {
+                console.error("Lỗi tạo thông báo:", notifErr);
+            }
 
-            document.getElementById("recycleForm").reset();
-            document.getElementById("aiResultCard").classList.remove("active");
-            document.getElementById("aiPlaceholder").classList.remove("hidden");
-            document.getElementById("pickupScheduleSection").style.display = "none";
-
-            loadTrackingTable();
+            if (type === 'Repair' || type === 'Recycle') {
+                localStorage.setItem("checkout_type", type.toLowerCase());
+                localStorage.setItem("checkout_title", activeRequest.productName || "Thiết bị điện tử");
+                localStorage.setItem("checkout_cost", costVal);
+                localStorage.setItem("checkout_request_id", activeRequest.requestID);
+                
+                alert(`Gửi yêu cầu đặt lịch thành công! Bạn được cộng +${coinsEarned} Green Coins tích lũy.\nHệ thống đang chuyển bạn đến trang Thanh toán dịch vụ.`);
+                window.location.href = "paymen_checkout.html";
+            } else {
+                alert(`Gửi yêu cầu đặt lịch thành công! Bạn nhận được +${coinsEarned} Green Coins.`);
+                document.getElementById("recycleForm").reset();
+                document.getElementById("aiResultCard").classList.remove("active");
+                document.getElementById("aiPlaceholder").classList.remove("hidden");
+                document.getElementById("pickupScheduleSection").style.display = "none";
+                loadTrackingTable();
+            }
 
         } catch (error) {
             console.error(error);

@@ -223,17 +223,7 @@
                 "discount": "-31%",
                 "sellerid": "CM000001"
             },
-            {
-                "id": "DV000001",
-                "img": "images/default.png",
-                "title": "Kingston Fury 16GB DDR4",
-                "quantity": 2,
-                "fromPrice": "850.000₫",
-                "newPrice": "850.000₫",
-                "saving": "0đ",
-                "discount": "0%",
-                "sellerid": "CM000001"
-            },
+
             {
                 "id": "DV000193",
                 "img": "images/default.png",

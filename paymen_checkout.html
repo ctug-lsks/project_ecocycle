@@ -223,6 +223,7 @@ a{text-decoration:none;}
 }
 .tag-warranty{background:var(--accent-light);color:var(--accent);}
 .tag-repair{background:#fef3c7;color:#b45309;}
+.tag-recycle{background:#e0f2fe;color:#0369a1;}
 
 .summary-row{display:flex;justify-content:space-between;font-size:.88rem;padding:.4rem 0;color:var(--muted);}
 .summary-row span:last-child{color:var(--ink);font-weight:600;}
@@ -273,43 +274,10 @@ a{text-decoration:none;}
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<nav class="top-nav">
-  <div class="container-xxl d-flex align-items-center justify-content-between flex-wrap gap-2">
-    <div class="d-flex align-items-center gap-4">
-      <a href="#" class="brand">RE<span>share</span></a>
-      <ul class="nav d-none d-lg-flex">
-        <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Marketplace</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Sửa chữa &amp; tái chế</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Môi trường</a></li>
-      </ul>
-    </div>
-    <div class="d-flex align-items-center gap-2">
-      <div class="search-box d-flex align-items-center">
-        <input type="text" placeholder="Tìm kiếm sản phẩm, dịch vụ...">
-        <button><i class="fa-solid fa-magnifying-glass fa-xs"></i></button>
-      </div>
-      <button class="icon-btn"><i class="fa-solid fa-cart-shopping"></i><span class="badge-dot">5</span></button>
-      <button class="icon-btn"><i class="fa-regular fa-bell"></i><span class="badge-dot">2</span></button>
-      <div class="avatar-chip">
-        <img src="https://i.pravatar.cc/64?img=12" alt="avatar">
-        <span class="fw-semibold small d-none d-md-inline">Nguyễn An</span>
-        <i class="fa-solid fa-chevron-down fa-xs text-muted d-none d-md-inline"></i>
-      </div>
-    </div>
-  </div>
-</nav>
-
 <div class="container-xxl py-4">
-
-  <div class="breadcrumb-mini mb-2"><a href="#">Trang chủ</a> &nbsp;/&nbsp; <a href="#">Giỏ hàng</a> &nbsp;/&nbsp; <span class="text-dark fw-semibold">Thanh toán</span></div>
-  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
-    <div>
-      <h1 class="page-title mb-1">Thanh toán đơn hàng</h1>
-      <div class="text-muted small">Hoàn tất thông tin bên dưới để xác nhận đơn hàng của bạn</div>
-    </div>
-    <span class="step-pill"><i class="fa-solid fa-circle-check"></i> Bước 2/2 — Thanh toán</span>
+  <div class="mb-4">
+    <h1 class="page-title mb-1">Thanh toán đơn hàng</h1>
+    <div class="text-muted small">Hoàn tất thông tin bên dưới để xác nhận đơn hàng của bạn</div>
   </div>
 
   <form id="checkoutForm">
@@ -527,53 +495,55 @@ a{text-decoration:none;}
         <div class="card-soft mb-3">
           <div class="section-title mb-3"><i class="fa-solid fa-receipt text-success"></i> Danh sách đơn hàng</div>
 
-          <div class="fw-semibold small text-muted mb-1">SẢN PHẨM MUA BÁN (3)</div>
-          <div class="order-item">
-            <img src="https://images.unsplash.com/photo-1591405351990-4726e331f141?w=120&h=120&fit=crop" alt="RAM">
-            <div class="flex-grow-1">
-              <div class="name">RAM Kingston Fury Beast 16GB (8GBx2) DDR4</div>
-              <div class="qty">SL: 1</div>
-              <span class="tag-mini tag-warranty">Bảo hành 36 tháng</span>
+          <div id="orderItemsContainer">
+            <div class="fw-semibold small text-muted mb-1">SẢN PHẨM MUA BÁN (3)</div>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1591405351990-4726e331f141?w=120&h=120&fit=crop" alt="RAM">
+              <div class="flex-grow-1">
+                <div class="name">RAM Kingston Fury Beast 16GB (8GBx2) DDR4</div>
+                <div class="qty">SL: 1</div>
+                <span class="tag-mini tag-warranty">Bảo hành 36 tháng</span>
+              </div>
+              <div class="price">1.190.000đ</div>
             </div>
-            <div class="price">1.190.000đ</div>
-          </div>
-          <div class="order-item">
-            <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=120&h=120&fit=crop" alt="SSD">
-            <div class="flex-grow-1">
-              <div class="name">Ổ cứng SSD Samsung 970 EVO Plus 1TB</div>
-              <div class="qty">SL: 1</div>
-              <span class="tag-mini tag-warranty">Bảo hành 60 tháng</span>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=120&h=120&fit=crop" alt="SSD">
+              <div class="flex-grow-1">
+                <div class="name">Ổ cứng SSD Samsung 970 EVO Plus 1TB</div>
+                <div class="qty">SL: 1</div>
+                <span class="tag-mini tag-warranty">Bảo hành 60 tháng</span>
+              </div>
+              <div class="price">2.490.000đ</div>
             </div>
-            <div class="price">2.490.000đ</div>
-          </div>
-          <div class="order-item">
-            <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=120&h=120&fit=crop" alt="Mouse">
-            <div class="flex-grow-1">
-              <div class="name">Chuột Gaming Logitech G102 Lightsync</div>
-              <div class="qty">SL: 1</div>
-              <span class="tag-mini tag-warranty">Bảo hành 24 tháng</span>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=120&h=120&fit=crop" alt="Mouse">
+              <div class="flex-grow-1">
+                <div class="name">Chuột Gaming Logitech G102 Lightsync</div>
+                <div class="qty">SL: 1</div>
+                <span class="tag-mini tag-warranty">Bảo hành 24 tháng</span>
+              </div>
+              <div class="price">490.000đ</div>
             </div>
-            <div class="price">490.000đ</div>
-          </div>
 
-          <div class="fw-semibold small text-muted mb-1 mt-3">YÊU CẦU SỬA CHỮA (2)</div>
-          <div class="order-item">
-            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=120&h=120&fit=crop" alt="Laptop">
-            <div class="flex-grow-1">
-              <div class="name">Laptop Asus TUF Gaming F15 FX506LH</div>
-              <div class="qty">Thay keo tản nhiệt + Thay pin</div>
-              <span class="tag-mini tag-repair">Sửa chữa</span>
+            <div class="fw-semibold small text-muted mb-1 mt-3">YÊU CẦU SỬA CHỮA (2)</div>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=120&h=120&fit=crop" alt="Laptop">
+              <div class="flex-grow-1">
+                <div class="name">Laptop Asus TUF Gaming F15 FX506LH</div>
+                <div class="qty">Thay keo tản nhiệt + Thay pin</div>
+                <span class="tag-mini tag-repair">Sửa chữa</span>
+              </div>
+              <div class="price">1.870.000đ</div>
             </div>
-            <div class="price">1.870.000đ</div>
-          </div>
-          <div class="order-item">
-            <img src="https://images.unsplash.com/photo-1592286927505-1def25115558?w=120&h=120&fit=crop" alt="iPhone">
-            <div class="flex-grow-1">
-              <div class="name">iPhone 11 64GB</div>
-              <div class="qty">Thay pin + Vệ sinh máy</div>
-              <span class="tag-mini tag-repair">Sửa chữa</span>
+            <div class="order-item">
+              <img src="https://images.unsplash.com/photo-1592286927505-1def25115558?w=120&h=120&fit=crop" alt="iPhone">
+              <div class="flex-grow-1">
+                <div class="name">iPhone 11 64GB</div>
+                <div class="qty">Thay pin + Vệ sinh máy</div>
+                <span class="tag-mini tag-repair">Sửa chữa</span>
+              </div>
+              <div class="price">850.000đ</div>
             </div>
-            <div class="price">850.000đ</div>
           </div>
         </div>
 
@@ -590,7 +560,7 @@ a{text-decoration:none;}
           </div>
 
           <div class="gc-toggle">
-            <span class="gc-label"><i class="fa-solid fa-coins coin-icon"></i> Dùng Green Coin (120 xu = 12.000đ)</span>
+            <span class="gc-label"><i class="fa-solid fa-coins coin-icon"></i> Dùng Green Coin</span>
             <div class="form-check form-switch mb-0">
               <input class="form-check-input" type="checkbox" role="switch" id="greenCoinToggle">
             </div>
@@ -598,8 +568,8 @@ a{text-decoration:none;}
 
           <hr class="my-3">
 
-          <div class="summary-row"><span>Tạm tính sản phẩm</span><span id="sumProduct">4.170.000đ</span></div>
-          <div class="summary-row"><span>Chi phí sửa chữa (dự kiến)</span><span id="sumRepair">2.720.000đ</span></div>
+          <div class="summary-row" id="sumProductRow"><span>Tạm tính sản phẩm</span><span id="sumProduct">4.170.000đ</span></div>
+          <div class="summary-row" id="sumRepairRow"><span>Chi phí dịch vụ (dự kiến)</span><span id="sumRepair">2.720.000đ</span></div>
           <div class="summary-row"><span>Phí vận chuyển</span><span id="sumShip">Miễn phí</span></div>
           <div class="summary-row discount d-none" id="sumDiscountRow"><span>Giảm giá voucher</span><span id="sumDiscount">-0đ</span></div>
           <div class="summary-row discount d-none" id="sumGcRow"><span>Green Coin</span><span id="sumGc">-0đ</span></div>
@@ -629,7 +599,7 @@ a{text-decoration:none;}
         <h4 class="fw-bold mb-2">Đặt hàng thành công!</h4>
         <p class="text-muted mb-1">Mã đơn hàng của bạn là <span class="fw-semibold text-dark" id="successOrderId">RS-2026-88213</span></p>
         <p class="text-muted small">Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận đơn hàng.</p>
-        <button class="btn btn-primary-brand text-white w-100 py-2 mt-3" data-bs-dismiss="modal">Về trang chủ</button>
+        <button id="successHomeBtn" class="btn btn-primary-brand text-white w-100 py-2 mt-3" data-bs-dismiss="modal">Về trang chủ</button>
       </div>
     </div>
   </div>
@@ -639,15 +609,39 @@ a{text-decoration:none;}
 <script>
 (function(){
   // ---------- State ----------
-  const PRODUCT_SUBTOTAL = 4170000;
-  const REPAIR_SUBTOTAL = 2720000;
+  const checkoutType = localStorage.getItem("checkout_type") || "product";
+  let PRODUCT_SUBTOTAL = (checkoutType === "product" || checkoutType === "cart") ? (parseFloat(localStorage.getItem("checkout_cost")) || 0) : 0;
+  let REPAIR_SUBTOTAL = (checkoutType === "repair" || checkoutType === "recycle") ? (parseFloat(localStorage.getItem("checkout_cost")) || 0) : 0;
   let deliveryFee = 0;
   let discountAmount = 0;
   let greenCoinAmount = 0;
-  let activeTab = 'product'; // product | repair
+  let activeTab = (checkoutType === "repair" || checkoutType === "recycle") ? 'repair' : 'product';
   let selectedMethod = 'cod';
+  
+  const customerID = localStorage.getItem("customerId") || "CM000001";
+  let maxAvailableCoins = 0;
 
   const fmt = (n) => n.toLocaleString('vi-VN') + 'đ';
+
+  // ---------- Load customer data and prefill ----------
+  async function loadCustomerData() {
+    try {
+      const res = await fetch(`/api/users/customer/${customerID}`);
+      if (res.ok) {
+        const data = await res.json();
+        if (data) {
+          document.querySelector('input[name="fullname"]').value = data.fullName || "";
+          document.querySelector('input[name="phone"]').value = data.phoneNumber || "";
+          document.querySelector('input[name="email"]').value = data.email || "";
+          document.querySelector('input[name="address_detail"]').value = data.address || "";
+          maxAvailableCoins = data.greenCoins || 0;
+          updateGreenCoinLabel();
+        }
+      }
+    } catch (e) {
+      console.error("Lỗi khi tải thông tin khách hàng:", e);
+    }
+  }
 
   // ---------- Delivery selection ----------
   const deliveryOptions = document.querySelectorAll('.delivery-option');
@@ -667,6 +661,7 @@ a{text-decoration:none;}
       tabButtons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       activeTab = btn.dataset.tab;
+      updateGreenCoinLabel();
       updateSummary();
     });
   });
@@ -740,15 +735,37 @@ a{text-decoration:none;}
   // ---------- Green Coin ----------
   const greenCoinToggle = document.getElementById('greenCoinToggle');
   greenCoinToggle.addEventListener('change', () => {
-    greenCoinAmount = greenCoinToggle.checked ? 12000 : 0;
-    updateSummary();
+    updateGreenCoinLabel();
   });
+
+  function updateGreenCoinLabel() {
+    const label = document.querySelector('.gc-label');
+    if (greenCoinToggle.checked) {
+      const subtotal = activeTab === 'product' ? PRODUCT_SUBTOTAL : REPAIR_SUBTOTAL;
+      const coinsNeeded = Math.ceil(subtotal / 1);
+      const coinsToUse = Math.min(maxAvailableCoins, coinsNeeded);
+      greenCoinAmount = coinsToUse * 1;
+      label.innerHTML = `<i class="fa-solid fa-coins coin-icon"></i> Dùng Green Coin (Sử dụng ${coinsToUse} / ${maxAvailableCoins} xu = -${fmt(greenCoinAmount)})`;
+    } else {
+      greenCoinAmount = 0;
+      label.innerHTML = `<i class="fa-solid fa-coins coin-icon"></i> Dùng Green Coin (Bạn có ${maxAvailableCoins} xu = ${fmt(maxAvailableCoins * 1)})`;
+    }
+    updateSummary();
+  }
 
   // ---------- Summary calculation ----------
   function updateSummary(){
     document.getElementById('sumProduct').textContent = fmt(PRODUCT_SUBTOTAL);
     document.getElementById('sumRepair').textContent = fmt(REPAIR_SUBTOTAL);
     document.getElementById('sumShip').textContent = deliveryFee === 0 ? 'Miễn phí' : fmt(deliveryFee);
+
+    if (checkoutType === "product") {
+      document.getElementById('sumProductRow').classList.remove('d-none');
+      document.getElementById('sumRepairRow').classList.add('d-none');
+    } else {
+      document.getElementById('sumProductRow').classList.add('d-none');
+      document.getElementById('sumRepairRow').classList.remove('d-none');
+    }
 
     const discountRow = document.getElementById('sumDiscountRow');
     const gcRow = document.getElementById('sumGcRow');
@@ -777,7 +794,7 @@ a{text-decoration:none;}
   const form = document.getElementById('checkoutForm');
   const successModal = new bootstrap.Modal(document.getElementById('successModal'));
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if(!form.checkValidity()){
@@ -795,13 +812,246 @@ a{text-decoration:none;}
     }
     agree.classList.remove('is-invalid');
 
+    const fullname = document.querySelector('input[name="fullname"]').value.trim();
+    const phone = document.querySelector('input[name="phone"]').value.trim();
+
     const orderId = 'RS-2026-' + Math.floor(10000 + Math.random()*89999);
+    
+    // Deduct coins if toggled
+    const coinsUsed = greenCoinAmount / 1;
+    if (greenCoinToggle.checked && coinsUsed > 0) {
+      try {
+        await fetch("/api/greencoins", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerID: customerID,
+            action: "Dùng xu thanh toán đơn hàng " + orderId,
+            orderID: orderId,
+            greenCoins: -coinsUsed
+          })
+        });
+      } catch (err) {
+        console.error("Lỗi khi khấu trừ Green Coins:", err);
+      }
+    }
+
+    // Save payment
+    const totalAmount = Math.max(0, PRODUCT_SUBTOTAL + REPAIR_SUBTOTAL + deliveryFee - discountAmount - greenCoinAmount);
+    try {
+      await fetch("/api/payments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customerID: customerID,
+          orderID: orderId,
+          amount: PRODUCT_SUBTOTAL + REPAIR_SUBTOTAL,
+          deliveryFee: deliveryFee,
+          discount: discountAmount,
+          greenCoinsDiscount: greenCoinAmount,
+          total: totalAmount,
+          paymentMethod: selectedMethod,
+          status: selectedMethod === 'cod' ? 'Pending' : 'Completed'
+        })
+      });
+
+      // Save order if it's a product or cart checkout
+      if (checkoutType === "product" || checkoutType === "cart") {
+        let items = [];
+        if (checkoutType === "product") {
+          items.push({
+            productID: localStorage.getItem("checkout_product_id"),
+            title: localStorage.getItem("checkout_title") || "Sản phẩm",
+            price: parseFloat(localStorage.getItem("checkout_cost")) || 0,
+            quantity: parseInt(localStorage.getItem("checkout_qty")) || 1,
+            img: localStorage.getItem("checkout_img") || "images/default.png"
+          });
+        } else {
+          try {
+            items = JSON.parse(localStorage.getItem("checkout_items")) || [];
+          } catch(e) {
+            console.error(e);
+          }
+        }
+
+        const selectElements = document.querySelectorAll('.form-select');
+        const city = selectElements[0] ? selectElements[0].value : "";
+        const district = selectElements[1] ? selectElements[1].value : "";
+        const ward = selectElements[2] ? selectElements[2].value : "";
+        const addressDetail = document.querySelector('input[name="address_detail"]').value.trim();
+        const shippingAddress = `${fullname} | SĐT: ${phone} | Đ/C: ${addressDetail}, ${ward}, ${district}, ${city}`;
+
+        const orderProducts = items.map(item => ({
+          productID: item.productID,
+          quantity: item.quantity,
+          price: item.price.toLocaleString('vi-VN') + 'đ'
+        }));
+
+        try {
+          await fetch("/api/orders", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              customerID: customerID,
+              invoiceNumber: orderId,
+              shippingAddress: shippingAddress,
+              products: orderProducts,
+              subtotal: PRODUCT_SUBTOTAL.toLocaleString('vi-VN') + 'đ',
+              shippingFee: deliveryFee.toLocaleString('vi-VN') + 'đ',
+              tax: 0,
+              total: totalAmount.toLocaleString('vi-VN') + 'đ',
+              paymentMethod: selectedMethod,
+              paymentStatus: selectedMethod === 'cod' ? 'Chưa thanh toán' : 'Đã thanh toán',
+              status: 'Đang xử lý'
+            })
+          });
+
+          // Clear purchased items from server cart if checkoutType is cart
+          if (checkoutType === "cart") {
+            const cartItemIds = items.map(item => item.cartItemId);
+            await fetch("/api/cart/clear", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ cartItemIds: cartItemIds })
+            });
+
+            // Update parent badge count immediately
+            if (window.parent && typeof window.parent.loadCartBadge === 'function') {
+                window.parent.loadCartBadge();
+            }
+          }
+        } catch (orderErr) {
+          console.error("Lỗi khi tạo đơn hàng:", orderErr);
+        }
+      }
+
+      // Add notification for successful payment
+      await fetch("/api/notifications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customerID: customerID,
+          title: `Thanh toán thành công đơn hàng ${orderId} (${totalAmount.toLocaleString('vi-VN')} VNĐ) qua phương thức ${selectedMethod.toUpperCase()}.`
+        })
+      });
+    } catch (err) {
+      console.error("Lỗi khi tạo lịch sử thanh toán hoặc thông báo:", err);
+    }
+
     document.getElementById('successOrderId').textContent = orderId;
     successModal.show();
   });
 
+  document.getElementById('successHomeBtn').addEventListener('click', () => {
+    localStorage.removeItem("checkout_type");
+    localStorage.removeItem("checkout_title");
+    localStorage.removeItem("checkout_cost");
+    localStorage.removeItem("checkout_request_id");
+    localStorage.removeItem("checkout_items");
+    window.location.href = "customer_home.html";
+  });
+
+  function initTabButtonsText() {
+    const prodBtn = document.querySelector('.pay-tabs button[data-tab="product"]');
+    const repairBtn = document.querySelector('.pay-tabs button[data-tab="repair"]');
+    if (prodBtn) prodBtn.textContent = `Thanh toán sản phẩm · ${fmt(PRODUCT_SUBTOTAL)}`;
+    if (repairBtn) {
+      if (checkoutType === "recycle") {
+         repairBtn.textContent = `Phí xử lý rác thải · ${fmt(REPAIR_SUBTOTAL)}`;
+      } else {
+         repairBtn.textContent = `Đặt cọc sửa chữa · ${fmt(REPAIR_SUBTOTAL)}`;
+      }
+    }
+
+    if (checkoutType === "repair" || checkoutType === "recycle") {
+      if (prodBtn) {
+        prodBtn.style.display = "none";
+        prodBtn.classList.remove('active');
+      }
+      if (repairBtn) {
+        repairBtn.classList.add('active');
+        repairBtn.style.width = "100%";
+        repairBtn.style.pointerEvents = "none";
+      }
+      activeTab = 'repair';
+    } else {
+      if (repairBtn) {
+        repairBtn.style.display = "none";
+        repairBtn.classList.remove('active');
+      }
+      if (prodBtn) {
+        prodBtn.classList.add('active');
+        prodBtn.style.width = "100%";
+        prodBtn.style.pointerEvents = "none";
+      }
+      activeTab = 'product';
+    }
+  }
+
+  function initOrderItems() {
+    const container = document.getElementById('orderItemsContainer');
+    if (!container) return;
+
+    if (checkoutType === "repair" || checkoutType === "recycle") {
+      const title = localStorage.getItem("checkout_title") || "Thiết bị điện tử";
+      const cost = parseFloat(localStorage.getItem("checkout_cost")) || 0;
+      const typeText = checkoutType === "repair" ? "Dịch vụ Sửa chữa" : "Dịch vụ Tái chế";
+      const badgeText = checkoutType === "repair" ? "Sửa chữa" : "Tái chế";
+      const badgeClass = checkoutType === "repair" ? "tag-repair" : "tag-recycle";
+
+      container.innerHTML = `
+        <div class="fw-semibold small text-muted mb-1">${typeText.toUpperCase()} (1)</div>
+        <div class="order-item">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=120&h=120&fit=crop" alt="Device">
+          <div class="flex-grow-1">
+            <div class="name">${title}</div>
+            <div class="qty">Theo chẩn đoán lỗi AI</div>
+            <span class="tag-mini ${badgeClass}">${badgeText}</span>
+          </div>
+          <div class="price">${fmt(cost)}</div>
+        </div>
+      `;
+    } else if (checkoutType === "product" || checkoutType === "cart") {
+      let items = [];
+      if (checkoutType === "product") {
+        items.push({
+          productID: localStorage.getItem("checkout_product_id"),
+          title: localStorage.getItem("checkout_title") || "Sản phẩm",
+          price: parseFloat(localStorage.getItem("checkout_cost")) || 0,
+          quantity: parseInt(localStorage.getItem("checkout_qty")) || 1,
+          img: localStorage.getItem("checkout_img") || "images/default.png"
+        });
+      } else {
+        try {
+          items = JSON.parse(localStorage.getItem("checkout_items")) || [];
+        } catch(e) {
+          console.error(e);
+        }
+      }
+
+      let itemsHtml = items.map(item => `
+        <div class="order-item" style="margin-bottom: 12px; border-bottom: 1px dashed #f1f5f9; padding-bottom: 12px;">
+          <img src="${item.img || 'images/default.png'}" onerror="this.src='../images/default.png'" alt="Product">
+          <div class="flex-grow-1">
+            <div class="name">${item.title}</div>
+            <div class="qty">SL: ${item.quantity}</div>
+            <span class="tag-mini tag-repair">Marketplace</span>
+          </div>
+          <div class="price">${fmt(item.price * item.quantity)}</div>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="fw-semibold small text-muted mb-2">SẢN PHẨM MUA BÁN (${items.length})</div>
+        ${itemsHtml}
+      `;
+    }
+  }
+
   // init
-  updateSummary();
+  loadCustomerData();
+  initTabButtonsText();
+  initOrderItems();
 })();
 </script>
 </body>

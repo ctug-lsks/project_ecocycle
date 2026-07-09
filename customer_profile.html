@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ECOcycle - Hồ Sơ Cá Nhân</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
@@ -28,7 +28,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Be Vietnam Pro', sans-serif;
         }
 
         body {
@@ -359,7 +359,7 @@
                 <!-- Verification Panel -->
                 <div class="verification-box" id="verificationBox">
                     <h3><i class="fa-solid fa-circle-check" style="color: var(--vnu-color);"></i> Xác thực Email Đại học Quốc gia (VNU)</h3>
-                    <p>Nhận ngay huy hiệu <b>"Verified VNU"</b> hiển thị trên các sản phẩm đăng bán của bạn và nhận thưởng thêm <b>+100 Green Coins</b> chào mừng!</p>
+                    <p>Nhận ngay huy hiệu <b>"Verified VNU"</b> hiển thị trên các sản phẩm đăng bán của bạn và nhận thưởng thêm <b>+1000 Green Coins</b> chào mừng!</p>
                     <div class="verification-input-row">
                         <input type="email" id="vnuEmailInput" placeholder="VD: an.nm@vnu.edu.vn">
                         <button class="btn-verify" onclick="verifyVnuEmail()">Xác thực</button>
@@ -477,7 +477,7 @@
 
     async function loadProfileData() {
         try {
-            const res = await fetch(`http://localhost:3000/api/users/customer/${customerID}`);
+            const res = await fetch(`/api/users/customer/${customerID}`);
             if (res.ok) {
                 customerData = await res.json();
                 
@@ -529,7 +529,7 @@
 
         try {
             // Update customer on server
-            const updateRes = await fetch(`http://localhost:3000/api/users/customer/${customerID}`, {
+            const updateRes = await fetch(`/api/users/customer/${customerID}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ isVerifiedVNU: true })
@@ -537,18 +537,32 @@
 
             if (updateRes.ok) {
                 // Add bonus Green Coins
-                await fetch("http://localhost:3000/api/greencoins", {
+                await fetch("/api/greencoins", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         customerID: customerID,
                         action: "Thành viên Verified VNU",
                         orderID: "VNU-" + Math.floor(Math.random() * 100000),
-                        greenCoins: 100
+                        greenCoins: 1000
                     })
                 });
 
-                alert("Chúc mừng! Tài khoản VNU của bạn đã được xác thực thành công. Nhận ngay +100 Green Coins!");
+                // Add success notification
+                try {
+                    await fetch("/api/notifications", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            customerID: customerID,
+                            title: "Chúc mừng! Bạn đã xác thực email VNU thành công và nhận được +1.000 Green Coins!"
+                        })
+                    });
+                } catch (notifErr) {
+                    console.error("Lỗi tạo thông báo:", notifErr);
+                }
+
+                alert("Chúc mừng! Tài khoản VNU của bạn đã được xác thực thành công. Nhận ngay +1000 Green Coins!");
                 await loadProfileData();
             } else {
                 alert("Lỗi máy chủ khi xác thực.");
@@ -590,7 +604,7 @@
         `;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/processrequests/customer/${customerID}`);
+            const res = await fetch(`/api/processrequests/customer/${customerID}`);
             if (res.ok) {
                 const list = await res.json();
                 if (list.length === 0) {
@@ -631,7 +645,7 @@
         `;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/orders/customer/${customerID}`);
+            const res = await fetch(`/api/orders/customer/${customerID}`);
             if (res.ok) {
                 const list = await res.json();
                 if (list.length === 0) {
@@ -681,7 +695,7 @@
         `;
 
         try {
-            const res = await fetch(`http://localhost:3000/api/complaints/customer/${customerID}`);
+            const res = await fetch(`/api/complaints/customer/${customerID}`);
             if (res.ok) {
                 const list = await res.json();
                 if (list.length === 0) {
@@ -733,7 +747,7 @@
         const comment = document.getElementById('reviewCommentProfile').value.trim();
         if (!comment) { alert('Vui lòng nhập nhận xét!'); return; }
         try {
-            const res = await fetch('http://localhost:3000/api/reviews', {
+            const res = await fetch('/api/reviews', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -762,7 +776,7 @@
         const reason = document.getElementById('complaintReasonProfile').value;
         const detail = document.getElementById('complaintDetailProfile').value.trim();
         try {
-            const res = await fetch('http://localhost:3000/api/complaints', {
+            const res = await fetch('/api/complaints', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -835,7 +849,7 @@
         `;
 
         try {
-            const res = await fetch("http://localhost:3000/api/products/all");
+            const res = await fetch("/api/products/all");
             if (res.ok) {
                 const list = await res.json();
                 const myProds = list.filter(p => p.sellerid === customerID);
@@ -866,7 +880,7 @@
     async function deleteMyProduct(id, name) {
         if (!confirm(`Bạn có chắc chắn muốn gỡ bán sản phẩm "${name}" không?`)) return;
         try {
-            const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+            const res = await fetch(`/api/products/${id}`, {
                 method: 'DELETE'
             });
             if (res.ok) {

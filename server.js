@@ -87,7 +87,7 @@ function generateID(prefix, data) {
         return `${prefix}000001`;
     }
     const lastItem = data[data.length - 1];
-    const keys = ['id', 'orderID', 'customerID', 'productID', 'repairOrderID', 'requestID', 'resellOrderID', 'recycleOrderID', 'cartID', 'paymentID', 'transactionID', 'reviewID', 'complaintID', 'chatID', 'messageID', 'notificationID', 'assessmentID'];
+    const keys = ['id', 'orderID', 'customerID', 'productID', 'repairOrderID', 'requestID', 'resellOrderID', 'recycleOrderID', 'cartID', 'cartItemId', 'paymentID', 'transactionID', 'reviewID', 'complaintID', 'chatID', 'messageID', 'notificationID', 'assessmentID'];
     let lastId = '';
     // Tìm key có giá trị bắt đầu bằng prefix trước
     for (const key of keys) {
@@ -204,7 +204,8 @@ app.get('/api/users/customer/:id', (req, res) => {
             break;
         }
     }
-    const customer = customers.find(c => c.customerID === req.params.id);
+    const targetId = String(req.params.id).toLowerCase().trim();
+    const customer = customers.find(c => c.customerID && String(c.customerID).toLowerCase().trim() === targetId);
     if (customer) {
         res.json(customer);
     } else {
@@ -441,9 +442,10 @@ app.get('/api/products/all', (req, res) => {
 app.get('/api/products/:id', (req, res) => {
     const products = readDataFile('products.json');
     let found = null;
+    const reqId = String(req.params.id).toLowerCase().trim();
     for (const category of products) {
         for (const product of category.Products || []) {
-            if (product.id === req.params.id) {
+            if (product.id && String(product.id).toLowerCase().trim() === reqId) {
                 found = { ...product, category: category.CateName };
                 break;
             }
@@ -453,7 +455,7 @@ app.get('/api/products/:id', (req, res) => {
             for (const subCat of category.Products) {
                 if (subCat.Products && Array.isArray(subCat.Products)) {
                     for (const product of subCat.Products) {
-                        if (product.id === req.params.id) {
+                        if (product.id && String(product.id).toLowerCase().trim() === reqId) {
                             found = { ...product, category: subCat.TypeName || category.CateName };
                             break;
                         }
@@ -559,36 +561,6 @@ app.put('/api/orders/:id/status', (req, res) => {
         res.json(orders[index]);
     } else {
         res.status(500).json({ error: 'Failed to update order' });
-    }
-});
-
-// ===== CART =====
-app.get('/api/cart/:customerId', (req, res) => {
-    const carts = readDataFile('cart.json');
-    const cart = carts.find(c => c.customerID === req.params.customerId);
-    res.json(cart || { cartID: null, customerID: req.params.customerId, products: [] });
-});
-
-app.post('/api/cart', (req, res) => {
-    const carts = readDataFile('cart.json');
-    const { customerID, products } = req.body;
-    let cart = carts.find(c => c.customerID === customerID);
-    
-    if (cart) {
-        cart.products = products || [];
-    } else {
-        cart = {
-            cartID: generateID('CT', carts),
-            customerID,
-            products: products || []
-        };
-        carts.push(cart);
-    }
-    
-    if (writeDataFile('cart.json', carts)) {
-        res.json(cart);
-    } else {
-        res.status(500).json({ error: 'Failed to save cart' });
     }
 });
 
@@ -977,6 +949,88 @@ app.post('/api/messages', (req, res) => {
     }
 });
 
+// ===== CARTS =====
+app.get('/api/cart/:customerId', (req, res) => {
+    const carts = readDataFile('carts.json');
+    const targetCustId = String(req.params.customerId).toLowerCase().trim();
+    const customerCart = carts.filter(c => c.customerID && String(c.customerID).toLowerCase().trim() === targetCustId);
+    res.json(customerCart);
+});
+
+app.post('/api/cart', (req, res) => {
+    const carts = readDataFile('carts.json');
+    const { customerID, productID, quantity } = req.body;
+    
+    const targetCustId = String(customerID).toLowerCase().trim();
+    const targetProdId = String(productID).toLowerCase().trim();
+    
+    const existingIndex = carts.findIndex(c => 
+        c.customerID && String(c.customerID).toLowerCase().trim() === targetCustId && 
+        c.productID && String(c.productID).toLowerCase().trim() === targetProdId
+    );
+    if (existingIndex !== -1) {
+        carts[existingIndex].quantity = (carts[existingIndex].quantity || 1) + (parseInt(quantity) || 1);
+        if (writeDataFile('carts.json', carts)) {
+            res.json(carts[existingIndex]);
+        } else {
+            res.status(500).json({ error: 'Failed to update cart' });
+        }
+    } else {
+        const newCartItem = {
+            cartItemId: generateID('CRT', carts),
+            customerID,
+            productID,
+            quantity: parseInt(quantity) || 1,
+            dateAdded: new Date().toISOString().split('T')[0]
+        };
+        carts.push(newCartItem);
+        if (writeDataFile('carts.json', carts)) {
+            res.status(201).json(newCartItem);
+        } else {
+            res.status(500).json({ error: 'Failed to save cart item' });
+        }
+    }
+});
+
+app.put('/api/cart/:cartItemId', (req, res) => {
+    const carts = readDataFile('carts.json');
+    const index = carts.findIndex(c => c.cartItemId === req.params.cartItemId);
+    if (index === -1) {
+        return res.status(404).json({ error: 'Cart item not found' });
+    }
+    carts[index].quantity = parseInt(req.body.quantity) || 1;
+    if (writeDataFile('carts.json', carts)) {
+        res.json(carts[index]);
+    } else {
+        res.status(500).json({ error: 'Failed to update cart quantity' });
+    }
+});
+
+app.delete('/api/cart/:cartItemId', (req, res) => {
+    let carts = readDataFile('carts.json');
+    const filtered = carts.filter(c => c.cartItemId !== req.params.cartItemId);
+    if (writeDataFile('carts.json', filtered)) {
+        res.json({ success: true });
+    } else {
+        res.status(500).json({ error: 'Failed to delete cart item' });
+    }
+});
+
+app.post('/api/cart/clear', (req, res) => {
+    let carts = readDataFile('carts.json');
+    const { cartItemIds } = req.body;
+    if (Array.isArray(cartItemIds)) {
+        carts = carts.filter(c => !cartItemIds.includes(c.cartItemId));
+        if (writeDataFile('carts.json', carts)) {
+            res.json({ success: true });
+        } else {
+            res.status(500).json({ error: 'Failed to clear cart items' });
+        }
+    } else {
+        res.status(400).json({ error: 'cartItemIds must be an array' });
+    }
+});
+
 // ===== NOTIFICATIONS =====
 app.get('/api/notifications', (req, res) => {
     const notifications = readDataFile('notifications.json');
@@ -1169,49 +1223,6 @@ app.get('/api/debug-products', (req, res) => {
         });
     }
 });
-// ===== CART =====
-// Lấy tất cả giỏ hàng
-app.get('/api/cart', (req, res) => {
-    const carts = readDataFile('cart.json');
-    console.log('📦 Cart data:', carts.length, 'items');
-    res.json(carts);
-});
-
-// Lấy giỏ hàng theo customerID
-app.get('/api/cart/:customerId', (req, res) => {
-    const carts = readDataFile('cart.json');
-    const cart = carts.find(c => c.customerID === req.params.customerId);
-    if (cart) {
-        res.json(cart);
-    } else {
-        res.status(404).json({ error: 'Cart not found' });
-    }
-});
-
-// Tạo/Cập nhật giỏ hàng
-app.post('/api/cart', (req, res) => {
-    const carts = readDataFile('cart.json');
-    const { customerID, products } = req.body;
-    let cart = carts.find(c => c.customerID === customerID);
-    
-    if (cart) {
-        cart.products = products || [];
-    } else {
-        cart = {
-            cartID: generateID('CT', carts),
-            customerID,
-            products: products || []
-        };
-        carts.push(cart);
-    }
-    
-    if (writeDataFile('cart.json', carts)) {
-        res.json(cart);
-    } else {
-        res.status(500).json({ error: 'Failed to save cart' });
-    }
-});
-
 // ===== MESSAGES =====
 // Lấy tất cả tin nhắn
 app.get('/api/messages', (req, res) => {

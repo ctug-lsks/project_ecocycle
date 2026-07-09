@@ -86,54 +86,64 @@
         "orderDate": "2026-07-08"
     },
     {
-        "orderID": "OD000005",
-        "customerID": "CM000005",
-        "invoiceNumber": "INV310686",
-        "shippingAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "orderID": "OD000008",
+        "customerID": "CM000001",
+        "invoiceNumber": "INV564482",
+        "shippingAddress": "Nguyễn Văn Lợi | SĐT: 0913065227 | Đ/C: 123 Đường Xanh, Quận 1, TP.HCM",
         "products": [
             {
-                "quantity": 1
+                "productID": "DV000001",
+                "quantity": 1,
+                "price": "7.080.000₫"
             }
         ],
+        "subtotal": "7.080.000₫",
         "shippingFee": "15.000₫",
         "tax": 0,
+        "total": "7.080.000₫",
         "status": "Paid",
+        "paymentMethod": "COD",
         "orderDate": "2026-07-08"
     },
     {
-        "orderID": "OD000006",
-        "customerID": "CM000005",
-        "invoiceNumber": "INV428687",
-        "shippingAddress": "Thien Phan | SĐT: 0392006710 | Đ/C: dfd]ádfsadf",
+        "orderID": "OD000009",
+        "customerID": "CM000001",
+        "invoiceNumber": "INV573041",
+        "shippingAddress": "Nguyễn Văn Lợi | SĐT: 0913065227 | Đ/C: 123 Đường Xanh, Quận 1, TP.HCM",
         "products": [
             {
-                "quantity": 1
+                "productID": "DV000001",
+                "quantity": 1,
+                "price": "7.080.000₫"
             }
         ],
+        "subtotal": "7.080.000₫",
         "shippingFee": "15.000₫",
         "tax": 0,
+        "total": "7.080.000₫",
         "status": "Paid",
-        "paymentMethod": "VNPay",
-        "orderDate": "2026-07-08"
+        "paymentMethod": "COD",
+        "orderDate": "2026-07-09"
     },
     {
-        "orderID": "OD000007",
-        "customerID": "CM000005",
-        "invoiceNumber": "INV510099",
-        "shippingAddress": "Thien Phan | SĐT: 0392006710 | Đ/C: dfd]ádfsadf",
+        "orderID": "OD000010",
+        "customerID": "CM000001",
+        "invoiceNumber": "RS-2026-90849",
+        "shippingAddress": "Nguyễn Văn Lợi | SĐT: 0913065227 | Đ/C: 123 Đường Xanh, Quận 1, TP.HCM, Phường Bến Thành, Quận 3, TP. Hồ Chí Minh",
         "products": [
             {
                 "productID": "DV000002",
                 "quantity": 1,
-                "price": "11.150.000₫"
+                "price": "11.150.000đ"
             }
         ],
-        "subtotal": "11.150.000₫",
-        "shippingFee": "15.000₫",
+        "subtotal": "11.150.000đ",
+        "shippingFee": "0đ",
         "tax": 0,
-        "total": "11.150.000₫",
-        "status": "Paid",
-        "paymentMethod": "COD",
-        "orderDate": "2026-07-08"
+        "total": "11.150.000đ",
+        "paymentMethod": "cod",
+        "paymentStatus": "Chưa thanh toán",
+        "status": "Đang xử lý",
+        "orderDate": "2026-07-09"
     }
 ]

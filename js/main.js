@@ -350,7 +350,7 @@ async function loadGreenCoins() {
         
         // Cập nhật số dư
         updateElement('coinValue', customer?.greenCoins || 0);
-        updateElement('moneyValue', ((customer?.greenCoins || 0) * 1000).toLocaleString());
+        updateElement('moneyValue', ((customer?.greenCoins || 0) * 1).toLocaleString());
         
         const tbody = document.querySelector('#historyTable');
         if (tbody) {
