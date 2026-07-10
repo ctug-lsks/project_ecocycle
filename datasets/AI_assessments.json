@@ -151,5 +151,2817 @@
         "estimatedRepairCost": "450.000đ",
         "estimatedResalePrice": "1,500,000đ",
         "estimatedRecycleCost": "24,000đ"
+    },
+    {
+        "timestamp": "2026-07-09T23:40:03.574Z",
+        "request": {
+            "deviceName": "Corsair Vengeance",
+            "brand": "Corsair",
+            "deviceType": "RAM",
+            "specs": "16GB DDR4",
+            "purchaseYear": "2024",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Lỗi dump màn hình xanh (BSOD)"
+            ],
+            "errorDescription": "Bị xanh màn hình khi load tác vụ nặng"
+        },
+        "result": {
+            "device_model": "Corsair Vengeance",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi dump màn hình xanh (BSOD)"
+            ],
+            "device_score": 6.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi dump màn hình xanh (BSOD)",
+            "repair_cost": 330000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 953040,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:01:56.970Z",
+        "request": {
+            "deviceName": "MSI RTX 3060 Ventus 2X",
+            "brand": "MSI",
+            "deviceType": "GPU",
+            "specs": "12GB VRAM",
+            "purchaseYear": "2022",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Lỗi driver văng game liên tục (Crash)"
+            ],
+            "errorDescription": "Hư hỏng nặng"
+        },
+        "result": {
+            "device_model": "MSI RTX 3060 Ventus 2X",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Lỗi driver văng game liên tục (Crash)"
+            ],
+            "device_score": 3.8,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi driver văng game liên tục (Crash)",
+            "repair_cost": 2000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 2912000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:21:34.965Z",
+        "request": {
+            "deviceName": "RAM Corsair Vengeance Pro 16GB",
+            "deviceType": "RAM",
+            "hardwareIssues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "specs": "16GB RAM",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "errorDescription": "Bị rỉ chân cắm"
+        },
+        "result": {
+            "device_model": "RAM Corsair Vengeance Pro 16GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "device_score": 6.4,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Cháy/Rỉ chân cắm (Không nhận RAM)",
+            "repair_cost": 330000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 852720,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:23:54.177Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 3.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 5913600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:24:01.854Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 3.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 5913600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:24:06.967Z",
+        "request": {
+            "deviceName": "Corsair Vengeance Pro 16GB",
+            "deviceType": "RAM",
+            "brand": "Khác",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2024",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "errorDescription": "Cắm vào máy kêu tít tít liên tục, chân đồng bị ố rỉ sét"
+        },
+        "result": {
+            "device_model": "Corsair Vengeance Pro 16GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "device_score": 6.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Cháy/Rỉ chân cắm (Không nhận RAM)",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 866400,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:24:12.027Z",
+        "request": {
+            "deviceName": "ASUS ROG Strix RTX 3080",
+            "deviceType": "GPU",
+            "brand": "Asus",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2022",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Vào win xuất hiện nhiều đốm rác màu tím, chạy furmark bị crash sập máy ngay"
+        },
+        "result": {
+            "device_model": "ASUS ROG Strix RTX 3080",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 1.8,
+            "severity": "nặng",
+            "can_repair": false,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Quạt tản nhiệt hỏng / Kêu to, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 6000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 3536000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:24:17.111Z",
+        "request": {
+            "deviceName": "Kingston A400 480GB",
+            "deviceType": "SSD",
+            "brand": "Khác",
+            "specs": "512GB",
+            "purchaseYear": "2021",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "errorDescription": "Không thể cài win hay copy file mới vào ổ, ổ bị khóa read-only"
+        },
+        "result": {
+            "device_model": "Kingston A400 480GB",
+            "device_category": "ssd",
+            "detected_issues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "device_score": 1.5,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi ổ cứng chỉ cho phép đọc (Read-only), Tốc độ đọc/ghi giảm sâu (Đơ máy)",
+            "repair_cost": 937500,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 525000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:24:22.196Z",
+        "request": {
+            "deviceName": "Dell XPS 13 Battery",
+            "deviceType": "Pin",
+            "brand": "Dell",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2020",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "errorDescription": "Pin phồng to làm cong cả nắp lưng nhôm dưới đáy máy, rất nguy hiểm"
+        },
+        "result": {
+            "device_model": "Dell XPS 13 Battery",
+            "device_category": "pin",
+            "detected_issues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "device_score": 1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Pin bị phồng vỏ (Phồng rộp), Sụt dung lượng nhanh / Chai pin nặng",
+            "repair_cost": 500000,
+            "repair_time_days": 1,
+            "warranty_months": 6,
+            "resell_price_after_repair": 200000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:26:54.059Z",
+        "request": {
+            "deviceName": "RAM Corsair 8GB",
+            "deviceType": "RAM",
+            "hardwareIssues": []
+        },
+        "result": {
+            "device_model": "RAM Corsair 8GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Chờ kiểm tra linh kiện trực tiếp"
+            ],
+            "device_score": 6.9,
+            "severity": "nhẹ",
+            "can_repair": true,
+            "repair_solution": "Kiểm tra kỹ thuật tổng quát, đo đạc nguồn và mạch điện.",
+            "repair_cost": 120000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 684000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:27:04.965Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000025",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "21,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:05.911Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000026",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "21,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:55.253Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000027",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:56.511Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000028",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:57.885Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000029",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:58.096Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000030",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:27:58.246Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000031",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:28:00.978Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000032",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:28:21.539Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000033",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:28:21.705Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000034",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:32:12.504Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000035",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:32:13.622Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "RAM",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "errorDescription": "Cắm vào máy thỉnh thoảng bị sập và hiện màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "ram",
+            "detected_issues": [
+                "Lỗi màn hình xanh (BSOD) liên tục"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi màn hình xanh (BSOD) liên tục",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 897600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000036",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "300,000đ",
+        "estimatedResalePrice": "897,600đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:32:42.138Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "brand": "Khác",
+            "deviceType": "Điện thoại",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2025",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)"
+            ],
+            "errorDescription": "lỗi màn hình xanh"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB HX426C16FB3",
+            "device_category": "default",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)"
+            ],
+            "device_score": 7.2,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+            "repair_cost": 750000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 2244000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000037",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "750,000đ",
+        "estimatedResalePrice": "2,244,000đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:44:58.032Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 3.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 5913600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:45:03.097Z",
+        "request": {
+            "deviceName": "Corsair Vengeance Pro 16GB",
+            "deviceType": "RAM",
+            "brand": "Khác",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2024",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "errorDescription": "Cắm vào máy kêu tít tít liên tục, chân đồng bị ố rỉ sét"
+        },
+        "result": {
+            "device_model": "Corsair Vengeance Pro 16GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "device_score": 6.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Cháy/Rỉ chân cắm (Không nhận RAM)",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 866400,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:45:08.117Z",
+        "request": {
+            "deviceName": "ASUS ROG Strix RTX 3080",
+            "deviceType": "GPU",
+            "brand": "Asus",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2022",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Vào win xuất hiện nhiều đốm rác màu tím, chạy furmark bị crash sập máy ngay"
+        },
+        "result": {
+            "device_model": "ASUS ROG Strix RTX 3080",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 1.8,
+            "severity": "nặng",
+            "can_repair": false,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Quạt tản nhiệt hỏng / Kêu to, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 6000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 3536000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:45:13.158Z",
+        "request": {
+            "deviceName": "Kingston A400 480GB",
+            "deviceType": "SSD",
+            "brand": "Khác",
+            "specs": "512GB",
+            "purchaseYear": "2021",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "errorDescription": "Không thể cài win hay copy file mới vào ổ, ổ bị khóa read-only"
+        },
+        "result": {
+            "device_model": "Kingston A400 480GB",
+            "device_category": "ssd",
+            "detected_issues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "device_score": 1.5,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi ổ cứng chỉ cho phép đọc (Read-only), Tốc độ đọc/ghi giảm sâu (Đơ máy)",
+            "repair_cost": 937500,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 525000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:45:18.194Z",
+        "request": {
+            "deviceName": "Dell XPS 13 Battery",
+            "deviceType": "Pin",
+            "brand": "Dell",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2020",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "errorDescription": "Pin phồng to làm cong cả nắp lưng nhôm dưới đáy máy, rất nguy hiểm"
+        },
+        "result": {
+            "device_model": "Dell XPS 13 Battery",
+            "device_category": "pin",
+            "detected_issues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "device_score": 1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Pin bị phồng vỏ (Phồng rộp), Sụt dung lượng nhanh / Chai pin nặng",
+            "repair_cost": 500000,
+            "repair_time_days": 1,
+            "warranty_months": 6,
+            "resell_price_after_repair": 200000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:32.036Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 3.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 5913600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:37.140Z",
+        "request": {
+            "deviceName": "Corsair Vengeance Pro 16GB",
+            "deviceType": "RAM",
+            "brand": "Khác",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2024",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "errorDescription": "Cắm vào máy kêu tít tít liên tục, chân đồng bị ố rỉ sét"
+        },
+        "result": {
+            "device_model": "Corsair Vengeance Pro 16GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "device_score": 6.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Cháy/Rỉ chân cắm (Không nhận RAM)",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 866400,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:42.169Z",
+        "request": {
+            "deviceName": "ASUS ROG Strix RTX 3080",
+            "deviceType": "GPU",
+            "brand": "Asus",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2022",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Vào win xuất hiện nhiều đốm rác màu tím, chạy furmark bị crash sập máy ngay"
+        },
+        "result": {
+            "device_model": "ASUS ROG Strix RTX 3080",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 1.8,
+            "severity": "nặng",
+            "can_repair": false,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Quạt tản nhiệt hỏng / Kêu to, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 6000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 3536000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:47.208Z",
+        "request": {
+            "deviceName": "Kingston A400 480GB",
+            "deviceType": "SSD",
+            "brand": "Khác",
+            "specs": "512GB",
+            "purchaseYear": "2021",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "errorDescription": "Không thể cài win hay copy file mới vào ổ, ổ bị khóa read-only"
+        },
+        "result": {
+            "device_model": "Kingston A400 480GB",
+            "device_category": "ssd",
+            "detected_issues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "device_score": 1.5,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi ổ cứng chỉ cho phép đọc (Read-only), Tốc độ đọc/ghi giảm sâu (Đơ máy)",
+            "repair_cost": 937500,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 525000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:52.228Z",
+        "request": {
+            "deviceName": "Dell XPS 13 Battery",
+            "deviceType": "Pin",
+            "brand": "Dell",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2020",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "errorDescription": "Pin phồng to làm cong cả nắp lưng nhôm dưới đáy máy, rất nguy hiểm"
+        },
+        "result": {
+            "device_model": "Dell XPS 13 Battery",
+            "device_category": "pin",
+            "detected_issues": [
+                "Pin bị phồng vỏ (Phồng rộp)",
+                "Sụt dung lượng nhanh / Chai pin nặng"
+            ],
+            "device_score": 1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Pin bị phồng vỏ (Phồng rộp), Sụt dung lượng nhanh / Chai pin nặng",
+            "repair_cost": 500000,
+            "repair_time_days": 1,
+            "warranty_months": 6,
+            "resell_price_after_repair": 200000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:46:56.416Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 3.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 5913600,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:00.512Z",
+        "request": {
+            "deviceName": "Corsair Vengeance Pro 16GB",
+            "deviceType": "RAM",
+            "brand": "Khác",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2024",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "errorDescription": "Cắm vào máy kêu tít tít liên tục, chân đồng bị ố rỉ sét"
+        },
+        "result": {
+            "device_model": "Corsair Vengeance Pro 16GB",
+            "device_category": "ram",
+            "detected_issues": [
+                "Cháy/Rỉ chân cắm (Không nhận RAM)"
+            ],
+            "device_score": 6.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Cháy/Rỉ chân cắm (Không nhận RAM)",
+            "repair_cost": 300000,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 866400,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:04.533Z",
+        "request": {
+            "deviceName": "ASUS ROG Strix RTX 3080",
+            "deviceType": "GPU",
+            "brand": "Asus",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2022",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Vào win xuất hiện nhiều đốm rác màu tím, chạy furmark bị crash sập máy ngay"
+        },
+        "result": {
+            "device_model": "ASUS ROG Strix RTX 3080",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Quạt tản nhiệt hỏng / Kêu to",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 1.8,
+            "severity": "nặng",
+            "can_repair": false,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Quạt tản nhiệt hỏng / Kêu to, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 6000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 3536000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:08.556Z",
+        "request": {
+            "deviceName": "Kingston A400 480GB",
+            "deviceType": "SSD",
+            "brand": "Khác",
+            "specs": "512GB",
+            "purchaseYear": "2021",
+            "physicalCondition": "Trầy xước nhiều",
+            "hardwareIssues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "errorDescription": "Không thể cài win hay copy file mới vào ổ, ổ bị khóa read-only"
+        },
+        "result": {
+            "device_model": "Kingston A400 480GB",
+            "device_category": "ssd",
+            "detected_issues": [
+                "Lỗi ổ cứng chỉ cho phép đọc (Read-only)",
+                "Tốc độ đọc/ghi giảm sâu (Đơ máy)"
+            ],
+            "device_score": 1.5,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Lỗi ổ cứng chỉ cho phép đọc (Read-only), Tốc độ đọc/ghi giảm sâu (Đơ máy)",
+            "repair_cost": 937500,
+            "repair_time_days": 1,
+            "warranty_months": 12,
+            "resell_price_after_repair": 525000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:12.580Z",
+        "request": {
+            "deviceName": "Dell XPS 13 Battery",
+            "deviceType": "Pin",
+            "brand": "Dell",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2020",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "errorDescription": "Pin phồng to làm cong cả nắp lưng nhôm dưới đáy máy, rất nguy hiểm"
+        },
+        "result": {
+            "device_model": "Dell XPS 13 Battery",
+            "device_category": "pin",
+            "detected_issues": [
+                "Chờ kiểm tra linh kiện trực tiếp"
+            ],
+            "device_score": 2.7,
+            "severity": "nhẹ",
+            "can_repair": true,
+            "repair_solution": "Kiểm tra kỹ thuật tổng quát, đo đạc nguồn và mạch điện.",
+            "repair_cost": 100000,
+            "repair_time_days": 1,
+            "warranty_months": 6,
+            "resell_price_after_repair": 200000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:16.605Z",
+        "request": {
+            "deviceName": "asdfghjkl",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [],
+            "errorDescription": "Không có lỗi"
+        },
+        "result": {
+            "invalid_input": true,
+            "errors": [
+                "Tên sản phẩm chứa các ký tự lặp lại hoặc ký tự ngẫu nhiên không có thật (junk input).",
+                "Thiết bị hoặc linh kiện không thuộc danh mục công nghệ hoặc linh kiện điện tử được ECOcycle hỗ trợ."
+            ],
+            "device_model": "asdfghjkl",
+            "recommendation": "Vui lòng điều chỉnh thông tin: Tên sản phẩm chứa các ký tự lặp lại hoặc ký tự ngẫu nhiên không có thật (junk input). Thiết bị hoặc linh kiện không thuộc danh mục công nghệ hoặc linh kiện điện tử được ECOcycle hỗ trợ.",
+            "detected_issues": [
+                "Dữ liệu nhập liệu không hợp lệ"
+            ],
+            "device_score": 0,
+            "severity": "không xác định",
+            "can_repair": false,
+            "repair_solution": "Không thể chẩn đoán do thông tin nhập vào sai lệch hoặc không có thật.",
+            "repair_cost": 0,
+            "repair_time_days": 0,
+            "warranty_months": 0,
+            "resell_price_after_repair": 0,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:18.619Z",
+        "request": {
+            "deviceName": "Dell XPS 13",
+            "deviceType": "Điện thoại",
+            "brand": "Apple",
+            "specs": "256GB",
+            "purchaseYear": "2023",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [],
+            "errorDescription": "Không có lỗi"
+        },
+        "result": {
+            "invalid_input": true,
+            "errors": [
+                "Mâu thuẫn thông tin: Hãng sản xuất được chọn là Apple nhưng Tên sản phẩm lại thuộc thương hiệu khác."
+            ],
+            "device_model": "Dell XPS 13",
+            "recommendation": "Vui lòng điều chỉnh thông tin: Mâu thuẫn thông tin: Hãng sản xuất được chọn là Apple nhưng Tên sản phẩm lại thuộc thương hiệu khác.",
+            "detected_issues": [
+                "Dữ liệu nhập liệu không hợp lệ"
+            ],
+            "device_score": 0,
+            "severity": "không xác định",
+            "can_repair": false,
+            "repair_solution": "Không thể chẩn đoán do thông tin nhập vào sai lệch hoặc không có thật.",
+            "repair_cost": 0,
+            "repair_time_days": 0,
+            "warranty_months": 0,
+            "resell_price_after_repair": 0,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:47:20.637Z",
+        "request": {
+            "deviceName": "Cái bàn gỗ sồi",
+            "deviceType": "Phụ kiện",
+            "brand": "Khác",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2023",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [],
+            "errorDescription": "Bàn bị xước chân"
+        },
+        "result": {
+            "invalid_input": true,
+            "errors": [
+                "Thiết bị hoặc linh kiện không thuộc danh mục công nghệ hoặc linh kiện điện tử được ECOcycle hỗ trợ."
+            ],
+            "device_model": "Cái bàn gỗ sồi",
+            "recommendation": "Vui lòng điều chỉnh thông tin: Thiết bị hoặc linh kiện không thuộc danh mục công nghệ hoặc linh kiện điện tử được ECOcycle hỗ trợ.",
+            "detected_issues": [
+                "Dữ liệu nhập liệu không hợp lệ"
+            ],
+            "device_score": 0,
+            "severity": "không xác định",
+            "can_repair": false,
+            "repair_solution": "Không thể chẩn đoán do thông tin nhập vào sai lệch hoặc không có thật.",
+            "repair_cost": 0,
+            "repair_time_days": 0,
+            "warranty_months": 0,
+            "resell_price_after_repair": 0,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "timestamp": "2026-07-10T00:49:46.091Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000038",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:49:47.582Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000039",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:49:51.385Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000040",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:49:51.743Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000041",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:49:51.912Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000042",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:49:52.123Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000043",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:50:19.005Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000044",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:55:48.300Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000045",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:55:49.578Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000046",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:57:47.444Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "Màn hình bị sọc dọc sau khi rơi nhẹ, pin báo bảo trì sạc không lên 100%"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000047",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:58:05.684Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "dsgsadfbhdsfgbhnsfgnsfgnsfghgfsdgdfgsd"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000048",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T00:58:08.597Z",
+        "request": {
+            "deviceName": "iPhone 13 Pro Max A2643",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "256GB",
+            "purchaseYear": "2024",
+            "physicalCondition": "Đẹp (xước nhẹ)",
+            "hardwareIssues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "errorDescription": "dsgsadfbhdsfgbhnsfgnsfgnsfghgfsdgdfgsd"
+        },
+        "result": {
+            "device_model": "iPhone 13 Pro Max A2643",
+            "device_category": "phone",
+            "detected_issues": [
+                "Hỏng màn hình (Vỡ/Sọc/Chảy mực)",
+                "Chai pin / Sạc không vào"
+            ],
+            "device_score": 4.9,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Hỏng màn hình (Vỡ/Sọc/Chảy mực), Chai pin / Sạc không vào",
+            "repair_cost": 6600000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 8527200,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000049",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "6,600,000đ",
+        "estimatedResalePrice": "8,527,200đ",
+        "estimatedRecycleCost": "22,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:06:04.166Z",
+        "request": {
+            "deviceName": "ROG Strix RTX 3080 RTX3080-O10G",
+            "brand": "Asus",
+            "deviceType": "GPU",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2023",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Cắm vào máy lên hình bị rác sọc tím toàn màn hình, chạy tải nặng là sập nguồn ngay lập tức"
+        },
+        "result": {
+            "device_model": "ROG Strix RTX 3080 RTX3080-O10G",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 2.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 4000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 2560000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000050",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "4,000,000đ",
+        "estimatedResalePrice": "2,560,000đ",
+        "estimatedRecycleCost": "35,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:07:17.113Z",
+        "request": {
+            "deviceName": "ROG Strix RTX 3080 RTX3080-O10G",
+            "brand": "Asus",
+            "deviceType": "GPU",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2023",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [],
+            "errorDescription": "Cắm vào máy lên hình bị rác sọc tím toàn màn hình, chạy tải nặng là sập nguồn ngay lập tức"
+        },
+        "result": {
+            "device_model": "ROG Strix RTX 3080 RTX3080-O10G",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Chờ kiểm tra linh kiện trực tiếp"
+            ],
+            "device_score": 5.1,
+            "severity": "nhẹ",
+            "can_repair": true,
+            "repair_solution": "Kiểm tra kỹ thuật tổng quát, đo đạc nguồn và mạch điện.",
+            "repair_cost": 800000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 2560000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000051",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "800,000đ",
+        "estimatedResalePrice": "2,560,000đ",
+        "estimatedRecycleCost": "35,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:07:22.522Z",
+        "request": {
+            "deviceName": "ROG Strix RTX 3080 RTX3080-O10G",
+            "brand": "Asus",
+            "deviceType": "GPU",
+            "specs": "Cấu hình chuẩn",
+            "purchaseYear": "2023",
+            "physicalCondition": "Cấn móp / Bể vỏ",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "Cắm vào máy lên hình bị rác sọc tím toàn màn hình, chạy tải nặng là sập nguồn ngay lập tức"
+        },
+        "result": {
+            "device_model": "ROG Strix RTX 3080 RTX3080-O10G",
+            "device_category": "gpu",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 2.1,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 4000000,
+            "repair_time_days": 3,
+            "warranty_months": 6,
+            "resell_price_after_repair": 2560000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000052",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "4,000,000đ",
+        "estimatedResalePrice": "2,560,000đ",
+        "estimatedRecycleCost": "35,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:08:34.107Z",
+        "request": {
+            "deviceName": "DSDSFGÁD qweqweqwe",
+            "brand": "Samsung",
+            "deviceType": "Điện thoại",
+            "specs": "128GB / 64GB",
+            "purchaseYear": "2026",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "errorDescription": "SZDFGÀGD"
+        },
+        "result": {
+            "device_model": "DSDSFGÁD qweqweqwe",
+            "device_category": "default",
+            "detected_issues": [
+                "Rác hình / Sọc màn hình / Sai màu",
+                "Phồng tụ / Cháy chip GPU"
+            ],
+            "device_score": 7,
+            "severity": "trung bình",
+            "can_repair": true,
+            "repair_solution": "Khắc phục/Thay thế linh kiện gặp lỗi: Rác hình / Sọc màn hình / Sai màu, Phồng tụ / Cháy chip GPU",
+            "repair_cost": 2250000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 4275000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000053",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "2,250,000đ",
+        "estimatedResalePrice": "4,275,000đ",
+        "estimatedRecycleCost": "40,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:08:46.962Z",
+        "request": {
+            "deviceName": "DSDSFGÁD qweqweqwe",
+            "brand": "Samsung",
+            "deviceType": "Điện thoại",
+            "specs": "128GB / 64GB",
+            "purchaseYear": "2026",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [],
+            "errorDescription": "SZDFGÀGD"
+        },
+        "result": {
+            "device_model": "DSDSFGÁD qweqweqwe",
+            "device_category": "default",
+            "detected_issues": [
+                "Chờ kiểm tra linh kiện trực tiếp"
+            ],
+            "device_score": 10,
+            "severity": "nhẹ",
+            "can_repair": true,
+            "repair_solution": "Kiểm tra kỹ thuật tổng quát, đo đạc nguồn và mạch điện.",
+            "repair_cost": 450000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 4275000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000054",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "450,000đ",
+        "estimatedResalePrice": "4,275,000đ",
+        "estimatedRecycleCost": "40,000đ"
+    },
+    {
+        "timestamp": "2026-07-10T01:10:05.754Z",
+        "request": {
+            "deviceName": "Kingston HyperX Fury 8GB E7420",
+            "brand": "Apple",
+            "deviceType": "Điện thoại",
+            "specs": "128GB / 64GB",
+            "purchaseYear": "2026",
+            "physicalCondition": "Như mới",
+            "hardwareIssues": [],
+            "errorDescription": "FDSFÁDFA"
+        },
+        "result": {
+            "device_model": "Kingston HyperX Fury 8GB E7420",
+            "device_category": "default",
+            "detected_issues": [
+                "Chờ kiểm tra linh kiện trực tiếp"
+            ],
+            "device_score": 10,
+            "severity": "nhẹ",
+            "can_repair": true,
+            "repair_solution": "Kiểm tra kỹ thuật tổng quát, đo đạc nguồn và mạch điện.",
+            "repair_cost": 450000,
+            "repair_time_days": 2,
+            "warranty_months": 6,
+            "resell_price_after_repair": 4275000,
+            "center_info": {
+                "name": "Trung tâm Sửa chữa Điện tử ABC",
+                "address": "123 Đường XYZ, Quận 1, TP.HCM",
+                "hotline": "1900 1234",
+                "email": "support@suachuaabc.com",
+                "working_hours": "8:00 - 20:00 (Thứ 2 - Chủ nhật)",
+                "facebook": "fb.com/suachuaabc",
+                "zalo": "19001234"
+            },
+            "recommendation": "Mang máy đến trung tâm liên kết ECOcycle để được kiểm định và nhận báo giá chính xác",
+            "ai_used": false,
+            "customer_name": "",
+            "customer_phone": ""
+        }
+    },
+    {
+        "assessmentID": "AI000001",
+        "requestID": "RQ000055",
+        "recommendedAction": "Repair",
+        "estimatedRepairCost": "450,000đ",
+        "estimatedResalePrice": "4,275,000đ",
+        "estimatedRecycleCost": "1,240,000đ"
     }
 ]

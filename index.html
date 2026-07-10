@@ -465,7 +465,7 @@
         async function loadNotifications() {
             if (!fullName) return;
             try {
-                const res = await fetch(`/api/notifications/user?fullName=${encodeURIComponent(fullName)}`);
+                const res = await fetch(`/api/notifications/customer/${customerID}`);
                 if (res.ok) {
                     notifications = await res.json();
                     const unread = notifications.filter(n => !n.isRead);
@@ -584,5 +584,8 @@
         }
     });
 </script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
 </body>
 </html>

@@ -599,13 +599,17 @@ app.get('/api/greencoins/customer/:customerId', (req, res) => {
     const recycleOrders = readDataFile('recycleOders.json');
     
     const orderIds = [
-        ...allOrders.filter(o => o.customerID === req.params.customerId).map(o => o.orderID),
-        ...repairOrders.filter(o => o.customerID === req.params.customerId).map(o => o.repairOrderID),
-        ...resellOrders.filter(o => o.customerID === req.params.customerId).map(o => o.resellOrderID),
-        ...recycleOrders.filter(o => o.customerID === req.params.customerId).map(o => o.recycleOrderID)
+        ...allOrders.filter(o => o.customerID === req.params.customerId).flatMap(o => [o.orderID, o.invoiceNumber]),
+        ...repairOrders.filter(o => o.customerID === req.params.customerId).flatMap(o => [o.repairOrderID, o.requestID]),
+        ...resellOrders.filter(o => o.customerID === req.params.customerId).flatMap(o => [o.resellOrderID, o.requestID]),
+        ...recycleOrders.filter(o => o.customerID === req.params.customerId).flatMap(o => [o.recycleOrderID, o.requestID])
     ];
     
-    const customerCoins = coins.filter(c => orderIds.includes(c.orderID));
+    const orderIdsSet = new Set(orderIds.filter(Boolean));
+    const customerCoins = coins.filter(c => 
+        (c.customerID && c.customerID === req.params.customerId) ||
+        (c.orderID && orderIdsSet.has(c.orderID))
+    );
     res.json(customerCoins);
 });
 
@@ -1340,17 +1344,61 @@ app.get('/api/test-read-products', (req, res) => {
 });
 
 app.post('/api/evaluate', async (req, res) => {
-    const { deviceName, errorDescription, customerName, customerPhone } = req.body;
+    const { 
+        deviceName, 
+        brand, 
+        deviceType, 
+        specs, 
+        purchaseYear, 
+        physicalCondition, 
+        hardwareIssues, 
+        errorDescription, 
+        customerName, 
+        customerPhone 
+    } = req.body;
     
     console.log('\n🔧 ====== [INTEGRATED] YÊU CẦU CHẨN ĐOÁN MỚI ======');
-    console.log(`📱 Thiết bị: ${deviceName}`);
-    console.log(`📝 Mô tả: ${errorDescription}`);
+    console.log(`📱 Thiết bị: ${deviceName} (${brand} - ${deviceType})`);
+    console.log(`📊 Lỗi chọn sẵn: ${hardwareIssues ? hardwareIssues.join(', ') : 'Không có'}`);
     
     try {
-        const result = await diagnoseDevice(deviceName, errorDescription);
+        const result = await diagnoseDevice({
+            deviceName,
+            brand,
+            deviceType,
+            specs,
+            purchaseYear,
+            physicalCondition,
+            hardwareIssues: Array.isArray(hardwareIssues) ? hardwareIssues : [],
+            errorDescription: errorDescription || ""
+        });
         
         result.customer_name = customerName || '';
         result.customer_phone = customerPhone || '';
+        
+        // Ghi nhật ký lịch sử chẩn đoán
+        try {
+            const fs = require('fs');
+            const path = require('path');
+            const historyPath = path.join(__dirname, 'datasets', 'AI_assessments.json');
+            let history = [];
+            if (fs.existsSync(historyPath)) {
+                try {
+                    history = JSON.parse(fs.readFileSync(historyPath, 'utf8') || '[]');
+                } catch (e) {
+                    history = [];
+                }
+            }
+            history.push({
+                timestamp: new Date().toISOString(),
+                request: req.body,
+                result: result
+            });
+            fs.writeFileSync(historyPath, JSON.stringify(history, null, 4));
+            console.log('✅ Đã lưu lịch sử chẩn đoán vào AI_assessments.json');
+        } catch (err) {
+            console.error('❌ Lỗi ghi nhật ký chẩn đoán:', err);
+        }
         
         console.log('📤 Trả kết quả chẩn đoán:', JSON.stringify(result, null, 2));
         res.json({ success: true, data: result });
@@ -1361,13 +1409,13 @@ app.post('/api/evaluate', async (req, res) => {
 });
 
 app.post('/api/price', (req, res) => {
-    const { deviceModel, condition } = req.body;
+    const { deviceModel, condition, brand, deviceType, specs, purchaseYear } = req.body;
     console.log('\n💰 ====== [INTEGRATED] YÊU CẦU ĐỊNH GIÁ MỚI ======');
-    console.log(`📱 Thiết bị: ${deviceModel}`);
-    console.log(`📊 Tình trạng: ${condition}`);
+    console.log(`📱 Thiết bị: ${deviceModel} (${specs})`);
+    console.log(`📊 Tình trạng: ${condition} (Năm: ${purchaseYear})`);
     
     try {
-        const result = priceUsedProduct(deviceModel, condition);
+        const result = priceUsedProduct(deviceModel, condition, brand, deviceType, specs, purchaseYear);
         console.log('📤 Trả kết quả định giá:', JSON.stringify(result, null, 2));
         res.json({ success: true, data: result });
     } catch (error) {

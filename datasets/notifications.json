@@ -34,5 +34,29 @@
         "customerID": "CM000001",
         "title": "Thanh toán thành công đơn hàng RS-2026-90849 (11.150.000 VNĐ) qua phương thức COD.",
         "isRead": false
+    },
+    {
+        "notificationID": "NT000007",
+        "customerID": "CM000001",
+        "title": "Đặt lịch thành công: Sửa chữa thiết bị \"ROG Strix RTX 3080 RTX3080-O10G\" (+1200 Green Coins).",
+        "isRead": false
+    },
+    {
+        "notificationID": "NT000008",
+        "customerID": "CM000001",
+        "title": "Đặt lịch thành công: Bán lại thiết bị \"ROG Strix RTX 3080 RTX3080-O10G\" (+1350 Green Coins).",
+        "isRead": false
+    },
+    {
+        "notificationID": "NT000009",
+        "customerID": "CM000001",
+        "title": "Đặt lịch thành công: Sửa chữa thiết bị \"Kingston HyperX Fury 8GB E7420\" (+1200 Green Coins).",
+        "isRead": false
+    },
+    {
+        "notificationID": "NT000010",
+        "customerID": "CM000001",
+        "title": "Thanh toán thành công đơn hàng RS-2026-29781 (450.000 VNĐ) qua phương thức COD.",
+        "isRead": true
     }
 ]

@@ -154,5 +154,29 @@
         "orderID": "OD-16812",
         "greenCoins": 600,
         "date": "2026-07-09"
+    },
+    {
+        "transactionID": "TS000014",
+        "customerID": "CM000001",
+        "action": "Sửa chữa thiết bị",
+        "orderID": "RQ000050",
+        "greenCoins": 1200,
+        "date": "2026-07-10"
+    },
+    {
+        "transactionID": "TS000015",
+        "customerID": "CM000001",
+        "action": "Bán lại thiết bị",
+        "orderID": "RQ000052",
+        "greenCoins": 1350,
+        "date": "2026-07-10"
+    },
+    {
+        "transactionID": "TS000016",
+        "customerID": "CM000001",
+        "action": "Sửa chữa thiết bị",
+        "orderID": "RQ000055",
+        "greenCoins": 1200,
+        "date": "2026-07-10"
     }
 ]

@@ -359,14 +359,19 @@ async function loadGreenCoins() {
                 return;
             }
             
-            tbody.innerHTML = coins.map(c => `
-                <tr>
-                    <td>${c.action || 'Giao dịch'}</td>
-                    <td>${c.orderID || 'N/A'}</td>
-                    <td style="color:#00852f;font-weight:bold;">+${c.greenCoins || 0}</td>
-                    <td>${c.date || 'N/A'}</td>
-                </tr>
-            `).join('');
+            tbody.innerHTML = coins.map(c => {
+                const coinsVal = c.greenCoins || 0;
+                const coinsText = coinsVal > 0 ? `+${coinsVal}` : `${coinsVal}`;
+                const coinsColor = coinsVal < 0 ? '#ef4444' : '#00852f';
+                return `
+                    <tr>
+                        <td>${c.action || 'Giao dịch'}</td>
+                        <td>${c.orderID || 'N/A'}</td>
+                        <td style="color:${coinsColor};font-weight:bold;">${coinsText}</td>
+                        <td>${c.date || 'N/A'}</td>
+                    </tr>
+                `;
+            }).join('');
         }
     } catch (error) {
         console.error('Error loading green coins:', error);

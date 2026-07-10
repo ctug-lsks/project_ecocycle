@@ -49,5 +49,32 @@
         "repairStatus": "Đã sửa chữa",
         "shippingStatus": "Đã gửi đi xử lý",
         "orderDate": "2026-07-09"
+    },
+    {
+        "repairOrderID": "RP000005",
+        "requestID": "RQ000050",
+        "customerID": "CM000001",
+        "storeID": "BR000001",
+        "pickupDate": "2026-07-10",
+        "pickupAddress": "123 Đường Xanh, Quận 1, TP.HCM",
+        "finalCost": "4.000.000đ",
+        "status": "In Progress",
+        "repairStatus": "Chưa sửa chữa",
+        "shippingStatus": "Chưa gửi đi xử lý",
+        "orderDate": "2026-07-10"
+    },
+    {
+        "repairOrderID": "RP000006",
+        "requestID": "RQ000055",
+        "customerID": "CM000001",
+        "storeID": "BR000001",
+        "pickupDate": "2026-07-10",
+        "pickupAddress": "Khách hàng mang trực tiếp đến điểm đối tác",
+        "finalCost": "450.000đ",
+        "status": "Deposited",
+        "repairStatus": "Chưa sửa chữa",
+        "shippingStatus": "Khách tự mang máy",
+        "orderDate": "2026-07-10",
+        "paymentStatus": "Đã đặt cọc"
     }
 ]

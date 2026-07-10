@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "datasets/*",
+    "datasets/**/*.json",
+    "*.json",
+    "node_modules/*"
+  ]
+}

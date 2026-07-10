@@ -923,6 +923,41 @@ a{text-decoration:none;}
         } catch (orderErr) {
           console.error("Lỗi khi tạo đơn hàng:", orderErr);
         }
+      } else if (checkoutType === "repair" || checkoutType === "recycle") {
+        const requestId = localStorage.getItem("checkout_request_id");
+        if (requestId) {
+          try {
+            if (checkoutType === "repair") {
+              const resRep = await fetch("/api/repairorders");
+              if (resRep.ok) {
+                const repOrders = await resRep.json();
+                const matchedOrder = repOrders.find(o => o.requestID === requestId);
+                if (matchedOrder) {
+                  await fetch(`/api/repairorders/${matchedOrder.repairOrderID}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: "Deposited", paymentStatus: "Đã đặt cọc" })
+                  });
+                }
+              }
+            } else {
+              const resRec = await fetch("/api/recycleorders");
+              if (resRec.ok) {
+                const recOrders = await resRec.json();
+                const matchedOrder = recOrders.find(o => o.requestID === requestId);
+                if (matchedOrder) {
+                  await fetch(`/api/recycleorders/${matchedOrder.recycleOrderID}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: "Paid", paymentStatus: "Đã thanh toán" })
+                  });
+                }
+              }
+            }
+          } catch (updateErr) {
+            console.error("Lỗi khi cập nhật trạng thái đơn dịch vụ:", updateErr);
+          }
+        }
       }
 
       // Add notification for successful payment
